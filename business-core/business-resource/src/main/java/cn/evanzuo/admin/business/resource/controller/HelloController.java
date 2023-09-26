@@ -1,5 +1,6 @@
 package cn.evanzuo.admin.business.resource.controller;
 
+import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
 import cn.evanzuo.admin.common.feign.client.clients.IDemo3Client;
 import cn.evanzuo.admin.common.feign.client.clients.IDemo4Client;
 import org.slf4j.Logger;
@@ -22,6 +23,9 @@ public class HelloController {
   @Autowired
   IDemo4Client iDemo4Client;
 
+  @Autowired
+  EvanFeignUserInfo evanFeignUserInfo;
+
 
   @GetMapping("/hello")
   public String hello() {
@@ -41,6 +45,8 @@ public class HelloController {
     LOGGER.info("/feignDemo3 res:{}", resDemo3);
     String resDemo4 = iDemo4Client.getUserIntroduce(userStr);
     LOGGER.info("/feignDemo4 res:{}", resDemo4);
+    String userInfo = evanFeignUserInfo.getUserIntroduce(userStr);
+    LOGGER.info("/evanFeignUserInfo res:{}", userInfo);
     return "Hello World ! feign";
   }
 }
