@@ -47,14 +47,12 @@ public class User implements UserDetails {
   public boolean accountNonExpired = true;
   public boolean accountNonLocked = true;
   @TableField(exist = false)
-  private List<String> roles;
-  @TableField(exist = false)
-  List<Menu> menuList;
+  private List<RoleItem> roles;
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     List authorities = new ArrayList<>();
-    this.roles.forEach(item -> authorities.add(new SimpleGrantedAuthority(item)));
+    this.roles.forEach(item -> authorities.add(new SimpleGrantedAuthority(item.getRoleName())));
     return authorities;
   }
 }

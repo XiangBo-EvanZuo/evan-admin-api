@@ -1,5 +1,6 @@
 package cn.evanzuo.admin.auth.service.impl;
 
+import cn.evanzuo.admin.auth.domain.entity.RoleItem;
 import cn.evanzuo.admin.auth.service.UserService;
 import cn.evanzuo.admin.auth.utils.redis.RedisService;
 import com.alibaba.fastjson.JSON;
@@ -16,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import cn.evanzuo.admin.auth.constant.MessageConstant;
 import cn.evanzuo.admin.auth.domain.entity.User;
@@ -52,10 +54,13 @@ public class UserServiceImpl implements UserService {
       System.out.println(userListDemo);
     }
     try {
-      List<String> roleList = userServiceDB.getBaseMapper().getData(username);
+      // 增加中文名，带入token中
+      List<RoleItem> roleList = userServiceDB.getBaseMapper().getData(username);
       System.out.println("Role list");
       System.out.println(roleList);
-      userListDemo.setRoles(roleList);
+      if (userListDemo != null) {
+        userListDemo.setRoles(roleList);
+      }
     } catch (Exception e) {
       System.out.println(e);
     }
