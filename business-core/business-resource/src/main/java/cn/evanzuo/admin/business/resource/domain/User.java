@@ -17,6 +17,5 @@ public class User {
   private Long id;
   private String username;
   private String password;
-  private List<String> roles;
-  private List<RoleItem> rolesItem;
+  private List<RoleItem> roles;
 }

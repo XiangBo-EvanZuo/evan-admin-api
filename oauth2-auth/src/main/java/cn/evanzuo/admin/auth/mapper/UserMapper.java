@@ -14,7 +14,7 @@ import java.util.List;
 public interface UserMapper extends BaseMapper<User> {
 
 
-    @Select("select tb_wang_role.role_name, tb_wang_role.real_name from tb_wang_role " +
+    @Select("select tb_wang_role.role_name, tb_wang_role.value from tb_wang_role " +
             "left join tb_wang_user_role_relation t3 on tb_wang_role.id = t3.role_id " +
             "left join tb_wang_user user on t3.user_id = user.id " +
             "where user.username = #{username};"

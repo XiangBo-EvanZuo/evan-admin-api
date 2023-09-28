@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class RoleItem {
     String roleName;
-    String realName;
+    String value;
 }
