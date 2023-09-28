@@ -38,7 +38,7 @@ public class Menus {
     List<ProjectMenu> allMenus = projectMenuDB.getBaseMapper().getRoleNames(authoritiesStr);
     MenuVo menuVo = new MenuVo();
     List<ProjectMenu> projectMenus = allMenus.stream()
-              .filter(item -> item.getParentCid() == 1)
+              .filter(item -> item.getParentCid() == 0)
             .peek(item -> item.setChildren(Menus.getChildren(item, allMenus)))
             .sorted(Comparator.comparingInt(ProjectMenu::getSort).reversed())
               .collect(Collectors.toList());
