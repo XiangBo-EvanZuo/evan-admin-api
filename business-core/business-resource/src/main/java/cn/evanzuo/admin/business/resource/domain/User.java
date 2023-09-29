@@ -18,4 +18,6 @@ public class User {
   private String username;
   private String password;
   private List<RoleItem> roles;
+
+  private String realName;
 }

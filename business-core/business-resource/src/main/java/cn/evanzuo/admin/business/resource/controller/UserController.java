@@ -38,6 +38,7 @@ public class UserController {
     return User.builder()
         .username(userJsonObject.getStr("user_name"))
         .id(Convert.toLong(userJsonObject.get("id")))
+            .realName("123")
             .roles(roleObj)
             .build();
   }

@@ -1,14 +1,14 @@
 package cn.evanzuo.admin.auth.controller;
 
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.endpoint.TokenEndpoint;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.security.interfaces.RSAPublicKey;
 import java.util.Map;
 import java.util.Objects;
 
@@ -42,6 +42,13 @@ public class AuthController {
         .expiresIn(oAuth2AccessToken.getExpiresIn())
         .tokenHead("Bearer ").build();
     return CommonResult.success(oauth2TokenDto);
+  }
+
+  @GetMapping("/logout")
+  public CommonResult<LogoutVo> getKey() {
+      LogoutVo logoutVo = new LogoutVo();
+      logoutVo.setResult("退出成功");
+      return CommonResult.success(logoutVo);
   }
 
 }

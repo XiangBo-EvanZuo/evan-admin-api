@@ -59,6 +59,12 @@ spring:
             - Path=/oauth/authorize
           filters:
             - PreserveHostHeader
+        - id: oauth2-auth-route
+          uri: lb://oauth2-auth
+          predicates:
+            - Path=/oauth/**
+          filters:
+            - StripPrefix=1
       discovery:
         locator:
           enabled: true # 开启从注册中心动态创建路由的功能
@@ -80,6 +86,6 @@ secure:
     urls: # 配置白名单路径
       - "/actuator/**"
       - "/oauth/token"
+#      - "/auth/oauth/logout"
       - "/oauth/authorize"
       - "/login"
-      - "/resource/demo"
