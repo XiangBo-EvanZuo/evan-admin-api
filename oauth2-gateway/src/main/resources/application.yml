@@ -89,3 +89,4 @@ secure:
 #      - "/auth/oauth/logout"
       - "/oauth/authorize"
       - "/login"
+      - "/business-resource/demo"
