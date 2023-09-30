@@ -1,7 +1,12 @@
 package cn.evanzuo.admin.auth.controller;
 
+import cn.evanzuo.admin.auth.utils.redis.RedisService;
+import cn.hutool.json.JSONObject;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.endpoint.TokenEndpoint;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -15,6 +20,8 @@ import java.util.Objects;
 import cn.evanzuo.admin.auth.api.CommonResult;
 import cn.evanzuo.admin.auth.domain.dto.Oauth2TokenDto;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 自定义Oauth2获取令牌接口
  *
@@ -23,6 +30,9 @@ import cn.evanzuo.admin.auth.domain.dto.Oauth2TokenDto;
 @RestController
 @RequestMapping("/oauth")
 public class AuthController {
+  @Autowired
+  RedisService redisService;
+    private final static Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
 
   private final TokenEndpoint tokenEndpoint;
 
@@ -45,7 +55,12 @@ public class AuthController {
   }
 
   @GetMapping("/logout")
-  public CommonResult<LogoutVo> getKey() {
+  public CommonResult<LogoutVo> getKey(HttpServletRequest request) {
+      // 清除在redis中的token
+      String userStr = request.getHeader("user");
+      LOGGER.info(userStr);
+      JSONObject userJsonObject = new JSONObject(userStr);
+      redisService.remove(userJsonObject.get("user_name", String.class));
       LogoutVo logoutVo = new LogoutVo();
       logoutVo.setResult("退出成功");
       return CommonResult.success(logoutVo);
