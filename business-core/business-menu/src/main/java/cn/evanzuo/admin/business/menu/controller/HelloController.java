@@ -1,6 +1,6 @@
 package cn.evanzuo.admin.business.menu.controller;
 
-import cn.evanzuo.admin.common.feign.client.clients.IDemo3Client;
+import cn.evanzuo.admin.common.feign.client.clients.FeignGetMenuList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
   @Autowired
-  IDemo3Client iDemo3Client;
+  FeignGetMenuList iDemo3Client;
 
   @GetMapping("/hello")
   public String hello() {

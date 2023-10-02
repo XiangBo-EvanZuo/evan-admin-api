@@ -1,7 +1,7 @@
 package cn.evanzuo.admin.business.resource.controller;
 
 import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
-import cn.evanzuo.admin.common.feign.client.clients.IDemo3Client;
+import cn.evanzuo.admin.common.feign.client.clients.FeignGetMenuList;
 import cn.evanzuo.admin.common.feign.client.clients.IDemo4Client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 public class HelloController {
   private final static Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
   @Autowired
-  IDemo3Client iDemo3Client;
+  FeignGetMenuList iDemo3Client;
 
   @Autowired
   IDemo4Client iDemo4Client;

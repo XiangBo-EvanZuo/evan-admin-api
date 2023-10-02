@@ -2,8 +2,15 @@ package cn.evanzuo.admin.business.resource.controller;
 
 
 import cn.evanzuo.admin.business.resource.DTO.PerCodeDTO;
+import cn.evanzuo.admin.business.resource.api.CommonResult;
+import cn.evanzuo.admin.business.resource.domain.MenuList;
 import cn.evanzuo.admin.business.resource.domain.RoleItem;
+import cn.evanzuo.admin.common.feign.client.clients.FeignGetMenuList;
 import com.alibaba.fastjson.JSON;
+import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +26,7 @@ import java.net.URLDecoder;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 获取登录用户信息接口
@@ -28,6 +36,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+  private final static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+
+  @Autowired
+  FeignGetMenuList feignGetMenuList;
 
   @GetMapping("/currentUser")
   public User currentUser(HttpServletRequest request) throws UnsupportedEncodingException {
@@ -53,10 +65,28 @@ public class UserController {
             .build();
   }
 
+  @GetMapping("/getMenuList")
+  public Object feignGetMenuList(HttpServletRequest request) throws UnsupportedEncodingException {
+    String userStr = request.getHeader("user");
+    String menuListStr = feignGetMenuList.getUserIntroduce(userStr);
+    LOGGER.info("menuListStr: {}", menuListStr);
+    Demo demo = JSON.parseObject(menuListStr, Demo.class);
+    return demo.getData();
+  }
+
   @GetMapping
   public JSONObject findUser(HttpServletRequest request) {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
     return new JSONObject(userStr);
   }
+
+}
+
+@Data
+class Demo {
+  private String timestamp;
+  private long code;
+  private String message;
+  private Object data;
 }

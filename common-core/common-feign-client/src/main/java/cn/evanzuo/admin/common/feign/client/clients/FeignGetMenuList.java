@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(value = "business-menu")
-public interface IDemo3Client {
+public interface FeignGetMenuList {
     @RequestMapping(
             value = "/menu/list",
             method = RequestMethod.POST

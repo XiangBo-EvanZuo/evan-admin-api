@@ -1,6 +1,6 @@
 package cn.evanzuo.admin.business.demo.controller;
 
-import cn.evanzuo.admin.common.feign.client.clients.IDemo3Client;
+import cn.evanzuo.admin.common.feign.client.clients.FeignGetMenuList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public class HelloController {
   private final static Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
   @Autowired
-  IDemo3Client iDemo3Client;
+  FeignGetMenuList iDemo3Client;
 
   @GetMapping("/hello")
   public String hello() {
