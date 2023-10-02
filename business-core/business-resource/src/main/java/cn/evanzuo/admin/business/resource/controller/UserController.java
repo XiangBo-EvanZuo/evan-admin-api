@@ -1,6 +1,7 @@
 package cn.evanzuo.admin.business.resource.controller;
 
 
+import cn.evan.zuo.common.entity.CommonApiResult;
 import cn.evanzuo.admin.business.resource.DTO.PerCodeDTO;
 import cn.evanzuo.admin.business.resource.api.CommonResult;
 import cn.evanzuo.admin.business.resource.domain.MenuList;
@@ -51,12 +52,13 @@ public class UserController {
     String roles = (String) userJsonObject.get("roles");
     List<RoleItem> roleObj = (List<RoleItem>) JSON.parse(URLDecoder.decode(roles, "UTF-8"));
     return User.builder()
-        .username(userJsonObject.getStr("user_name"))
-        .id(Convert.toLong(userJsonObject.get("id")))
+            .username(userJsonObject.getStr("user_name"))
+            .id(Convert.toLong(userJsonObject.get("id")))
             .realName("123")
             .roles(roleObj)
             .build();
   }
+
   // todo: RBAC0模型完善
   @GetMapping("/getPermCode")
   public PerCodeDTO getPermCode(HttpServletRequest request) throws UnsupportedEncodingException {
@@ -65,12 +67,12 @@ public class UserController {
             .build();
   }
 
-  @GetMapping("/getMenuList")
+  @GetMapping("/feignGetMenuList")
   public Object feignGetMenuList(HttpServletRequest request) throws UnsupportedEncodingException {
     String userStr = request.getHeader("user");
     String menuListStr = feignGetMenuList.getUserIntroduce(userStr);
     LOGGER.info("menuListStr: {}", menuListStr);
-    Demo demo = JSON.parseObject(menuListStr, Demo.class);
+    CommonApiResult demo = JSON.parseObject(menuListStr, CommonApiResult.class);
     return demo.getData();
   }
 
@@ -80,13 +82,4 @@ public class UserController {
     String userStr = request.getHeader("user");
     return new JSONObject(userStr);
   }
-
-}
-
-@Data
-class Demo {
-  private String timestamp;
-  private long code;
-  private String message;
-  private Object data;
 }

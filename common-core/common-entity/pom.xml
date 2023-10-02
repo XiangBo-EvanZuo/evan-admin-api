@@ -5,15 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.evan.zuo</groupId>
-        <artifactId>admin</artifactId>
+        <artifactId>common-core</artifactId>
         <version>1.0.0</version>
     </parent>
-    <packaging>pom</packaging>
-    <artifactId>common-core</artifactId>
-    <modules>
-        <module>common-feign-client</module>
-        <module>common-entity</module>
-    </modules>
+
+    <artifactId>common-entity</artifactId>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
