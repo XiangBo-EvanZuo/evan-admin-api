@@ -52,7 +52,7 @@ public class User implements UserDetails {
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     List authorities = new ArrayList<>();
-    this.roles.forEach(item -> authorities.add(new SimpleGrantedAuthority(item.getRoleName())));
+    this.roles.forEach(item -> authorities.add(new SimpleGrantedAuthority(item.getValue())));
     return authorities;
   }
 }

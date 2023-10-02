@@ -28,7 +28,7 @@ public interface MenuMapper extends BaseMapper<ProjectMenu> {
             "        from pms_category pc\n" +
             "        join role_category_relation rcr on pc.cat_id = rcr.category_id\n" +
             "        join skin.tb_wang_role role on role.id = rcr.role_id\n" +
-            "        where role_id = 1 and role_name in (${roleNames})\n" +
+            "        where role_id = 1 and value in (${roleNames})\n" +
             "    ),\n" +
             "1 = 1)")
     List<ProjectMenu> getRoleNames(@Param("roleNames") String roleNames);

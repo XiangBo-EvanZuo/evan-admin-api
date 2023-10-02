@@ -35,6 +35,9 @@ public class Menus {
             .map(item -> "`" + item + "`")
             .map(item -> item.replace("`", "'"))
             .collect(Collectors.joining(","));
+    LOGGER.info(authorities.toString());
+    LOGGER.info(authoritiesStr);
+    System.out.println(authorities);
     List<ProjectMenu> allMenus = projectMenuDB.getBaseMapper().getRoleNames(authoritiesStr);
     MenuVo menuVo = new MenuVo();
     List<ProjectMenu> projectMenus = allMenus.stream()
