@@ -1,6 +1,7 @@
 package cn.evanzuo.admin.business.resource.controller;
 
 
+import cn.evanzuo.admin.business.resource.DTO.PerCodeDTO;
 import cn.evanzuo.admin.business.resource.domain.RoleItem;
 import com.alibaba.fastjson.JSON;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ import cn.hutool.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -40,6 +43,13 @@ public class UserController {
         .id(Convert.toLong(userJsonObject.get("id")))
             .realName("123")
             .roles(roleObj)
+            .build();
+  }
+  // todo: RBAC0模型完善
+  @GetMapping("/getPermCode")
+  public PerCodeDTO getPermCode(HttpServletRequest request) throws UnsupportedEncodingException {
+    return PerCodeDTO.builder()
+            .perCodeList(Collections.singletonList("1000, 4000, 5000"))
             .build();
   }
 
