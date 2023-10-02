@@ -18,6 +18,16 @@ public class CommonMenuList {
     private Long catLevel;
     private Long showStatus;
     private int sort;
+    private String component;
+    private String path;
+    private String redirect;
+    private Boolean hideChildrenInMenu;
+    private String icon;
+    private String title;
     @TableField(exist = false)
     private List<CommonMenuList> children;
+
+    @TableField(exist = false)
+    private Meta meta;
 }
+

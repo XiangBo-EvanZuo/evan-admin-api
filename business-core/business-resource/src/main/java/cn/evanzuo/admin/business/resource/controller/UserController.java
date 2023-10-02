@@ -6,7 +6,6 @@ import cn.evanzuo.admin.business.resource.DTO.PerCodeDTO;
 import cn.evanzuo.admin.business.resource.domain.RoleItem;
 import cn.evanzuo.admin.common.feign.client.clients.FeignGetMenuList;
 import com.alibaba.fastjson.JSON;
-import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +21,8 @@ import cn.hutool.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 获取登录用户信息接口
