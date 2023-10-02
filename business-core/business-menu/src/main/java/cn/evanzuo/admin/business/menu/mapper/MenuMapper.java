@@ -1,6 +1,6 @@
 package cn.evanzuo.admin.business.menu.mapper;
 
-import cn.evanzuo.admin.business.menu.domain.ProjectMenu;
+import cn.evan.zuo.common.entity.CommonMenuList;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @Mapper
-public interface MenuMapper extends BaseMapper<ProjectMenu> {
+public interface MenuMapper extends BaseMapper<CommonMenuList> {
 //
 //    @Select("select distinct pc.* " +
 //            "from pms_category pc " +
@@ -31,5 +31,5 @@ public interface MenuMapper extends BaseMapper<ProjectMenu> {
             "        where role_id = 1 and value in (${roleNames})\n" +
             "    ),\n" +
             "1 = 1)")
-    List<ProjectMenu> getRoleNames(@Param("roleNames") String roleNames);
+    List<CommonMenuList> getRoleNames(@Param("roleNames") String roleNames);
 }

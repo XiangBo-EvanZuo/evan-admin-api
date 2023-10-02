@@ -1,7 +1,7 @@
 package cn.evanzuo.admin.business.menu.controller;
 
+import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evanzuo.admin.business.menu.VO.MenuVo;
-import cn.evanzuo.admin.business.menu.domain.ProjectMenu;
 import cn.evanzuo.admin.business.menu.service.imp.ProjectMenuDBImpl;
 import cn.hutool.json.JSONObject;
 import org.slf4j.Logger;
@@ -38,12 +38,12 @@ public class Menus {
     LOGGER.info(authorities.toString());
     LOGGER.info(authoritiesStr);
     System.out.println(authorities);
-    List<ProjectMenu> allMenus = projectMenuDB.getBaseMapper().getRoleNames(authoritiesStr);
+    List<CommonMenuList> allMenus = projectMenuDB.getBaseMapper().getRoleNames(authoritiesStr);
     MenuVo menuVo = new MenuVo();
-    List<ProjectMenu> projectMenus = allMenus.stream()
+    List<CommonMenuList> projectMenus = allMenus.stream()
               .filter(item -> item.getParentCid() == 0)
             .peek(item -> item.setChildren(Menus.getChildren(item, allMenus)))
-            .sorted(Comparator.comparingInt(ProjectMenu::getSort).reversed())
+            .sorted(Comparator.comparingInt(CommonMenuList::getSort).reversed())
               .collect(Collectors.toList());
     menuVo.setList(projectMenus);
     LOGGER.info(String.valueOf(projectMenus.size()));
@@ -51,11 +51,11 @@ public class Menus {
     return menuVo;
   }
 
-  public static List<ProjectMenu> getChildren(ProjectMenu root, List<ProjectMenu> allMenus) {
+  public static List<CommonMenuList> getChildren(CommonMenuList root, List<CommonMenuList> allMenus) {
     return allMenus.stream()
            .filter(item -> Objects.equals(item.getParentCid(), root.getCatId()))
            .peek(item -> item.setChildren(Menus.getChildren(item, allMenus)))
-            .sorted(Comparator.comparingInt(ProjectMenu::getSort).reversed())
+            .sorted(Comparator.comparingInt(CommonMenuList::getSort).reversed())
             .collect(Collectors.toList());
   }
 }

@@ -3,8 +3,6 @@ package cn.evanzuo.admin.business.resource.controller;
 
 import cn.evan.zuo.common.entity.CommonApiResult;
 import cn.evanzuo.admin.business.resource.DTO.PerCodeDTO;
-import cn.evanzuo.admin.business.resource.api.CommonResult;
-import cn.evanzuo.admin.business.resource.domain.MenuList;
 import cn.evanzuo.admin.business.resource.domain.RoleItem;
 import cn.evanzuo.admin.common.feign.client.clients.FeignGetMenuList;
 import com.alibaba.fastjson.JSON;

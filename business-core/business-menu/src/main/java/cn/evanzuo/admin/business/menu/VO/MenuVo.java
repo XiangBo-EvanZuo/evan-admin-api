@@ -1,6 +1,6 @@
 package cn.evanzuo.admin.business.menu.VO;
 
-import cn.evanzuo.admin.business.menu.domain.ProjectMenu;
+import cn.evan.zuo.common.entity.CommonMenuList;
 import lombok.Data;
 
 import java.util.List;
@@ -8,5 +8,5 @@ import java.util.List;
 @Data
 public class MenuVo {
     private Integer total;
-    private List<ProjectMenu> list;
+    private List<CommonMenuList> list;
 }
