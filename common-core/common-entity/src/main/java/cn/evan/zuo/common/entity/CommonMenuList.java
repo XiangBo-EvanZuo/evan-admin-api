@@ -24,6 +24,9 @@ public class CommonMenuList {
     private Boolean hideChildrenInMenu;
     private String icon;
     private String title;
+    private Boolean hideMenu;
+    private Boolean hideBreadcrumb;
+    private String currentActiveMenu;
     @TableField(exist = false)
     private List<CommonMenuList> children;
 }

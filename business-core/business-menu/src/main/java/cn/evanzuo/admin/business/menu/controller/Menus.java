@@ -70,6 +70,9 @@ public class Menus {
               meta.setIcon(item.getIcon());
               meta.setTitle(item.getTitle());
               meta.setHideChildrenInMenu(item.getHideChildrenInMenu());
+              meta.setHideMenu(item.getHideMenu());
+              meta.setHideBreadcrumb(item.getHideBreadcrumb());
+              meta.setCurrentActiveMenu(item.getCurrentActiveMenu());
               menuListVo.setMeta(meta);
               // 其他字段
               menuListVo.setComponent(item.getComponent());
