@@ -26,8 +26,5 @@ public class CommonMenuList {
     private String title;
     @TableField(exist = false)
     private List<CommonMenuList> children;
-
-    @TableField(exist = false)
-    private Meta meta;
 }
 

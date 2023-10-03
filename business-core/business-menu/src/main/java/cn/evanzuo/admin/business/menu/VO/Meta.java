@@ -1,5 +1,4 @@
-package cn.evan.zuo.common.entity;
-
+package cn.evanzuo.admin.business.menu.VO;
 import lombok.Data;
 
 @Data
