@@ -6,6 +6,9 @@ import cn.evanzuo.admin.business.menu.VO.MenuVo;
 import cn.evanzuo.admin.business.menu.VO.Meta;
 import cn.evanzuo.admin.business.menu.service.imp.ProjectMenuDBImpl;
 import cn.hutool.json.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +59,15 @@ public class Menus {
     return menuVo;
   }
 
+  @PostMapping("/listPage")
+  public IPage<List<CommonMenuList>> menuListPage(HttpServletRequest request, @RequestBody Page page) {
+      String userStr = request.getHeader("user");
+      JSONObject userJsonObject = new JSONObject(userStr);
+      System.out.println((userJsonObject));
+      QueryWrapper queryWrapper = new QueryWrapper();
+      IPage<List<CommonMenuList>> allMenus = projectMenuDB.page(page, queryWrapper);
+      return allMenus;
+  }
   public List<MenuListVo> format(
           List<CommonMenuList> commonMenuLists
   ) {
@@ -92,5 +104,7 @@ public class Menus {
             .sorted(Comparator.comparingInt(CommonMenuList::getSort).reversed())
             .collect(Collectors.toList());
   }
+
+
 }
 
