@@ -1,6 +1,7 @@
 package cn.evanzuo.admin.business.menu.mapper;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
+import cn.evanzuo.admin.business.menu.VO.DeptListVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,5 +23,5 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "        where role_id = 1 and value in (${roleNames})\n" +
             "    ),\n" +
             "1 = 1)")
-    List<CommonMenuList> getRoleNames(@Param("roleNames") String roleNames);
+    List<DeptListVo> getRoleNames(@Param("roleNames") String roleNames);
 }

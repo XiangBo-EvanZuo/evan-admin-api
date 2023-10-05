@@ -1,8 +1,8 @@
 package cn.evanzuo.admin.business.menu.controller;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
-import cn.evanzuo.admin.business.menu.VO.MenuListVo;
-import cn.evanzuo.admin.business.menu.VO.MenuVo;
+import cn.evanzuo.admin.business.menu.VO.DeptListVo;
+import cn.evanzuo.admin.business.menu.VO.DeptVo;
 import cn.evanzuo.admin.business.menu.VO.Meta;
 import cn.evanzuo.admin.business.menu.service.imp.IDeptServiceImp;
 import cn.hutool.json.JSONObject;
@@ -30,7 +30,7 @@ public class SystemController {
     IDeptServiceImp iDeptServiceImp;
 
     @GetMapping("/getDeptList")
-    public MenuVo getDeptList(HttpServletRequest request) {
+    public DeptVo getDeptList(HttpServletRequest request) {
         // 从Header中获取用户信息
         String userStr = request.getHeader("user");
         JSONObject userJsonObject = new JSONObject(userStr);
@@ -44,59 +44,33 @@ public class SystemController {
         LOGGER.info(authorities.toString());
         LOGGER.info(authoritiesStr);
         System.out.println(authorities);
-        List<CommonMenuList> allMenus = iDeptServiceImp.getBaseMapper().getRoleNames(authoritiesStr);
-        MenuVo menuVo = new MenuVo();
-        List<CommonMenuList> projectMenus = allMenus.stream()
+        List<DeptListVo> allMenus = iDeptServiceImp.getBaseMapper().getRoleNames(authoritiesStr);
+        DeptVo menuVo = new DeptVo();
+        List<DeptListVo> projectMenus = allMenus.stream()
                 .filter(item -> item.getParentCid() == 0)
-                .peek(item -> item.setChildren(SystemController.getChildren(item, allMenus)))
-                .sorted(Comparator.comparingInt(CommonMenuList::getSort).reversed())
+                .peek(item -> {
+                    item.setChildren(SystemController.getChildren(item, allMenus));
+                })
+                .sorted(Comparator.comparingInt(DeptListVo::getSort).reversed())
                 .collect(Collectors.toList());
 
-        menuVo.setList(format(projectMenus));
+        menuVo.setList(projectMenus);
         LOGGER.info(projectMenus.toString());
         LOGGER.info(String.valueOf(projectMenus.size()));
         menuVo.setTotal(projectMenus.size());
         return menuVo;
     }
-    public List<MenuListVo> format(
-            List<CommonMenuList> commonMenuLists
-    ) {
-        if (commonMenuLists.size() == 0) {
-            return new ArrayList<>();
-        }
-        return commonMenuLists.stream().map(
-                item -> {
-                    MenuListVo menuListVo = new MenuListVo();
-                    // meta
-                    Meta meta = new Meta();
-                    meta.setIcon(item.getIcon());
-                    meta.setTitle(item.getTitle());
-                    meta.setHideChildrenInMenu(item.getHideChildrenInMenu());
-                    meta.setHideMenu(item.getHideMenu());
-                    meta.setHideBreadcrumb(item.getHideBreadcrumb());
-                    meta.setCurrentActiveMenu(item.getCurrentActiveMenu());
-                    menuListVo.setMeta(meta);
-                    // 其他字段
-                    menuListVo.setComponent(item.getComponent());
-                    menuListVo.setPath(item.getPath());
-                    menuListVo.setName(item.getName());
-                    menuListVo.setRedirect(item.getRedirect());
-                    menuListVo.setChildren(format(item.getChildren()));
-                    return menuListVo;
-                }
-        ).collect(Collectors.toList());
-    }
 
-    public static List<CommonMenuList> getChildren(CommonMenuList root, List<CommonMenuList> allMenus) {
+    public static List<DeptListVo> getChildren(DeptListVo root, List<DeptListVo> allMenus) {
         return allMenus.stream()
                 .filter(item -> Objects.equals(item.getParentCid(), root.getCatId()))
                 .peek(item -> item.setChildren(SystemController.getChildren(item, allMenus)))
-                .sorted(Comparator.comparingInt(CommonMenuList::getSort).reversed())
+                .sorted(Comparator.comparingInt(DeptListVo::getSort).reversed())
                 .collect(Collectors.toList());
     }
     @GetMapping("/getAccountList")
-    public MenuVo getAccountList(HttpServletRequest request) throws UnsupportedEncodingException {
-        MenuVo menuVo = new MenuVo();
+    public DeptVo getAccountList(HttpServletRequest request) throws UnsupportedEncodingException {
+        DeptVo menuVo = new DeptVo();
         menuVo.setTotal(2);
         return  menuVo;
     }
