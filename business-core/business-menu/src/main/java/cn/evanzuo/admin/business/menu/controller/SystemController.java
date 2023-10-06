@@ -1,9 +1,7 @@
 package cn.evanzuo.admin.business.menu.controller;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
-import cn.evanzuo.admin.business.menu.VO.DeptListVo;
-import cn.evanzuo.admin.business.menu.VO.DeptVo;
-import cn.evanzuo.admin.business.menu.VO.Meta;
+import cn.evanzuo.admin.business.menu.VO.*;
 import cn.evanzuo.admin.business.menu.service.imp.IDeptServiceImp;
 import cn.hutool.json.JSONObject;
 import org.slf4j.Logger;
@@ -15,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -29,6 +29,27 @@ public class SystemController {
     @Autowired
     IDeptServiceImp iDeptServiceImp;
 
+    public List<DeptListFormatVo> format(
+            List<DeptListVo> commonMenuLists
+    ) {
+        if (commonMenuLists.size() == 0) {
+            return new ArrayList<>();
+        }
+        return commonMenuLists.stream().map(
+                item -> {
+                    DeptListFormatVo deptListFormatVo = new DeptListFormatVo();
+                    // 其他字段
+                    deptListFormatVo.setId(item.getCatId());
+                    deptListFormatVo.setDeptName(item.getDeptName());
+                    deptListFormatVo.setStatus(item.getStatus());
+                    deptListFormatVo.setRemark(item.getRemark());
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    deptListFormatVo.setCreateTime(format.format(item.getCreateTime()));
+                    deptListFormatVo.setChildren(format(item.getChildren()));
+                    return deptListFormatVo;
+                }
+        ).collect(Collectors.toList());
+    }
     @GetMapping("/getDeptList")
     public DeptVo getDeptList(HttpServletRequest request) {
         // 从Header中获取用户信息
@@ -54,7 +75,7 @@ public class SystemController {
                 .sorted(Comparator.comparingInt(DeptListVo::getSort).reversed())
                 .collect(Collectors.toList());
 
-        menuVo.setList(projectMenus);
+        menuVo.setList(format(projectMenus));
         LOGGER.info(projectMenus.toString());
         LOGGER.info(String.valueOf(projectMenus.size()));
         menuVo.setTotal(projectMenus.size());

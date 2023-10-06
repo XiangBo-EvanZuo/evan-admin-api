@@ -15,7 +15,7 @@ public class DeptListVo {
     private Date createTime;
     private String deptName;
     private String remark;
-    private Boolean status;
+    private int status;
 
     private List<DeptListVo> children;
 }

@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class DeptVo {
     private Integer total;
-    private List<DeptListVo> list;
+    private List<DeptListFormatVo> list;
 }
