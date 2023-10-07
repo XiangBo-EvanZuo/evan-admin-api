@@ -15,10 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -90,9 +87,12 @@ public class SystemController {
                 .collect(Collectors.toList());
     }
     @GetMapping("/getAccountList")
-    public DeptVo getAccountList(HttpServletRequest request) throws UnsupportedEncodingException {
-        DeptVo menuVo = new DeptVo();
-        menuVo.setTotal(2);
-        return  menuVo;
+    public AccountVo getAccountList(HttpServletRequest request) throws UnsupportedEncodingException {
+        AccountVo accountVo = new AccountVo();
+        accountVo.setTotal(2);
+        AccountListVo accountListVo = new AccountListVo();
+        accountListVo.setAccount("12");
+        accountVo.setItems(Collections.singletonList(accountListVo));
+        return  accountVo;
     }
 }
