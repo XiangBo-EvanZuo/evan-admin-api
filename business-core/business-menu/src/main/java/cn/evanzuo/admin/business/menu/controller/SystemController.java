@@ -1,6 +1,8 @@
 package cn.evanzuo.admin.business.menu.controller;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
+import cn.evan.zuo.common.entity.EvanUser;
+import cn.evan.zuo.common.entity.EvanUserVo;
 import cn.evanzuo.admin.business.menu.VO.*;
 import cn.evanzuo.admin.business.menu.service.imp.IDeptServiceImp;
 import cn.hutool.json.JSONObject;
@@ -65,12 +67,6 @@ public class SystemController {
         LOGGER.info(authoritiesStr);
         System.out.println(authorities);
         List<DeptListVo> allMenus = iDeptServiceImp.getBaseMapper().getRoleNames(authoritiesStr);
-        Page<DeptListVo> page = new Page<>();
-        page.setCurrent(2);
-        page.setPages(2);
-        page.setSize(1);
-        IPage<DeptListVo> allMenus2 = iDeptServiceImp.getBaseMapper().getRoleNamesPage(page, authoritiesStr);
-        LOGGER.error(allMenus2.getRecords().toString());
         DeptVo menuVo = new DeptVo();
         List<DeptListVo> projectMenus = allMenus.stream()
                 .filter(item -> item.getParentCid() == 0)
@@ -96,11 +92,22 @@ public class SystemController {
     }
     @GetMapping("/getAccountList")
     public AccountVo getAccountList(HttpServletRequest request) throws UnsupportedEncodingException {
+        Page<DeptListVo> page = new Page<>();
+        page.setCurrent(2);
+        page.setPages(2);
+        page.setSize(1);
+        IPage<EvanUser> allMenus2 = iDeptServiceImp.getBaseMapper().getRoleNamesPage(page, "1");
+        LOGGER.error(allMenus2.getRecords().toString());
+        List<EvanUserVo> evanUserVos = allMenus2.getRecords().stream()
+                .map(item -> {
+                    EvanUserVo evanUserVo = new EvanUserVo();
+                    evanUserVo.setId(item.getId());
+                    evanUserVo.setAccount(item.getUsername());
+                    return evanUserVo;
+                }).collect(Collectors.toList());
         AccountVo accountVo = new AccountVo();
-        accountVo.setTotal(2);
-        AccountListVo accountListVo = new AccountListVo();
-        accountListVo.setAccount("12");
-        accountVo.setItems(Collections.singletonList(accountListVo));
+        accountVo.setTotal((int) allMenus2.getTotal());
+        accountVo.setItems(evanUserVos);
         return  accountVo;
     }
 }
