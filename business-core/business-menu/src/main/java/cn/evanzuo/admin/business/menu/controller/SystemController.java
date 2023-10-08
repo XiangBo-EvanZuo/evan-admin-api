@@ -4,6 +4,8 @@ import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evanzuo.admin.business.menu.VO.*;
 import cn.evanzuo.admin.business.menu.service.imp.IDeptServiceImp;
 import cn.hutool.json.JSONObject;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +65,12 @@ public class SystemController {
         LOGGER.info(authoritiesStr);
         System.out.println(authorities);
         List<DeptListVo> allMenus = iDeptServiceImp.getBaseMapper().getRoleNames(authoritiesStr);
+        Page<DeptListVo> page = new Page<>();
+        page.setCurrent(2);
+        page.setPages(2);
+        page.setSize(1);
+        IPage<DeptListVo> allMenus2 = iDeptServiceImp.getBaseMapper().getRoleNamesPage(page, authoritiesStr);
+        LOGGER.error(allMenus2.getRecords().toString());
         DeptVo menuVo = new DeptVo();
         List<DeptListVo> projectMenus = allMenus.stream()
                 .filter(item -> item.getParentCid() == 0)
