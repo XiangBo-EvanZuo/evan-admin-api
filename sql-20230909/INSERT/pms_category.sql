@@ -1,0 +1,15 @@
+insert into MY_TABLE (cat_id, name, parent_cid, cat_level, show_status, sort, component, path, redirect, hide_children_in_menu, icon, title, hide_menu, hide_breadcrumb, current_active_menu)
+values  (1, 'Dashboard', 0, 1, 1, 0, 'LAYOUT', '/dashboard', '/dashboard/analysis', 1, 'bx:bx-home', 'routes.dashboard.dashboard', 0, 0, '/dashboard'),
+        (2, 'Analysis', 1, 2, 1, 0, '/dashboard/analysis/index', 'analysis', '', 0, 'bx:bx-home', 'routes.dashboard.dashboard', 1, 1, null),
+        (3, 'Workbench', 1, 2, 1, 0, '/dashboard/workbench/index', 'workbench', '', 0, 'bx:bx-home', 'routes.dashboard.dashboard', 1, 1, null),
+        (4, 'Permission', 0, 1, 1, 0, 'LAYOUT', '/permission', '/permission/back/btn', 0, 'carbon:user-role', 'routes.demo.permission.permission', 0, 0, null),
+        (1433, 'PermissionBackDemo', 4, 2, 1, 0, '', 'back', '', 0, null, 'routes.demo.permission.back', 0, 0, null),
+        (1434, 'BackAuthBtn', 1433, 3, 1, 0, '/demo/permission/back/Btn', 'btn', null, 0, null, 'routes.demo.permission.backBtn', 0, 0, null),
+        (1435, 'BackAuthPage', 1433, 3, 1, 0, '/demo/permission/back/index', 'page', null, 0, null, 'routes.demo.permission.backPage', 0, 0, null),
+        (1436, 'System', 0, 1, 1, 0, 'LAYOUT', '/system', '/system/account', 0, 'ion:settings-outline', 'routes.demo.system.moduleName', 0, 0, null),
+        (1437, 'AccountManagement', 1436, 2, 1, 0, '/demo/system/account/index', 'account', null, 0, 'ion:settings-outline', 'routes.demo.system.account', 0, 0, null),
+        (1438, 'AccountDetail', 1436, 2, 1, 0, '/demo/system/account/AccountDetail', 'account_detail/:id', null, 0, 'ion:settings-outline', 'routes.demo.system.account_detail', 1, 0, '/system/account'),
+        (1439, 'RoleManagement', 1436, 2, 1, 0, '/demo/system/role/index', 'role', null, 0, 'ion:settings-outline', 'routes.demo.system.role', 0, 0, null),
+        (1440, 'MenuManagement', 1436, 2, 1, 0, '/demo/system/menu/index', 'menu', null, 0, 'ion:settings-outline', 'routes.demo.system.menu', 0, 0, null),
+        (1441, 'DeptManagement', 1436, 2, 1, 0, '/demo/system/dept/index', 'dept', null, 0, 'ion:settings-outline', 'routes.demo.system.dept', 0, 0, null),
+        (1442, 'ChangePassword', 1436, 2, 1, 0, '/demo/system/password/index', 'changePassword', null, 0, 'ion:settings-outline', 'routes.demo.system.password', 0, 0, null);

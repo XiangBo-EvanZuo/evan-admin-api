@@ -1,0 +1,15 @@
+insert into MY_TABLE (cat_id, dept_name, parent_cid, cat_level, sort, create_time, remark, status)
+values  (1, 'Dashboard', 0, 1, 0, '2023-10-05 11:04:51', null, 0),
+        (2, 'Analysis', 1, 2, 0, '2023-10-05 11:04:51', null, 0),
+        (3, 'Workbench', 1, 2, 0, '2023-10-05 11:04:51', null, 0),
+        (4, 'Permission', 0, 1, 0, '2023-10-05 11:04:51', null, 0),
+        (1433, 'PermissionBackDemo', 4, 2, 0, '2023-10-05 11:04:51', null, 0),
+        (1434, 'BackAuthBtn', 1433, 3, 0, '2023-10-05 11:04:51', null, 0),
+        (1435, 'BackAuthPage', 1433, 3, 0, '2023-10-05 11:04:51', null, 0),
+        (1436, 'System', 0, 1, 0, '2023-10-05 11:04:51', null, 0),
+        (1437, 'AccountManagement', 1436, 2, 0, '2023-10-05 11:04:51', null, 0),
+        (1438, 'AccountDetail', 1436, 2, 0, '2023-10-05 11:04:51', null, 0),
+        (1439, 'RoleManagement', 1436, 2, 0, '2023-10-05 11:04:51', null, 0),
+        (1440, 'MenuManagement', 1436, 2, 0, '2023-10-05 11:04:51', null, 0),
+        (1441, 'DeptManagement', 1436, 2, 0, '2023-10-05 11:04:51', null, 0),
+        (1442, 'ChangePassword', 1436, 2, 0, '2023-10-05 11:04:51', null, 0);
