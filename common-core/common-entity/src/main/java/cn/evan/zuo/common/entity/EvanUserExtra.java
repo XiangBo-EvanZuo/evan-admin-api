@@ -5,13 +5,9 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class EvanUserVo {
-    String account;
+public class EvanUserExtra {
     String createTime;
     String email;
-    Long id;
-    String nickname;
+    String nickName;
     String remark;
-    List<String> role;
-    private int status;
 }

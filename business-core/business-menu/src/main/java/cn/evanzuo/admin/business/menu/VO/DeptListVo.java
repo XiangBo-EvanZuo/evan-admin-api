@@ -12,7 +12,7 @@ public class DeptListVo {
     private Long parentCid;
     private int sort;
     private Long catId;
-    private Date createTime;
+    private String createTime;
     private String deptName;
     private String remark;
     private int status;

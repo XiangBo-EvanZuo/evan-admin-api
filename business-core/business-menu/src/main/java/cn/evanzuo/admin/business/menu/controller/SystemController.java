@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -93,9 +94,8 @@ public class SystemController {
     @GetMapping("/getAccountList")
     public AccountVo getAccountList(HttpServletRequest request) throws UnsupportedEncodingException {
         Page<DeptListVo> page = new Page<>();
-        page.setCurrent(2);
-        page.setPages(2);
-        page.setSize(1);
+        page.setCurrent(1);
+        page.setSize(10);
         IPage<EvanUser> allMenus2 = iDeptServiceImp.getBaseMapper().getRoleNamesPage(page, "1");
         LOGGER.error(allMenus2.getRecords().toString());
         List<EvanUserVo> evanUserVos = allMenus2.getRecords().stream()
@@ -103,6 +103,11 @@ public class SystemController {
                     EvanUserVo evanUserVo = new EvanUserVo();
                     evanUserVo.setId(item.getId());
                     evanUserVo.setAccount(item.getUsername());
+                    evanUserVo.setNickname(item.getNickName());
+                    evanUserVo.setRemark(item.getRemark());
+                    evanUserVo.setEmail(item.getEmail());
+                    evanUserVo.setCreateTime(item.getCreateTime());
+                    evanUserVo.setRole(Arrays.asList(item.getRoles().split(",")));
                     return evanUserVo;
                 }).collect(Collectors.toList());
         AccountVo accountVo = new AccountVo();

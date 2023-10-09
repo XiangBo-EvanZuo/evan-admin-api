@@ -29,9 +29,19 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "1 = 1)")
     List<DeptListVo> getRoleNames(@Param("roleNames") String roleNames);
 
-    @Select("select *\n" +
-            "from skin.tb_wang_user\n" +
-            "left join menu.tb_wang_user_dept_relation twudr on tb_wang_user.id = twudr.user_id\n" +
-            "where twudr.dept_id = #{deptId}")
+//    @Select("select *\n" +
+//            "from skin.tb_wang_user\n" +
+//            "left join skin.tb_wang_user_extra twue on tb_wang_user.id = twue.user_id\n" +
+//            "left join menu.tb_wang_user_dept_relation twudr on tb_wang_user.id = twudr.user_id\n" +
+//            "where twudr.dept_id = #{deptId}")
+    @Select("select twu.id, twu.username, cast(group_concat(twr.value) as char) as roles\n" +
+            "from skin.tb_wang_role\n" +
+            "left join skin.tb_wang_user_role_relation twurr on tb_wang_role.id = twurr.user_id\n" +
+            "left join skin.tb_wang_role twr on twurr.role_id = twr.id\n" +
+            "left join skin.tb_wang_user twu on twurr.user_id = twu.id\n" +
+            "left join skin.tb_wang_user_extra twue on twu.id = twue.user_id\n" +
+            "left join menu.tb_wang_user_dept_relation twudr on twu.id = twudr.user_id\n" +
+            "where twudr.dept_id = #{deptId}\n" +
+            "group by twu.id")
     IPage<EvanUser> getRoleNamesPage(IPage page, @Param("deptId") String deptId);
 }
