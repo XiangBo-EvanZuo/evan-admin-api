@@ -3,6 +3,7 @@ package cn.evanzuo.admin.business.menu.mapper;
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.zuo.common.entity.EvanUser;
 import cn.evanzuo.admin.business.menu.VO.DeptListVo;
+import cn.evanzuo.admin.business.menu.VO.RoleListVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -47,4 +48,8 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "where twudr.dept_id = #{deptId}\n" +
             "group by twu.id")
     IPage<EvanUser> getRoleNamesPage(IPage page, @Param("deptId") String deptId);
+
+    @Select("select value as role_value, role_name\n" +
+            "from skin.tb_wang_role")
+    List<RoleListVo> getAllRolesList();
 }

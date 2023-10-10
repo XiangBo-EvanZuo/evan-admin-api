@@ -15,10 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -112,5 +108,11 @@ public class SystemController {
         accountVo.setTotal((int) allMenus2.getTotal());
         accountVo.setItems(evanUserVos);
         return  accountVo;
+    }
+    @GetMapping("/getAllRoleList")
+    public List<RoleListVo> getAllRoleList() {
+        List<RoleListVo> roleList = iDeptServiceImp.getBaseMapper().getAllRolesList();
+        LOGGER.info("roleList: {}", roleList);
+        return  roleList;
     }
 }
