@@ -3,6 +3,7 @@ package cn.evanzuo.admin.business.menu.controller;
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.zuo.common.entity.EvanUser;
 import cn.evan.zuo.common.entity.EvanUserVo;
+import cn.evanzuo.admin.business.menu.DTO.AccountListDTO;
 import cn.evanzuo.admin.business.menu.VO.*;
 import cn.evanzuo.admin.business.menu.service.imp.IDeptServiceImp;
 import cn.hutool.json.JSONObject;
@@ -11,9 +12,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
@@ -90,12 +89,12 @@ public class SystemController {
                 .sorted(Comparator.comparingInt(DeptListVo::getSort).reversed())
                 .collect(Collectors.toList());
     }
-    @GetMapping("/getAccountList")
-    public AccountVo getAccountList(HttpServletRequest request) throws UnsupportedEncodingException {
+    @PostMapping("/getAccountList")
+    public AccountVo getAccountList(@RequestBody AccountListDTO accountListDTO) {
         Page<DeptListVo> page = new Page<>();
-        page.setCurrent(1);
-        page.setSize(10);
-        IPage<EvanUser> allMenus2 = iDeptServiceImp.getBaseMapper().getRoleNamesPage(page, "1");
+        page.setCurrent(accountListDTO.getPage());
+        page.setSize(accountListDTO.getPageSize());
+        IPage<EvanUser> allMenus2 = iDeptServiceImp.getBaseMapper().getRoleNamesPage(page, accountListDTO.getDeptId());
         LOGGER.error(allMenus2.getRecords().toString());
         List<EvanUserVo> evanUserVos = allMenus2.getRecords().stream()
                 .map(item -> {
