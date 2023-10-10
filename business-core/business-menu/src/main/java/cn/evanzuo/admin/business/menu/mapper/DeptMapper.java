@@ -49,7 +49,7 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "group by twu.id")
     IPage<EvanUser> getRoleNamesPage(IPage page, @Param("deptId") String deptId);
 
-    @Select("select value as role_value, role_name\n" +
+    @Select("select value as role_value, id, role_name\n" +
             "from skin.tb_wang_role")
     List<RoleListVo> getAllRolesList();
 }
