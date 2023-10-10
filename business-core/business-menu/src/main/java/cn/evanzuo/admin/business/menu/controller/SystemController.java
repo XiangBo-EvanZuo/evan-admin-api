@@ -45,8 +45,7 @@ public class SystemController {
                     deptListFormatVo.setDeptName(item.getDeptName());
                     deptListFormatVo.setStatus(item.getStatus());
                     deptListFormatVo.setRemark(item.getRemark());
-                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    deptListFormatVo.setCreateTime(format.format(item.getCreateTime()));
+                    deptListFormatVo.setCreateTime(item.getCreateTime());
                     deptListFormatVo.setChildren(format(item.getChildren()));
                     return deptListFormatVo;
                 }
