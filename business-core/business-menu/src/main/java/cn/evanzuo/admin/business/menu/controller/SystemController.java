@@ -5,6 +5,7 @@ import cn.evan.zuo.common.entity.EvanUser;
 import cn.evan.zuo.common.entity.EvanUserVo;
 import cn.evanzuo.admin.business.menu.DTO.AccountListDTO;
 import cn.evanzuo.admin.business.menu.VO.*;
+import cn.evanzuo.admin.business.menu.service.SystemService;
 import cn.evanzuo.admin.business.menu.service.imp.IDeptServiceImp;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -25,6 +27,9 @@ public class SystemController {
     private final static Logger LOGGER = LoggerFactory.getLogger(SystemController.class);
     @Autowired
     IDeptServiceImp iDeptServiceImp;
+
+    @Resource
+    SystemService systemService;
 
     public List<DeptListFormatVo> format(
             List<DeptListVo> commonMenuLists
@@ -120,5 +125,10 @@ public class SystemController {
         List<RoleListVo> roleList = iDeptServiceImp.getBaseMapper().getAllRolesList();
         LOGGER.info("roleList: {}", roleList);
         return  roleList;
+    }
+
+    @PostMapping("/accountExist")
+    public AccountExistVo accountExist() {
+        return systemService.accountExist();
     }
 }
