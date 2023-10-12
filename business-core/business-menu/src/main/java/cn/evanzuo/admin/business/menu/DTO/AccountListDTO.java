@@ -8,4 +8,6 @@ import lombok.EqualsAndHashCode;
 @Data
 public class AccountListDTO extends CommonPageDTO {
     private String deptId;
+    private String account;
+    private String nickname;
 }

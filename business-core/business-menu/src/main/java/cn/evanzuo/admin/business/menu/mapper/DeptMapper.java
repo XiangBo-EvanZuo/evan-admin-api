@@ -45,9 +45,15 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "left join skin.tb_wang_user twu on twurr.user_id = twu.id\n" +
             "left join skin.tb_wang_user_extra twue on twu.id = twue.user_id\n" +
             "left join menu.tb_wang_user_dept_relation twudr on twu.id = twudr.user_id\n" +
-            "where twudr.dept_id = #{deptId}\n" +
+            "where twudr.dept_id = #{deptId} and nick_name like concat('%', #{nickname}, '%') \n" +
+            "and username like concat('%', #{account}, '%') \n" +
             "group by twu.id")
-    IPage<EvanUser> getRoleNamesPage(IPage page, @Param("deptId") String deptId);
+    IPage<EvanUser> getRoleNamesPage(
+            IPage page,
+            @Param("deptId") String deptId,
+            @Param("nickname") String nickname,
+            @Param("account") String account
+    );
 
     @Select("select value as role_value, id, role_name\n" +
             "from skin.tb_wang_role")

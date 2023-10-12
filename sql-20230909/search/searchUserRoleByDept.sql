@@ -11,5 +11,5 @@ from skin.tb_wang_role
          left join skin.tb_wang_user twu on twurr.user_id = twu.id
          left join skin.tb_wang_user_extra twue on twu.id = twue.user_id
          left join menu.tb_wang_user_dept_relation twudr on twu.id = twudr.user_id
-where twudr.dept_id = 1
+where twudr.dept_id = 1 and nick_name like concat('%', 'a', '%') and username like concat('%', '', '%')
 group by twu.id;

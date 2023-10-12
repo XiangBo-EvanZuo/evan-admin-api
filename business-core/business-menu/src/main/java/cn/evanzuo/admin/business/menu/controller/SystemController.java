@@ -87,10 +87,15 @@ public class SystemController {
     }
     @PostMapping("/getAccountList")
     public AccountVo getAccountList(@RequestBody AccountListDTO accountListDTO) {
+        String defaultString = "";
         Page<DeptListVo> page = new Page<>();
         page.setCurrent(accountListDTO.getPage());
         page.setSize(accountListDTO.getPageSize());
-        IPage<EvanUser> allMenus2 = iDeptServiceImp.getBaseMapper().getRoleNamesPage(page, accountListDTO.getDeptId());
+        IPage<EvanUser> allMenus2 = iDeptServiceImp.getBaseMapper().getRoleNamesPage(
+                page, accountListDTO.getDeptId(),
+                Optional.ofNullable(accountListDTO.getNickname()).orElse(defaultString),
+                Optional.ofNullable(accountListDTO.getAccount()).orElse(defaultString)
+        );
         LOGGER.error(allMenus2.getRecords().toString());
         List<EvanUserVo> evanUserVos = allMenus2.getRecords().stream()
                 .map(item -> {
@@ -109,6 +114,7 @@ public class SystemController {
         accountVo.setItems(evanUserVos);
         return  accountVo;
     }
+    // todo: 需要根据用户的权限返回权限列表
     @GetMapping("/getAllRoleList")
     public List<RoleListVo> getAllRoleList() {
         List<RoleListVo> roleList = iDeptServiceImp.getBaseMapper().getAllRolesList();
