@@ -54,7 +54,12 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             @Param("account") String account
     );
 
-    @Select("select value as role_value, id, role_name\n" +
+    @Select("select\n" +
+            "    value as role_value,\n" +
+            "    role_name,\n" +
+            "    id,\n" +
+            "    role_status as status,\n" +
+            "    remarks as remark\n" +
             "from skin.tb_wang_role")
     List<RoleListVo> getAllRolesList();
 
@@ -62,7 +67,12 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "where username = #{username}")
     Integer exist(@Param("username") String username);
 
-    @Select("select value as role_value, id, role_name\n" +
+    @Select("select\n" +
+            "    value as role_value,\n" +
+            "    role_name,\n" +
+            "    id,\n" +
+            "    role_status as status,\n" +
+            "    remarks as remark\n" +
             "from skin.tb_wang_role")
     IPage<RoleListVo> getRoleListByPage(IPage page);
 }
