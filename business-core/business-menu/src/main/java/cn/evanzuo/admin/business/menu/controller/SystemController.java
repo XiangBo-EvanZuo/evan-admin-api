@@ -3,6 +3,7 @@ package cn.evanzuo.admin.business.menu.controller;
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.zuo.common.entity.EvanUser;
 import cn.evan.zuo.common.entity.EvanUserVo;
+import cn.evanzuo.admin.business.menu.DTO.AccountExistDTO;
 import cn.evanzuo.admin.business.menu.DTO.AccountListDTO;
 import cn.evanzuo.admin.business.menu.VO.*;
 import cn.evanzuo.admin.business.menu.service.SystemService;
@@ -128,7 +129,7 @@ public class SystemController {
     }
 
     @PostMapping("/accountExist")
-    public AccountExistVo accountExist() {
-        return systemService.accountExist();
+    public AccountExistVo accountExist(@RequestBody AccountExistDTO accountExistDTO) {
+        return systemService.accountExist(accountExistDTO.getAccount());
     }
 }

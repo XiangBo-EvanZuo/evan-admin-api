@@ -12,7 +12,6 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
-import java.util.Objects;
 
 
 @Mapper
@@ -58,4 +57,8 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
     @Select("select value as role_value, id, role_name\n" +
             "from skin.tb_wang_role")
     List<RoleListVo> getAllRolesList();
+
+    @Select("select count(*) as count from skin.tb_wang_user\n" +
+            "where username = #{username}")
+    Integer exist(@Param("username") String username);
 }
