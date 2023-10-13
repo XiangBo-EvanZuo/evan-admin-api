@@ -1,8 +1,10 @@
 package cn.evanzuo.admin.business.menu.controller;
 
+import cn.evan.zuo.common.dto.CommonPageDTO;
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.zuo.common.entity.EvanUser;
 import cn.evan.zuo.common.entity.EvanUserVo;
+import cn.evan.zuo.common.vo.CommonPageVo;
 import cn.evanzuo.admin.business.menu.DTO.AccountExistDTO;
 import cn.evanzuo.admin.business.menu.DTO.AccountListDTO;
 import cn.evanzuo.admin.business.menu.VO.*;
@@ -131,5 +133,16 @@ public class SystemController {
     @PostMapping("/accountExist")
     public AccountExistVo accountExist(@RequestBody AccountExistDTO accountExistDTO) {
         return systemService.accountExist(accountExistDTO.getAccount());
+    }
+
+    // todo
+    @PostMapping("/setRoleStatus")
+    public AccountExistVo setRoleStatus(@RequestBody AccountExistDTO accountExistDTO) {
+        return systemService.accountExist(accountExistDTO.getAccount());
+    }
+    // todo
+    @PostMapping("/getRoleListByPage")
+    public CommonPageVo<RoleListVo> getRoleListByPage(@RequestBody CommonPageDTO commonPageDTO) {
+        return systemService.getRoleListByPage(commonPageDTO);
     }
 }

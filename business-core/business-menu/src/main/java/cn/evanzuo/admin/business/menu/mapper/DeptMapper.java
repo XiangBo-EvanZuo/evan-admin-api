@@ -61,4 +61,8 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
     @Select("select count(*) as count from skin.tb_wang_user\n" +
             "where username = #{username}")
     Integer exist(@Param("username") String username);
+
+    @Select("select value as role_value, id, role_name\n" +
+            "from skin.tb_wang_role")
+    IPage<RoleListVo> getRoleListByPage(IPage page);
 }

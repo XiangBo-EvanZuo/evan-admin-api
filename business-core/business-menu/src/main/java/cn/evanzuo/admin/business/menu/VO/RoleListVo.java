@@ -7,4 +7,6 @@ public class RoleListVo {
     private Long id;
     private String roleName;
     private String roleValue;
+    private Long status;
+    private String remark;
 }
