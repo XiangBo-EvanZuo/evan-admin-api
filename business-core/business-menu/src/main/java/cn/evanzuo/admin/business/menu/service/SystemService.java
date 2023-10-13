@@ -13,13 +13,10 @@ public class SystemService {
     @Resource
     IDeptServiceImp iDeptServiceImp;
     public AccountExistVo accountExist(String username) {
-        System.out.println("123");
-        System.out.println(username);
-
         Integer existNumber = iDeptServiceImp.getBaseMapper().exist(username);
         AccountExistVo accountExist = new AccountExistVo();
         accountExist.setExist(existNumber > 0);
-        accountExist.setMessage("not");
+        accountExist.setMessage("该用户已存在！");
     	return accountExist;
     }
 }
