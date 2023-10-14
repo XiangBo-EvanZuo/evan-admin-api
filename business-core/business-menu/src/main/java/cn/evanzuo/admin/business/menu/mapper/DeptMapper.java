@@ -68,11 +68,21 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
     Integer exist(@Param("username") String username);
 
     @Select("select\n" +
-            "    value as role_value,\n" +
+            "    twr.value as role_value,\n" +
             "    role_name,\n" +
             "    id,\n" +
             "    role_status as status,\n" +
-            "    remarks as remark\n" +
-            "from skin.tb_wang_role")
+            "    remarks as remark,\n" +
+            "    cast(ifnull(menu, '') as char) as menu\n" +
+            "from skin.tb_wang_role twr\n" +
+            "left join (\n" +
+            "    select\n" +
+            "    r.value,\n" +
+            "    group_concat(cat_id) as menu\n" +
+            "from skin.tb_wang_role r\n" +
+            "    left join menu.role_category_relation rcr on rcr.role_id = r.id\n" +
+            "    left join menu.pms_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1\n" +
+            "group by r.value\n" +
+            ") s on s.value = twr.value")
     IPage<RoleListVo> getRoleListByPage(IPage page);
 }

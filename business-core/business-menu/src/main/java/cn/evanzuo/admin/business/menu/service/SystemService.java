@@ -31,7 +31,7 @@ public class SystemService {
         page.setCurrent(commonPageDTO.getPage());
         IPage<RoleListVo> roleListByPage = iDeptServiceImp.getBaseMapper().getRoleListByPage(page);
         CommonPageVo<RoleListVo> accountExist = new CommonPageVo<>();
-        accountExist.setTotal((int) roleListByPage.getPages());
+        accountExist.setTotal((int) roleListByPage.getTotal());
         accountExist.setItems(roleListByPage.getRecords());
         return accountExist;
     }

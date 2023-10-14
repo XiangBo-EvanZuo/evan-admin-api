@@ -9,4 +9,5 @@ public class RoleListVo {
     private String roleValue;
     private Long status;
     private String remark;
+    private String menu;
 }
