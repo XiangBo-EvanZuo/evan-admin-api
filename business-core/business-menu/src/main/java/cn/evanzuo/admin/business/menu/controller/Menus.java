@@ -92,6 +92,7 @@ public class Menus {
               menuListVo.setName(item.getName());
               menuListVo.setRedirect(item.getRedirect());
               menuListVo.setChildren(format(item.getChildren()));
+              menuListVo.setId(String.valueOf(item.getCatId()));
               return menuListVo;
             }
     ).collect(Collectors.toList());
