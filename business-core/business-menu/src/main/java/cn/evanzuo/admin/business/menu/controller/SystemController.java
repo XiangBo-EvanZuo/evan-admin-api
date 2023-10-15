@@ -49,6 +49,7 @@ public class SystemController {
                     deptListFormatVo.setStatus(item.getStatus());
                     deptListFormatVo.setRemark(item.getRemark());
                     deptListFormatVo.setCreateTime(item.getCreateTime());
+                    deptListFormatVo.setParentDept(item.getParentCid());
                     deptListFormatVo.setChildren(format(item.getChildren()));
                     return deptListFormatVo;
                 }

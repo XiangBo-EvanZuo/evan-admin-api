@@ -13,6 +13,7 @@ public class DeptListFormatVo {
     private String deptName;
     private String remark;
     private int status;
+    private long parentDept;
     @TableField(exist = false)
     private List<DeptListFormatVo> children;
 }
