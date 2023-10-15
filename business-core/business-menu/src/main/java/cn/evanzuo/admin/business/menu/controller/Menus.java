@@ -85,7 +85,10 @@ public class Menus {
               meta.setHideMenu(item.getHideMenu());
               meta.setHideBreadcrumb(item.getHideBreadcrumb());
               meta.setCurrentActiveMenu(item.getCurrentActiveMenu());
+              // 冗余字段
+              menuListVo.setIcon(item.getIcon());
               menuListVo.setMeta(meta);
+              menuListVo.setParentMenu(item.getParentCid());
               // 其他字段
               menuListVo.setComponent(item.getComponent());
               menuListVo.setPath(item.getPath());

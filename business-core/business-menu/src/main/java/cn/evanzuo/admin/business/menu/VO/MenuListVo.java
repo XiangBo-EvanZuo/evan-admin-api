@@ -10,6 +10,8 @@ import java.util.List;
 public class MenuListVo {
     private String id;
     private Meta meta;
+    private String icon;
+    private Long parentMenu;
     private String path;
     private String name;
     private String component;
