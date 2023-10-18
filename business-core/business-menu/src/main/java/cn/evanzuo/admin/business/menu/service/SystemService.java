@@ -48,6 +48,10 @@ public class SystemService {
                                     .filter(each -> !StringUtils.isEmpty(each))
                                     .collect(Collectors.toList())
                     );
+                    roleListFinalVo.setUrlList(
+                            Arrays.stream(item.getUrlList().split(","))
+                                .filter(each -> !StringUtils.isEmpty(each))
+                                .collect(Collectors.toList()));
                     roleListFinalVo.setRemark(item.getRemark());
                     roleListFinalVo.setStatus(item.getStatus());
                     return roleListFinalVo;

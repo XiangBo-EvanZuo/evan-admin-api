@@ -73,16 +73,26 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "    id,\n" +
             "    role_status as status,\n" +
             "    remarks as remark,\n" +
-            "    cast(ifnull(menu, '') as char) as menu\n" +
+            "    cast(ifnull(menu, '') as char) as menu,\n" +
+            "    cast(ifnull(url_list, '') as char) as url_list\n" +
             "from skin.tb_wang_role twr\n" +
-            "left join (\n" +
+            "         left join (\n" +
             "    select\n" +
-            "    r.value,\n" +
-            "    group_concat(cat_id) as menu\n" +
-            "from skin.tb_wang_role r\n" +
-            "    left join menu.role_category_relation rcr on rcr.role_id = r.id\n" +
-            "    left join menu.pms_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1\n" +
-            "group by r.value\n" +
-            ") s on s.value = twr.value")
+            "        r.value,\n" +
+            "        group_concat(cat_id) as menu\n" +
+            "    from skin.tb_wang_role r\n" +
+            "             left join menu.role_category_relation rcr on rcr.role_id = r.id\n" +
+            "             left join menu.pms_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1\n" +
+            "\n" +
+            "    group by r.value\n" +
+            ") s on s.value = twr.value\n" +
+            "         left join (select\n" +
+            "                        r.value,\n" +
+            "                        group_concat(url_id) as url_list\n" +
+            "                    from skin.tb_wang_role r\n" +
+            "                             left join skin.tb_wang_url_role_relation twurr on twurr.role_id = r.id\n" +
+            "                             left join skin.tb_wang_auth_url twau on twurr.url_id = twau.id\n" +
+            "                    group by r.value\n" +
+            "        ) b on b.value = twr.value ")
     IPage<RoleListVo> getRoleListByPage(IPage page);
 }

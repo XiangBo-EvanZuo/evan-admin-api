@@ -10,4 +10,5 @@ public class RoleListVo {
     private Long status;
     private String remark;
     private String menu;
+    private String urlList;
 }
