@@ -8,8 +8,11 @@ import cn.evan.zuo.common.vo.CommonPageVo;
 import cn.evanzuo.admin.business.menu.DTO.AccountExistDTO;
 import cn.evanzuo.admin.business.menu.DTO.AccountListDTO;
 import cn.evanzuo.admin.business.menu.VO.*;
+import cn.evanzuo.admin.business.menu.entity.AuthUrl;
 import cn.evanzuo.admin.business.menu.service.SystemService;
+import cn.evanzuo.admin.business.menu.service.UrlService;
 import cn.evanzuo.admin.business.menu.service.imp.IDeptServiceImp;
+import cn.evanzuo.admin.business.menu.service.imp.IUrlServiceImp;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -33,6 +36,9 @@ public class SystemController {
 
     @Resource
     SystemService systemService;
+
+    @Resource
+    UrlService urlService;
 
     public List<DeptListFormatVo> format(
             List<DeptListVo> commonMenuLists
@@ -148,8 +154,8 @@ public class SystemController {
     }
 
     // todo
-    @PostMapping("/getRoleUrlList")
-    public CommonPageVo<RoleListFinalVo> getRoleUrlList(@RequestBody CommonPageDTO commonPageDTO) {
-        return systemService.getRoleListByPage(commonPageDTO);
+    @PostMapping("/getUrlList")
+    public CommonPageVo<AuthUrl> getRoleUrlList(@RequestBody CommonPageDTO commonPageDTO) {
+        return urlService.getUrlList(commonPageDTO);
     }
 }
