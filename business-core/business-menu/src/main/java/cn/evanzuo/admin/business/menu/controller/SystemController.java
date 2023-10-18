@@ -146,4 +146,10 @@ public class SystemController {
     public CommonPageVo<RoleListFinalVo> getRoleListByPage(@RequestBody CommonPageDTO commonPageDTO) {
         return systemService.getRoleListByPage(commonPageDTO);
     }
+
+    // todo
+    @PostMapping("/getRoleUrlList")
+    public CommonPageVo<RoleListFinalVo> getRoleUrlList(@RequestBody CommonPageDTO commonPageDTO) {
+        return systemService.getRoleListByPage(commonPageDTO);
+    }
 }
