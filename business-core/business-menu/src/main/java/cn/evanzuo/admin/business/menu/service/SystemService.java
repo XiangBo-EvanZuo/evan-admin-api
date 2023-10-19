@@ -43,6 +43,7 @@ public class SystemService {
                     RoleListFinalVo roleListFinalVo = new RoleListFinalVo();
                     roleListFinalVo.setId(item.getId());
                     roleListFinalVo.setRoleName(item.getRoleName());
+                    roleListFinalVo.setRoleValue(item.getRoleValue());
                     roleListFinalVo.setMenu(
                             Arrays.stream(item.getMenu().split(","))
                                     .filter(each -> !StringUtils.isEmpty(each))
