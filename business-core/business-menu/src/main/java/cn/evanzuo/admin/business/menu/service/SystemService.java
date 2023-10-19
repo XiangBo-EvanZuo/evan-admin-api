@@ -46,11 +46,15 @@ public class SystemService {
                     roleListFinalVo.setMenu(
                             Arrays.stream(item.getMenu().split(","))
                                     .filter(each -> !StringUtils.isEmpty(each))
+                                    .mapToInt(Integer::parseInt)
+                                    .boxed()
                                     .collect(Collectors.toList())
                     );
                     roleListFinalVo.setUrlList(
                             Arrays.stream(item.getUrlList().split(","))
                                 .filter(each -> !StringUtils.isEmpty(each))
+                                .mapToInt(Integer::parseInt)
+                                .boxed()
                                 .collect(Collectors.toList()));
                     roleListFinalVo.setRemark(item.getRemark());
                     roleListFinalVo.setStatus(item.getStatus());

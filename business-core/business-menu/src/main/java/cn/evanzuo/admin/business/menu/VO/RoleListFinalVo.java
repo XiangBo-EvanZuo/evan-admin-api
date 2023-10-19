@@ -11,6 +11,6 @@ public class RoleListFinalVo {
     private String roleValue;
     private Long status;
     private String remark;
-    private List<String> menu;
-    private List<String> urlList;
+    private List<Integer> menu;
+    private List<Integer> urlList;
 }

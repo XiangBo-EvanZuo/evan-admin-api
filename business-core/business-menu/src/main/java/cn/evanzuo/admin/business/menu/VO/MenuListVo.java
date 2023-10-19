@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 public class MenuListVo {
-    private String id;
+    private Long id;
     private Meta meta;
     private String icon;
     private Long parentMenu;
