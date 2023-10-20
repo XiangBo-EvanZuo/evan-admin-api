@@ -19,7 +19,7 @@ public class UrlService {
         Page<RoleListVo> page = new Page<>();
         page.setSize(commonPageDTO.getPageSize());
         page.setCurrent(commonPageDTO.getPage());
-        IPage<AuthUrl> urlList = iUrlServiceImp.getBaseMapper().getUrlList(page);
+        IPage<AuthUrl> urlList = iUrlServiceImp.getBaseMapper().getUrlList(page, null);
         a.setTotal((int) urlList.getTotal());
         a.setItems(urlList.getRecords());
         return a;

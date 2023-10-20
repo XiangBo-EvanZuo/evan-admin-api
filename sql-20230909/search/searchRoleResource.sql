@@ -34,7 +34,7 @@ from skin.tb_wang_role twr
 
 select
     r.value,
-    group_concat(url) as urls
+    group_concat(url_id) as urls
 from skin.tb_wang_role r
          left join skin.tb_wang_url_role_relation twurr on twurr.role_id = r.id
          left join skin.tb_wang_auth_url twau on twurr.url_id = twau.id
