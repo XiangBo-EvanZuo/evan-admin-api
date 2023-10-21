@@ -2,6 +2,8 @@ package cn.evanzuo.admin.business.menu.service;
 
 import cn.evan.zuo.common.dto.CommonPageDTO;
 import cn.evan.zuo.common.vo.CommonPageVo;
+import cn.evan.zuo.common.vo.UpdateResult;
+import cn.evanzuo.admin.business.menu.DTO.UpdateUrlDTO;
 import cn.evanzuo.admin.business.menu.DTO.UrlListDTO;
 import cn.evanzuo.admin.business.menu.VO.RoleListVo;
 import cn.evanzuo.admin.business.menu.entity.AuthUrl;
@@ -32,4 +34,19 @@ public class UrlService {
         return iUrlServiceImp.getBaseMapper().getModuleList();
     }
 
+    public UpdateResult updateAuthUrl(UpdateUrlDTO updateUrlDTO) {
+        iUrlServiceImp.getBaseMapper().updateAuthUrl(
+                updateUrlDTO.getId(),
+                updateUrlDTO.getModuleId(),
+                updateUrlDTO.getPath()
+        );
+        return new UpdateResult();
+    }
+    public UpdateResult addAuthUrl(UpdateUrlDTO updateUrlDTO) {
+        iUrlServiceImp.getBaseMapper().addAuthUrl(
+                updateUrlDTO.getModuleId(),
+                updateUrlDTO.getPath()
+        );
+        return new UpdateResult();
+    }
 }

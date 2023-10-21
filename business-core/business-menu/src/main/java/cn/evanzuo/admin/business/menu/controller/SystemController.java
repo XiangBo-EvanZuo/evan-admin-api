@@ -5,8 +5,10 @@ import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.zuo.common.entity.EvanUser;
 import cn.evan.zuo.common.entity.EvanUserVo;
 import cn.evan.zuo.common.vo.CommonPageVo;
+import cn.evan.zuo.common.vo.UpdateResult;
 import cn.evanzuo.admin.business.menu.DTO.AccountExistDTO;
 import cn.evanzuo.admin.business.menu.DTO.AccountListDTO;
+import cn.evanzuo.admin.business.menu.DTO.UpdateUrlDTO;
 import cn.evanzuo.admin.business.menu.DTO.UrlListDTO;
 import cn.evanzuo.admin.business.menu.VO.*;
 import cn.evanzuo.admin.business.menu.entity.AuthUrl;
@@ -163,5 +165,15 @@ public class SystemController {
     @PostMapping("/getModuleList")
     public List<BusinessModuleEntity> getModuleList() {
         return urlService.getModuleList();
+    }
+
+    @PostMapping("/updateAuthUrl")
+    public UpdateResult updateAuthUrl(@RequestBody UpdateUrlDTO updateUrlDTO) {
+        return urlService.updateAuthUrl(updateUrlDTO);
+    }
+
+    @PostMapping("/addAuthUrl")
+    public UpdateResult addAuthUrl(@RequestBody UpdateUrlDTO updateUrlDTO) {
+        return urlService.addAuthUrl(updateUrlDTO);
     }
 }

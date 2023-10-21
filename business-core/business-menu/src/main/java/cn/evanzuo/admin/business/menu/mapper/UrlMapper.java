@@ -1,6 +1,5 @@
 package cn.evanzuo.admin.business.menu.mapper;
 
-import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evanzuo.admin.business.menu.entity.AuthUrl;
 import cn.evanzuo.admin.business.menu.entity.BusinessModuleEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -29,4 +28,21 @@ public interface UrlMapper extends BaseMapper<AuthUrl> {
 
     @Select("select id, path, name from skin.tb_wang_business_modules\n")
     List<BusinessModuleEntity> getModuleList();
+
+    @Select("update skin.tb_wang_auth_url twau\n" +
+            "    set path = ifnull(#{path}, twau.path),\n" +
+            "        module_id = ifnull(${moduleId}, twau.module_id)\n" +
+            "where id = #{id};")
+    void updateAuthUrl(
+            @Param("id") Integer id,
+            @Param("moduleId") Integer moduleId,
+            @Param("path") String path
+    );
+
+    @Select("insert into skin.tb_wang_auth_url (module_id, path)\n" +
+            "values (#{moduleId}, #{path})")
+    void addAuthUrl(
+            @Param("moduleId") Integer moduleId,
+            @Param("path") String path
+    );
 }
