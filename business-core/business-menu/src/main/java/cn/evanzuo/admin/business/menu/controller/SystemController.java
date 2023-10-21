@@ -10,6 +10,7 @@ import cn.evanzuo.admin.business.menu.DTO.AccountListDTO;
 import cn.evanzuo.admin.business.menu.DTO.UrlListDTO;
 import cn.evanzuo.admin.business.menu.VO.*;
 import cn.evanzuo.admin.business.menu.entity.AuthUrl;
+import cn.evanzuo.admin.business.menu.entity.BusinessModuleEntity;
 import cn.evanzuo.admin.business.menu.service.SystemService;
 import cn.evanzuo.admin.business.menu.service.UrlService;
 import cn.evanzuo.admin.business.menu.service.imp.IDeptServiceImp;
@@ -158,5 +159,9 @@ public class SystemController {
     @PostMapping("/getUrlList")
     public CommonPageVo<AuthUrl> getRoleUrlList(@RequestBody UrlListDTO commonPageDTO) {
         return urlService.getUrlList(commonPageDTO);
+    }
+    @PostMapping("/getModuleList")
+    public List<BusinessModuleEntity> getModuleList() {
+        return urlService.getModuleList();
     }
 }

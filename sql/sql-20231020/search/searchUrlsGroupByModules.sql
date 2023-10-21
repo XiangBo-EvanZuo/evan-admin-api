@@ -17,6 +17,8 @@ select
     twau.id,
     twau.status,
     twbm.name as module_name,
+    module_id,
+    twau.path,
     concat(twbm.path, twau.path) as url
 from skin.tb_wang_auth_url twau
          left join skin.tb_wang_business_modules twbm on twau.module_id = twbm.id

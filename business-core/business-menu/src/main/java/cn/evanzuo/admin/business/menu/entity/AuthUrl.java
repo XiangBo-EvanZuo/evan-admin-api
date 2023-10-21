@@ -10,4 +10,6 @@ public class AuthUrl {
     private String url;
     private Long status;
     private String moduleName;
+    private String path;
+    private Long moduleId;
 }
