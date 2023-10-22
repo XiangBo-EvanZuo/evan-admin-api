@@ -3,6 +3,8 @@
 <mapper namespace="cn.evanzuo.admin.business.menu.mapper.UrlMapper">
     <!--1.2批量插入-->
     <insert id="updateRoleUrl" parameterType="java.util.ArrayList">
+        delete from skin.tb_wang_url_role_relation
+        where id = 99;
         insert into skin.tb_wang_url_role_relation (role_id, url_id)
         values
         <foreach collection="list" item="RoleUrlItem" open="" separator="," close="">
