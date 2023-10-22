@@ -1,10 +1,7 @@
 package cn.evanzuo.admin.business.menu.service.imp;
 
-import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evanzuo.admin.business.menu.entity.AuthUrl;
-import cn.evanzuo.admin.business.menu.mapper.DeptMapper;
 import cn.evanzuo.admin.business.menu.mapper.UrlMapper;
-import cn.evanzuo.admin.business.menu.service.IDeptService;
 import cn.evanzuo.admin.business.menu.service.IUrlSerive;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

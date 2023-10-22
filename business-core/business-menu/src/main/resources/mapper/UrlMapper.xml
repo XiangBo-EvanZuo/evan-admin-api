@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.evanzuo.admin.business.menu.mapper.UrlMapper">
+    <!--1.2批量插入-->
+    <insert id="updateRoleUrl" parameterType="java.util.ArrayList">
+        insert into skin.tb_wang_url_role_relation (role_id, url_id)
+        values
+        <foreach collection="list" item="RoleUrlItem" open="" separator="," close="">
+            (#{RoleUrlItem.roleId},
+            #{RoleUrlItem.urlId}
+            )
+        </foreach>
+    </insert>
+</mapper>

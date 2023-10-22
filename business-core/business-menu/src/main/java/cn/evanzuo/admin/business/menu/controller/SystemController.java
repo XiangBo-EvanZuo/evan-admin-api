@@ -176,4 +176,13 @@ public class SystemController {
     public UpdateResult addAuthUrl(@RequestBody UpdateUrlDTO updateUrlDTO) {
         return urlService.addAuthUrl(updateUrlDTO);
     }
+    @PostMapping("/deleteAuthUrl")
+    public UpdateResult deleteAuthUrl(@RequestBody UpdateUrlDTO updateUrlDTO) {
+        return urlService.deleteAuthUrl(updateUrlDTO);
+    }
+
+    @PostMapping("/updateRoleUrl")
+    public UpdateResult updateRoleUrl() {
+        return urlService.updateRoleUrl();
+    }
 }

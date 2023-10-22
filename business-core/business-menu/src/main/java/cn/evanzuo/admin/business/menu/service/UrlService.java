@@ -8,11 +8,13 @@ import cn.evanzuo.admin.business.menu.DTO.UrlListDTO;
 import cn.evanzuo.admin.business.menu.VO.RoleListVo;
 import cn.evanzuo.admin.business.menu.entity.AuthUrl;
 import cn.evanzuo.admin.business.menu.entity.BusinessModuleEntity;
+import cn.evanzuo.admin.business.menu.entity.RoleUrlItem;
 import cn.evanzuo.admin.business.menu.service.imp.IUrlServiceImp;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -47,6 +49,32 @@ public class UrlService {
                 updateUrlDTO.getModuleId(),
                 updateUrlDTO.getPath()
         );
+        return new UpdateResult();
+    }
+
+    public UpdateResult deleteAuthUrl(UpdateUrlDTO updateUrlDTO) {
+        iUrlServiceImp.getBaseMapper().deleteAuthUrl(
+                updateUrlDTO.getId()
+        );
+        return new UpdateResult();
+    }
+
+    public UpdateResult updateRoleUrl() {
+        // 角色管理的url列表
+        // 传递的角色管理url列表
+
+        // 删除所有原来关系
+        // 插入新关系
+        List<RoleUrlItem> roleUrlItems = new ArrayList<>();
+        RoleUrlItem a = new RoleUrlItem();
+        a.setRoleId(9);
+        a.setUrlId(99);
+        RoleUrlItem a2 = new RoleUrlItem();
+        a2.setRoleId(999);
+        a2.setUrlId(99999);
+        roleUrlItems.add(a);
+        roleUrlItems.add(a2);
+        iUrlServiceImp.getBaseMapper().updateRoleUrl(roleUrlItems);
         return new UpdateResult();
     }
 }

@@ -22,4 +22,4 @@ select
     concat(twbm.path, twau.path) as url
 from skin.tb_wang_auth_url twau
          left join skin.tb_wang_business_modules twbm on twau.module_id = twbm.id
-where if(null is not null , module_id = null, true);
+where if(null is not null , module_id = null, true) and deleted = 0;
