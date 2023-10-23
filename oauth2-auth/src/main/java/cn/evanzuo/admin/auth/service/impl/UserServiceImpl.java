@@ -86,7 +86,9 @@ public class UserServiceImpl implements UserService {
     }
     // 之前的方式只能控制到/auth/token的方法 请求的时候，target是实时的权限控制
     // redis记录 user的信息，然后 gateway鉴权进行检验，实现实时的权限控制，当然这也必需要保证redis的高可用，因为redis已经成为核心流程
-    redisService.set(username, "login", 60 * 10L);
+
+    // redis 中的过期时间。 jwt中的过期时间为 3600s 即1个小时
+    redisService.set(username, "login", 60 * 60 * 1L);
     return userListDemo;
   }
 }

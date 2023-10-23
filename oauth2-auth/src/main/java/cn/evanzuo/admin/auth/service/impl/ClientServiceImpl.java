@@ -61,7 +61,7 @@ public class ClientServiceImpl implements ClientService {
         .authorizedGrantTypes("authorization_code,refresh_token")
         .webServerRedirectUri("https://www.gathub.cn,https://www.baidu.com")
         .authorities("USER")
-        .accessTokenValidity(3600)
+        .accessTokenValidity(3600) // jwt中的过期时间
         .refreshTokenValidity(86400).build());
   }
 
