@@ -44,7 +44,7 @@ public class Menus {
     LOGGER.info(authorities.toString());
     LOGGER.info(authoritiesStr);
     System.out.println(authorities);
-    List<CommonMenuList> allMenus = projectMenuDB.getBaseMapper().getRoleNames(authoritiesStr);
+    List<CommonMenuList> allMenus = projectMenuDB.getBaseMapper().getMenuListByRole(authoritiesStr);
     MenuVo menuVo = new MenuVo();
     List<CommonMenuList> projectMenus = allMenus.stream()
             .filter(item -> item.getParentCid() == 0)

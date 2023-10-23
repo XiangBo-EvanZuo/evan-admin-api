@@ -28,8 +28,8 @@ public interface MenuMapper extends BaseMapper<CommonMenuList> {
             "        from pms_category pc\n" +
             "        join role_category_relation rcr on pc.cat_id = rcr.category_id\n" +
             "        join skin.tb_wang_role role on role.id = rcr.role_id\n" +
-            "        where role_id = 1 and value in (${roleNames})\n" +
+            "        where value in (${roleNames})\n" +
             "    ),\n" +
             "1 = 1)")
-    List<CommonMenuList> getRoleNames(@Param("roleNames") String roleNames);
+    List<CommonMenuList> getMenuListByRole(@Param("roleNames") String roleNames);
 }

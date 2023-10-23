@@ -77,7 +77,7 @@ public class SystemController {
         LOGGER.info(authorities.toString());
         LOGGER.info(authoritiesStr);
         System.out.println(authorities);
-        List<DeptListVo> allMenus = iDeptServiceImp.getBaseMapper().getRoleNames(authoritiesStr);
+        List<DeptListVo> allMenus = iDeptServiceImp.getBaseMapper().getDeptList(authoritiesStr);
         DeptVo menuVo = new DeptVo();
         List<DeptListVo> projectMenus = allMenus.stream()
                 .filter(item -> item.getParentCid() == 0)
