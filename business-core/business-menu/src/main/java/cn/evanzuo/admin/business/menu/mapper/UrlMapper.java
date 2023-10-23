@@ -2,7 +2,6 @@ package cn.evanzuo.admin.business.menu.mapper;
 
 import cn.evanzuo.admin.business.menu.entity.AuthUrl;
 import cn.evanzuo.admin.business.menu.entity.BusinessModuleEntity;
-import cn.evanzuo.admin.business.menu.entity.RoleUrlItem;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Mapper;
@@ -52,5 +51,8 @@ public interface UrlMapper extends BaseMapper<AuthUrl> {
             "where id = #{id}")
     void deleteAuthUrl(@Param("id") Integer id);
 
-    void updateRoleUrl(List<RoleUrlItem> roleUrlItems);
+    void updateRoleUrl(
+            @Param("roleId") Integer roleId,
+            @Param("list") List<Integer> roleUrlItems
+    );
 }

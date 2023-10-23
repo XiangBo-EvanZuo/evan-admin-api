@@ -6,10 +6,7 @@ import cn.evan.zuo.common.entity.EvanUser;
 import cn.evan.zuo.common.entity.EvanUserVo;
 import cn.evan.zuo.common.vo.CommonPageVo;
 import cn.evan.zuo.common.vo.UpdateResult;
-import cn.evanzuo.admin.business.menu.DTO.AccountExistDTO;
-import cn.evanzuo.admin.business.menu.DTO.AccountListDTO;
-import cn.evanzuo.admin.business.menu.DTO.UpdateUrlDTO;
-import cn.evanzuo.admin.business.menu.DTO.UrlListDTO;
+import cn.evanzuo.admin.business.menu.DTO.*;
 import cn.evanzuo.admin.business.menu.VO.*;
 import cn.evanzuo.admin.business.menu.entity.AuthUrl;
 import cn.evanzuo.admin.business.menu.entity.BusinessModuleEntity;
@@ -182,7 +179,7 @@ public class SystemController {
     }
 
     @PostMapping("/updateRoleUrl")
-    public UpdateResult updateRoleUrl() {
-        return urlService.updateRoleUrl();
+    public UpdateResult updateRoleUrl(@RequestBody UpdateRoleUrlDTO updateRoleUrlDTO) {
+        return urlService.updateRoleUrl(updateRoleUrlDTO);
     }
 }
