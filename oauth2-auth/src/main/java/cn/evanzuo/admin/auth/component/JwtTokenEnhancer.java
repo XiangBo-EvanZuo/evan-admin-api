@@ -32,6 +32,7 @@ public class JwtTokenEnhancer implements TokenEnhancer {
     info.put("id", userPrincipal.getId());
     LOGGER.info(JSON.toJSONString(userPrincipal));
     try {
+      info.put("nickName", URLEncoder.encode(userPrincipal.getNickName(), "utf8"));
       info.put("roles", URLEncoder.encode(JSON.toJSONString(userPrincipal.getRoles()), "utf8"));
     } catch (UnsupportedEncodingException e) {
       throw new RuntimeException(e);

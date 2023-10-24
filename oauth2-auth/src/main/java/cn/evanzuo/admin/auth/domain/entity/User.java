@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import cn.evan.zuo.common.entity.EvanUserExtra;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.Version;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class User implements UserDetails {
+public class User extends EvanUserExtra implements UserDetails {
   private Long id;
   private String username;
   @NotEmpty(message = "密码不能为空")

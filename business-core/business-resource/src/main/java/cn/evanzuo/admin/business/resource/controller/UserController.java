@@ -48,8 +48,8 @@ public class UserController {
     List<RoleItem> roleObj = (List<RoleItem>) JSON.parse(URLDecoder.decode(roles, "UTF-8"));
     return User.builder()
             .username(userJsonObject.getStr("user_name"))
+            .nickName(userJsonObject.getStr("nickName"))
             .id(Convert.toLong(userJsonObject.get("id")))
-            .realName("123")
             .roles(roleObj)
             .build();
   }

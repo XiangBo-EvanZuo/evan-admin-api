@@ -19,5 +19,5 @@ public class User {
   private String password;
   private List<RoleItem> roles;
 
-  private String realName;
+  private String nickName;
 }

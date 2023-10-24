@@ -21,7 +21,9 @@ public interface UserMapper extends BaseMapper<User> {
     )
     List<RoleItem> getData(@Param("username") String username);
 
-    @Select("select * from tb_wang_user " +
+    @Select("select * from tb_wang_user\n" +
+            "left join tb_wang_user_extra twue\n" +
+            "on tb_wang_user.id = twue.user_id\n" +
             "where username = #{username};"
     )
     User getUserInfo(@Param("username") String username);
