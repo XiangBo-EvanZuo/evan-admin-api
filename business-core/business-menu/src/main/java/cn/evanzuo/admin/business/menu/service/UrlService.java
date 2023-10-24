@@ -71,4 +71,15 @@ public class UrlService {
         iUrlServiceImp.getBaseMapper().updateRoleUrl(updateRoleUrlDTO.getRoleId(), roleUrlItems);
         return new UpdateResult();
     }
+
+    public UpdateResult updateRoleMenu(UpdateRoleUrlDTO updateRoleUrlDTO) {
+        // 角色管理的url列表
+        // 传递的角色管理url列表
+
+        // 删除所有原来关系
+        // 插入新关系
+        List<Integer> roleMenuItems = updateRoleUrlDTO.getList();
+        iUrlServiceImp.getBaseMapper().updateRoleMenu(updateRoleUrlDTO.getRoleId(), roleMenuItems);
+        return new UpdateResult();
+    }
 }

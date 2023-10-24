@@ -55,4 +55,9 @@ public interface UrlMapper extends BaseMapper<AuthUrl> {
             @Param("roleId") Integer roleId,
             @Param("list") List<Integer> roleUrlItems
     );
+
+    void updateRoleMenu(
+            @Param("roleId") Integer roleId,
+            @Param("list") List<Integer> roleMenuItems
+    );
 }

@@ -182,4 +182,9 @@ public class SystemController {
     public UpdateResult updateRoleUrl(@RequestBody UpdateRoleUrlDTO updateRoleUrlDTO) {
         return urlService.updateRoleUrl(updateRoleUrlDTO);
     }
+
+    @PostMapping("/updateRoleMenu")
+    public UpdateResult updateRoleMenu(@RequestBody UpdateRoleUrlDTO updateRoleUrlDTO) {
+        return urlService.updateRoleMenu(updateRoleUrlDTO);
+    }
 }
