@@ -15,7 +15,6 @@ import cn.hutool.json.JSONObject;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +43,7 @@ public class Projects {
   ProjectDateFileServiceDBImpl projectDateFileServiceDB;
 
   @PostMapping("/list")
-  public List<FileVo> project(HttpServletRequest request, @RequestBody @Validated ProjectListDTO dto) {
+  public List<FileVo> project(HttpServletRequest request, @RequestBody ProjectListDTO dto) {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
     JSONObject userJsonObject = new JSONObject(userStr);

@@ -15,6 +15,7 @@ import cn.evanzuo.admin.business.menu.service.UrlService;
 import cn.evanzuo.admin.business.menu.service.imp.IDeptServiceImp;
 import cn.evanzuo.admin.business.menu.service.imp.IUrlServiceImp;
 import cn.hutool.json.JSONObject;
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -150,7 +152,8 @@ public class SystemController {
     }
     // todo
     @PostMapping("/getRoleListByPage")
-    public CommonPageVo<RoleListFinalVo> getRoleListByPage(@RequestBody CommonPageDTO commonPageDTO) {
+    public CommonPageVo<RoleListFinalVo> getRoleListByPage(@Valid @RequestBody CommonPageDTO commonPageDTO) {
+        LOGGER.error(JSON.toJSONString(commonPageDTO));
         return systemService.getRoleListByPage(commonPageDTO);
     }
 
