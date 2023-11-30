@@ -29,10 +29,10 @@ spring:
             - Path=/order/**
           filters:
             - StripPrefix=1
-        - id: business-menu-route
-          uri: lb://business-menu
+        - id: evan-admin-user-route
+          uri: lb://evan-admin-user
           predicates:
-            - Path=/business-menu/**
+            - Path=/user/**
           filters:
             - StripPrefix=1
         - id: evan-admin-oauth2-cas-route

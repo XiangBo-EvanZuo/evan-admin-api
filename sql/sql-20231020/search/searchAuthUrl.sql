@@ -5,4 +5,4 @@ from tb_wang_role
          left join tb_wang_auth_url url
                    on t3.url_id = url.id
          left join tb_wang_business_modules twbm on url.module_id = twbm.id
-where concat(twbm.path, url.path) = '/business-menu/system/getUrlList';
+where concat(twbm.path, url.path) = '/user/system/getUrlList';

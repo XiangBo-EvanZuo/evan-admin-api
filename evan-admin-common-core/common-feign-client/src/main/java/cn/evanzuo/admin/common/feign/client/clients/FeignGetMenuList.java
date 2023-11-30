@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(value = "business-menu")
+@FeignClient(value = "evan-admin-user")
 public interface FeignGetMenuList {
     @RequestMapping(
             value = "/menu/list",
