@@ -15,7 +15,7 @@ public interface MenuMapper extends BaseMapper<CommonMenuList> {
 //    @Select("select distinct pc.* " +
 //            "from tb_wang_menu_category pc " +
 //            "join tb_wang_role_category_relation rcr on pc.cat_id = rcr.category_id " +
-//            "join skin.tb_wang_role role on role.id = rcr.role_id " +
+//            "join tb_wang_role role on role.id = rcr.role_id " +
 //            "where cat_level = 1 and role_name in (${roleNames})"
 //    )
 
@@ -27,7 +27,7 @@ public interface MenuMapper extends BaseMapper<CommonMenuList> {
             "        select distinct pc.cat_id\n" +
             "        from tb_wang_menu_category pc\n" +
             "        join tb_wang_role_category_relation rcr on pc.cat_id = rcr.category_id\n" +
-            "        join skin.tb_wang_role role on role.id = rcr.role_id\n" +
+            "        join tb_wang_role role on role.id = rcr.role_id\n" +
             "        where value in (${roleNames})\n" +
             "    ),\n" +
             "1 = 1)")

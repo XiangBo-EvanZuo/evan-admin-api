@@ -1,4 +1,4 @@
-create table if not exists skin.tb_wang_auth_url
+create table if not exists tb_wang_auth_url
 (
     id  int auto_increment
         primary key,
@@ -8,14 +8,14 @@ create table if not exists skin.tb_wang_auth_url
 )
     auto_increment = 16;
 
-create table if not exists skin.tb_wang_role
+create table if not exists tb_wang_role
 (
     id        int          not null,
     value     varchar(100) null,
     role_name varchar(100) null
 );
 
-create table if not exists skin.tb_wang_url_role_relation
+create table if not exists tb_wang_url_role_relation
 (
     id      int auto_increment
         primary key,
@@ -26,7 +26,7 @@ create table if not exists skin.tb_wang_url_role_relation
 )
     auto_increment = 31;
 
-create table if not exists skin.tb_wang_user
+create table if not exists tb_wang_user
 (
     id                      int auto_increment
         primary key,
@@ -46,7 +46,7 @@ create table if not exists skin.tb_wang_user
 )
     auto_increment = 3;
 
-create table if not exists skin.tb_wang_user_extra
+create table if not exists tb_wang_user_extra
 (
     user_id     int auto_increment
         primary key,
@@ -59,7 +59,7 @@ create table if not exists skin.tb_wang_user_extra
 )
     comment '用户额外信息表';
 
-create table if not exists skin.tb_wang_user_role_relation
+create table if not exists tb_wang_user_role_relation
 (
     id      mediumtext null,
     role_id int        null,

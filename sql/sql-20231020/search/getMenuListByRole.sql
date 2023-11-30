@@ -5,7 +5,7 @@ where if (
             select distinct pc.cat_id
             from tb_wang_menu_category pc
                      join tb_wang_role_category_relation rcr on pc.cat_id = rcr.category_id
-                     join skin.tb_wang_role role on role.id = rcr.role_id
+                     join tb_wang_role role on role.id = rcr.role_id
             where value in ('USER', 'ADMIN')
         ),
                   true)

@@ -21,15 +21,15 @@ public interface UrlMapper extends BaseMapper<AuthUrl> {
             "    concat(twbm.path, twau.path) as url,\n" +
             "    module_id,\n" +
             "    twau.path\n" +
-            "from skin.tb_wang_auth_url twau\n" +
-            "    left join skin.tb_wang_business_modules twbm on twau.module_id = twbm.id\n" +
+            "from tb_wang_auth_url twau\n" +
+            "    left join tb_wang_business_modules twbm on twau.module_id = twbm.id\n" +
             "where if(#{moduleId} is not null , module_id = #{moduleId}, true) and deleted = 0")
     IPage<AuthUrl> getUrlList(IPage page, @Param("moduleId") Integer moduleId);
 
-    @Select("select id, path, name from skin.tb_wang_business_modules\n")
+    @Select("select id, path, name from tb_wang_business_modules\n")
     List<BusinessModuleEntity> getModuleList();
 
-    @Select("update skin.tb_wang_auth_url twau\n" +
+    @Select("update tb_wang_auth_url twau\n" +
             "    set path = ifnull(#{path}, twau.path),\n" +
             "        module_id = ifnull(${moduleId}, twau.module_id)\n" +
             "where id = #{id};")
@@ -39,14 +39,14 @@ public interface UrlMapper extends BaseMapper<AuthUrl> {
             @Param("path") String path
     );
 
-    @Select("insert into skin.tb_wang_auth_url (module_id, path)\n" +
+    @Select("insert into tb_wang_auth_url (module_id, path)\n" +
             "values (#{moduleId}, #{path})")
     void addAuthUrl(
             @Param("moduleId") Integer moduleId,
             @Param("path") String path
     );
 
-    @Select("update skin.tb_wang_auth_url\n" +
+    @Select("update tb_wang_auth_url\n" +
             "set deleted = 1\n" +
             "where id = #{id}")
     void deleteAuthUrl(@Param("id") Integer id);

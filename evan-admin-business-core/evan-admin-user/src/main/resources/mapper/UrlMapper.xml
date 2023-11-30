@@ -3,9 +3,9 @@
 <mapper namespace="cn.evanzuo.admin.business.menu.mapper.UrlMapper">
     <!--1.2批量插入-->
     <insert id="updateRoleUrl">
-        delete from skin.tb_wang_url_role_relation
+        delete from tb_wang_url_role_relation
         where role_id = #{roleId};
-        insert into skin.tb_wang_url_role_relation (role_id, url_id)
+        insert into tb_wang_url_role_relation (role_id, url_id)
         values
         <foreach collection="list" item="RoleUrlItem" open="" separator="," close="">
             (#{roleId},
