@@ -24,7 +24,7 @@ spring:
           filters:
             - StripPrefix=1
         - id: evan-admin-order-route
-          uri: lb://evan-admin-gateway
+          uri: lb://evan-admin-order
           predicates:
             - Path=/order/**
           filters:
