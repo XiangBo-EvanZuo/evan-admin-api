@@ -4,7 +4,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: oauth2-gateway
+    name: evan-admin-gateway
   datasource:
     name: defaultDataSource
     url: jdbc:mysql://localhost:3306/skin
@@ -35,32 +35,32 @@ spring:
             - Path=/business-menu/**
           filters:
             - StripPrefix=1
-        - id: oauth2-auth-route
-          uri: lb://oauth2-auth
+        - id: evan-admin-oauth2-cas-route
+          uri: lb://evan-admin-oauth2-cas
           predicates:
             - Path=/auth/**
           filters:
             - StripPrefix=1
-        - id: oauth2-auth-login
-          uri: lb://oauth2-auth
+        - id: evan-admin-oauth2-cas-login
+          uri: lb://evan-admin-oauth2-cas
           predicates:
             - Path=/login
           filters:
             - PreserveHostHeader
-        - id: oauth2-auth-token
-          uri: lb://oauth2-auth
+        - id: evan-admin-oauth2-cas-token
+          uri: lb://evan-admin-oauth2-cas
           predicates:
             - Path=/oauth/token
           filters:
             - PreserveHostHeader
-        - id: oauth2-auth-authorize
-          uri: lb://oauth2-auth
+        - id: evan-admin-oauth2-cas-authorize
+          uri: lb://evan-admin-oauth2-cas
           predicates:
             - Path=/oauth/authorize
           filters:
             - PreserveHostHeader
-        - id: oauth2-auth-route
-          uri: lb://oauth2-auth
+        - id: evan-admin-oauth2-cas-route
+          uri: lb://evan-admin-oauth2-cas
           predicates:
             - Path=/oauth/**
           filters:
