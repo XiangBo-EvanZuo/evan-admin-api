@@ -1,4 +1,4 @@
-create table if not exists menu.pms_category
+create table if not exists menu.tb_wang_menu_category
 (
     cat_id                bigint auto_increment comment '分类id'
         primary key,
@@ -20,7 +20,7 @@ create table if not exists menu.pms_category
     comment '商品三级分类' auto_increment = 1443;
 
 create index parent_cid
-    on menu.pms_category (parent_cid);
+    on menu.tb_wang_menu_category (parent_cid);
 
 create table if not exists menu.role_category_relation
 (

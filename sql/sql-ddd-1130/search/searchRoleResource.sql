@@ -14,7 +14,7 @@ from skin.tb_wang_role twr
         group_concat(cat_id) as menu
     from skin.tb_wang_role r
              left join menu.role_category_relation rcr on rcr.role_id = r.id
-             left join menu.pms_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1
+             left join menu.tb_wang_menu_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1
 
     group by r.value
 ) s on s.value = twr.value

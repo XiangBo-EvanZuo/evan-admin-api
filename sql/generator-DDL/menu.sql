@@ -49,7 +49,7 @@ create table if not exists pms_brand
 )
     comment '品牌' auto_increment = 13;
 
-create table if not exists pms_category
+create table if not exists tb_wang_menu_category
 (
     cat_id        bigint auto_increment comment '分类id'
         primary key,
@@ -65,9 +65,9 @@ create table if not exists pms_category
     comment '商品三级分类' auto_increment = 1433;
 
 create index parent_cid
-    on pms_category (parent_cid);
+    on tb_wang_menu_category (parent_cid);
 
-create table if not exists pms_category_brand_relation
+create table if not exists tb_wang_menu_category_brand_relation
 (
     id           bigint auto_increment
         primary key,

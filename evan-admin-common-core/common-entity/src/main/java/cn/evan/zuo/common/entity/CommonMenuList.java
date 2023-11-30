@@ -10,7 +10,7 @@ import java.util.List;
  * @author EvanZuo[739221432@qq.com] 2023/10/02
  */
 @Data
-@TableName(value = "pms_category")
+@TableName(value = "tb_wang_menu_category")
 public class CommonMenuList {
     private Long catId;
     private String name;

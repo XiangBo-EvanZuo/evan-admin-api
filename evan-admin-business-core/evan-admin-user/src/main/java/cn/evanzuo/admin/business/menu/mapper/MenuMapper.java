@@ -13,7 +13,7 @@ import java.util.List;
 public interface MenuMapper extends BaseMapper<CommonMenuList> {
 //
 //    @Select("select distinct pc.* " +
-//            "from pms_category pc " +
+//            "from tb_wang_menu_category pc " +
 //            "join role_category_relation rcr on pc.cat_id = rcr.category_id " +
 //            "join skin.tb_wang_role role on role.id = rcr.role_id " +
 //            "where cat_level = 1 and role_name in (${roleNames})"
@@ -21,11 +21,11 @@ public interface MenuMapper extends BaseMapper<CommonMenuList> {
 
 
     @Select("select *\n" +
-            "from pms_category as c\n" +
+            "from tb_wang_menu_category as c\n" +
             "where if (\n" +
             "    c.cat_level = 1, c.cat_id in (\n" +
             "        select distinct pc.cat_id\n" +
-            "        from pms_category pc\n" +
+            "        from tb_wang_menu_category pc\n" +
             "        join role_category_relation rcr on pc.cat_id = rcr.category_id\n" +
             "        join skin.tb_wang_role role on role.id = rcr.role_id\n" +
             "        where value in (${roleNames})\n" +
