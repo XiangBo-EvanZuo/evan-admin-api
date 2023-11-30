@@ -11,9 +11,9 @@
     <packaging>pom</packaging>
     <artifactId>evan-admin-business-core</artifactId>
     <modules>
-        <module>business-resource</module>
-        <module>business-menu</module>
-        <module>business-demo</module>
+        <module>evan-admin-order</module>
+        <module>evan-admin-user</module>
+        <module>evan-admin-pay</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
