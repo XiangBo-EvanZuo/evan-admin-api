@@ -10,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("cn.evanzuo.admin.gateway")
+@MapperScan("cn.evanzuo.admin.gateway.mapper")
 public class EvanAdminGateway {
 
   public static void main(String[] args) {

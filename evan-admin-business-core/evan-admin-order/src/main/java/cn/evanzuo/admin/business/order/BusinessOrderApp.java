@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients(basePackages = "cn.evanzuo.admin.common.feign.client.clients")
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("cn.evanzuo.admin.business.resource.mapper")
+@MapperScan("cn.evanzuo.admin.business.order.mapper")
 public class BusinessOrderApp {
 
   public static void main(String[] args) {

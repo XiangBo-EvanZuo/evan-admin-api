@@ -11,7 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("cn.evanzuo.admin.auth.mapper")
+@MapperScan("cn.evanzuo.admin.oauth2.cas.mapper")
 @EnableCaching(proxyTargetClass = true)
 public class EvanAdminOauthCAS {
 
