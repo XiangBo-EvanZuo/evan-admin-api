@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>oauth2-auth</artifactId>
+    <artifactId>evan-admin-oauth2-cas</artifactId>
 
     <dependencies>
         <dependency>

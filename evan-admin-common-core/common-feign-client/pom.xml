@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.evan.zuo</groupId>
-        <artifactId>common-core</artifactId>
+        <artifactId>evan-admin-common-core</artifactId>
         <version>1.0.0</version>
     </parent>
 

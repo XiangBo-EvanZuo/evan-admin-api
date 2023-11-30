@@ -10,11 +10,11 @@
     <version>1.0.0</version>
 
     <modules>
-        <module>oauth2-gateway</module>
-        <module>oauth2-auth</module>
-        <module>common-core</module>
-        <module>business-core</module>
-        <module>common-core</module>
+        <module>evan-admin-gateway</module>
+        <module>evan-admin-oauth2-cas</module>
+        <module>evan-admin-common-core</module>
+        <module>evan-admin-business-core</module>
+        <module>evan-admin-common-core</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
