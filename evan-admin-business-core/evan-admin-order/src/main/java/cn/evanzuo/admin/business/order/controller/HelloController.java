@@ -26,17 +26,6 @@ public class HelloController {
   @Autowired
   EvanFeignUserInfo evanFeignUserInfo;
 
-
-  @GetMapping("/hello")
-  public String hello() {
-    return "Hello World !";
-  }
-
-  @GetMapping("/demo")
-  public String demo() {
-    return "Hello World ! demo";
-  }
-
   @GetMapping("/feign")
   public String feign(HttpServletRequest request) {
     // 从Header中获取用户信息
