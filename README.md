@@ -20,8 +20,8 @@
 - 部署
 
 ## DDD
-- 数据库重新合理设计
 - 模块rename
+- 数据库重新合理设计
 - DDD架构拆分
 
 - 租户隔离策略
@@ -31,10 +31,10 @@
 ## 前言
 我们理想的微服务权限解决方案应该是这样的，认证服务负责认证，网关负责校验认证和鉴权，其他API服务负责处理自己的业务逻辑。安全相关的逻辑只存在于认证服务和网关服务中，其他服务只是单纯地提供服务而没有任何安全相关逻辑。
 ## 架构
-通过认证服务(`oauth2-auth`)进行统一认证，然后通过网关（`oauth2-gateway`）来统一校验认证和鉴权。采用Nacos作为注册中心，Gateway作为网关，使用nimbus-jose-jwtJWT库操作JWT令牌。
-- oauth2-auth：Oauth2认证服务，负责对登录用户进行认证，整合Spring Security Oauth2
+通过认证服务(`evan-admin-oauth2-cas`)进行统一认证，然后通过网关（`evan-admin-gateway`）来统一校验认证和鉴权。采用Nacos作为注册中心，Gateway作为网关，使用nimbus-jose-jwtJWT库操作JWT令牌。
+- evan-admin-oauth2-cas：Oauth2认证服务，负责对登录用户进行认证，整合Spring Security Oauth2
 - ouath2-gateway：网关服务，负责请求转发和鉴权功能，整合Spring Security Oauth2
-- business-resource：受保护的API服务，用户鉴权通过后可以访问该服务，不整合Spring Security Oauth2
+- evan-admin-order：受保护的API服务，用户鉴权通过后可以访问该服务，不整合Spring Security Oauth2
 
 
 

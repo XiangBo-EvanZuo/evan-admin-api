@@ -13,8 +13,8 @@ from tb_wang_role twr
         r.value,
         group_concat(cat_id) as menu
     from tb_wang_role r
-             left join menu.tb_wang_role_category_relation rcr on rcr.role_id = r.id
-             left join menu.tb_wang_menu_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1
+             left join tb_wang_role_category_relation rcr on rcr.role_id = r.id
+             left join tb_wang_menu_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1
 
     group by r.value
 ) s on s.value = twr.value

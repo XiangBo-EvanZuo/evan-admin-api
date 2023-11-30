@@ -1,4 +1,4 @@
-create table if not exists menu.tb_wang_menu_category
+create table if not exists tb_wang_menu_category
 (
     cat_id                bigint auto_increment comment '分类id'
         primary key,
@@ -20,9 +20,9 @@ create table if not exists menu.tb_wang_menu_category
     comment '商品三级分类' auto_increment = 1443;
 
 create index parent_cid
-    on menu.tb_wang_menu_category (parent_cid);
+    on tb_wang_menu_category (parent_cid);
 
-create table if not exists menu.tb_wang_role_category_relation
+create table if not exists tb_wang_role_category_relation
 (
     id          int auto_increment
         primary key,
@@ -33,7 +33,7 @@ create table if not exists menu.tb_wang_role_category_relation
 )
     auto_increment = 46;
 
-create table if not exists menu.tb_wang_user_dept
+create table if not exists tb_wang_user_dept
 (
     cat_id      bigint auto_increment
         primary key,
@@ -49,7 +49,7 @@ create table if not exists menu.tb_wang_user_dept
 )
     auto_increment = 1443;
 
-create table if not exists menu.tb_wang_user_dept_relation
+create table if not exists tb_wang_user_dept_relation
 (
     id      int auto_increment
         primary key,

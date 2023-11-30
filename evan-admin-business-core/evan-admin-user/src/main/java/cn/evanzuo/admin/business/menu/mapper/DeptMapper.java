@@ -32,7 +32,7 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
 //    @Select("select *\n" +
 //            "from tb_wang_user\n" +
 //            "left join tb_wang_user_extra twue on tb_wang_user.id = twue.user_id\n" +
-//            "left join menu.tb_wang_user_dept_relation twudr on tb_wang_user.id = twudr.user_id\n" +
+//            "left join tb_wang_user_dept_relation twudr on tb_wang_user.id = twudr.user_id\n" +
 //            "where twudr.dept_id = #{deptId}")
     @Select("select twu.id, twu.username, cast(group_concat(twr.value) as char) as roles, nick_name,\n" +
             "       create_time,\n" +
@@ -43,7 +43,7 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "left join tb_wang_role twr on twurr.role_id = twr.id\n" +
             "left join tb_wang_user twu on twurr.user_id = twu.id\n" +
             "left join tb_wang_user_extra twue on twu.id = twue.user_id\n" +
-            "left join menu.tb_wang_user_dept_relation twudr on twu.id = twudr.user_id\n" +
+            "left join tb_wang_user_dept_relation twudr on twu.id = twudr.user_id\n" +
             "where twudr.dept_id = #{deptId} and nick_name like concat('%', #{nickname}, '%') \n" +
             "and username like concat('%', #{account}, '%') \n" +
             "group by twu.id")
@@ -81,8 +81,8 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "        r.value,\n" +
             "        group_concat(cat_id) as menu\n" +
             "    from tb_wang_role r\n" +
-            "             left join menu.tb_wang_role_category_relation rcr on rcr.role_id = r.id\n" +
-            "             left join menu.tb_wang_menu_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1\n" +
+            "             left join tb_wang_role_category_relation rcr on rcr.role_id = r.id\n" +
+            "             left join tb_wang_menu_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1\n" +
             "\n" +
             "    group by r.value\n" +
             ") s on s.value = twr.value\n" +
