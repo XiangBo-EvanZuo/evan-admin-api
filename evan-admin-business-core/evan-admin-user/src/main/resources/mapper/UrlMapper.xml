@@ -14,9 +14,9 @@
         </foreach>
     </insert>
     <insert id="updateRoleMenu">
-        delete from role_category_relation
+        delete from tb_wang_role_category_relation
         where role_id = #{roleId};
-        insert into menu.role_category_relation (role_id, category_id)
+        insert into menu.tb_wang_role_category_relation (role_id, category_id)
         values
         <foreach collection="list" item="RoleMenuItem" open="" separator="," close="">
             (#{roleId},

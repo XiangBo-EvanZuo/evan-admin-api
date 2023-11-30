@@ -197,7 +197,7 @@ create table if not exists pms_spu_info_desc
 )
     comment 'spu信息介绍';
 
-create table if not exists role_category_relation
+create table if not exists tb_wang_role_category_relation
 (
     id          int auto_increment
         primary key,

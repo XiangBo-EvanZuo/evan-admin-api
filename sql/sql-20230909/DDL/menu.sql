@@ -22,7 +22,7 @@ create table if not exists menu.tb_wang_menu_category
 create index parent_cid
     on menu.tb_wang_menu_category (parent_cid);
 
-create table if not exists menu.role_category_relation
+create table if not exists menu.tb_wang_role_category_relation
 (
     id          int auto_increment
         primary key,

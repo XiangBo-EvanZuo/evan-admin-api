@@ -22,7 +22,7 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "    c.cat_level = 1, c.cat_id in (\n" +
             "        select distinct pc.cat_id\n" +
             "        from tb_wang_menu_category pc\n" +
-            "        join role_category_relation rcr on pc.cat_id = rcr.category_id\n" +
+            "        join tb_wang_role_category_relation rcr on pc.cat_id = rcr.category_id\n" +
             "        join skin.tb_wang_role role on role.id = rcr.role_id\n" +
             "        where value in (${roleNames})\n" +
             "    ),\n" +
@@ -81,7 +81,7 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "        r.value,\n" +
             "        group_concat(cat_id) as menu\n" +
             "    from skin.tb_wang_role r\n" +
-            "             left join menu.role_category_relation rcr on rcr.role_id = r.id\n" +
+            "             left join menu.tb_wang_role_category_relation rcr on rcr.role_id = r.id\n" +
             "             left join menu.tb_wang_menu_category pc on pc.cat_id = rcr.category_id and pc.cat_level = 1\n" +
             "\n" +
             "    group by r.value\n" +
