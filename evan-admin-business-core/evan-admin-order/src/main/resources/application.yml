@@ -4,7 +4,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: business-resource
+    name: evan-admin-order
   cloud:
     nacos:
       discovery:

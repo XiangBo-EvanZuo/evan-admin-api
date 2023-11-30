@@ -23,10 +23,10 @@ spring:
             - Path=/business-demo/**
           filters:
             - StripPrefix=1
-        - id: business-resource
-          uri: lb://business-resource
+        - id: evan-admin-order-route
+          uri: lb://evan-admin-gateway
           predicates:
-            - Path=/business-resource/**
+            - Path=/order/**
           filters:
             - StripPrefix=1
         - id: business-menu-route
@@ -89,7 +89,7 @@ secure:
 #      - "/auth/oauth/logout"
       - "/oauth/authorize"
       - "/login"
-      - "/business-resource/demo"
+      - "/order/demo"
 
 mybatis-plus:
   configuration:
