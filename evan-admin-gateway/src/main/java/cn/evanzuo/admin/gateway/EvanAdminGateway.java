@@ -11,10 +11,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @SpringBootApplication
 @MapperScan("cn.evanzuo.admin.gateway")
-public class Oauth2GatewayApplication {
+public class EvanAdminGateway {
 
   public static void main(String[] args) {
-    SpringApplication.run(Oauth2GatewayApplication.class, args);
+    SpringApplication.run(EvanAdminGateway.class, args);
   }
 
 }

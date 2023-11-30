@@ -13,10 +13,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication
 @MapperScan("cn.evanzuo.admin.auth.mapper")
 @EnableCaching(proxyTargetClass = true)
-public class Oauth2AuthApplication {
+public class EvanAdminOauthCAS {
 
   public static void main(String[] args) {
-    SpringApplication.run(Oauth2AuthApplication.class, args);
+    SpringApplication.run(EvanAdminOauthCAS.class, args);
   }
 
 }
