@@ -14,6 +14,6 @@ public class BusinessDemo {
     public String hello(HttpServletRequest request) {
         String userStr = request.getHeader("user");
         LOGGER.info("user:{}", userStr);
-        return "business-demo!" + userStr;
+        return "evan-admin-pay!" + userStr;
     }
 }

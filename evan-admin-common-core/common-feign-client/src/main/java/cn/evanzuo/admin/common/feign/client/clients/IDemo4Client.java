@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(value = "business-demo")
+@FeignClient(value = "evan-admin-pay")
 public interface IDemo4Client {
     @RequestMapping(
             value = "/business-demo",
