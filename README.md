@@ -20,8 +20,8 @@
 - 部署
 
 ## DDD
-- 模块rename
-- 数据库重新合理设计
+- 模块rename【模块名：done】【package名：undo】
+- 数据库重新合理设计【done】
 - DDD架构拆分
 
 - 租户隔离策略

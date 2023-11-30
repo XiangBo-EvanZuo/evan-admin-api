@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.resource;
+package cn.evanzuo.admin.business.menu;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -12,11 +12,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients(basePackages = "cn.evanzuo.admin.common.feign.client.clients")
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("cn.evanzuo.admin.business.resource.mapper")
-public class BusinessResourceApp {
+@MapperScan("cn.evanzuo.admin.business.menu.mapper")
+public class BusinessUserApp {
 
   public static void main(String[] args) {
-    SpringApplication.run(BusinessResourceApp.class, args);
+    SpringApplication.run(BusinessUserApp.class, args);
   }
 
 }
