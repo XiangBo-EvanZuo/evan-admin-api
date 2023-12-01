@@ -15,6 +15,7 @@
         <module>evan-admin-common-core</module>
         <module>evan-admin-business-core</module>
         <module>evan-admin-common-core</module>
+        <module>evan-admin-business-core/evan-admin-pay/evan-admin-pay-sdk</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
