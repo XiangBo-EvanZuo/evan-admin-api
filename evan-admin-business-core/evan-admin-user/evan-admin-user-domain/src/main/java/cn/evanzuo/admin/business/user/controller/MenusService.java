@@ -1,9 +1,9 @@
 package cn.evanzuo.admin.business.user.controller;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
-import cn.evanzuo.admin.business.user.VO.MenuListVo;
-import cn.evanzuo.admin.business.user.VO.MenuVo;
-import cn.evanzuo.admin.business.user.VO.Meta;
+import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuListVo;
+import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;
+import cn.evanzuo.admin.business.user.sdk.feign.dto.Meta;
 import cn.evanzuo.admin.business.user.service.imp.ProjectMenuDBImpl;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -12,7 +12,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -21,15 +21,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@RestController()
-@RequestMapping("/menu")
-public class Menus {
-  private final static Logger LOGGER = LoggerFactory.getLogger(Menus.class);
+@Component
+public class MenusService {
+  private final static Logger LOGGER = LoggerFactory.getLogger(MenusService.class);
 
   @Autowired
   ProjectMenuDBImpl projectMenuDB;
 
-  @PostMapping("/list")
   public MenuVo project(HttpServletRequest request) {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
@@ -48,7 +46,7 @@ public class Menus {
     MenuVo menuVo = new MenuVo();
     List<CommonMenuList> projectMenus = allMenus.stream()
             .filter(item -> item.getParentCid() == 0)
-            .peek(item -> item.setChildren(Menus.getChildren(item, allMenus)))
+            .peek(item -> item.setChildren(MenusService.getChildren(item, allMenus)))
             .sorted(Comparator.comparingInt(CommonMenuList::getSort).reversed())
             .collect(Collectors.toList());
 
@@ -59,8 +57,7 @@ public class Menus {
     return menuVo;
   }
 
-  @PostMapping("/listPage")
-  public IPage<List<CommonMenuList>> menuListPage(HttpServletRequest request, @RequestBody Page page) {
+  public IPage<List<CommonMenuList>> menuListPage(HttpServletRequest request, Page page) {
       String userStr = request.getHeader("user");
       JSONObject userJsonObject = new JSONObject(userStr);
       System.out.println((userJsonObject));
@@ -104,11 +101,9 @@ public class Menus {
   public static List<CommonMenuList> getChildren(CommonMenuList root, List<CommonMenuList> allMenus) {
     return allMenus.stream()
             .filter(item -> Objects.equals(item.getParentCid(), root.getCatId()))
-            .peek(item -> item.setChildren(Menus.getChildren(item, allMenus)))
+            .peek(item -> item.setChildren(MenusService.getChildren(item, allMenus)))
             .sorted(Comparator.comparingInt(CommonMenuList::getSort).reversed())
             .collect(Collectors.toList());
   }
-
-
 }
 
