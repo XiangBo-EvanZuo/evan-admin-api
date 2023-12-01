@@ -20,27 +20,16 @@ import java.util.List;
 public class HelloController {
   private final static Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
   @Autowired
-  EvanFeignUserInfo iDemo3Client;
+  EvanFeignUserInfo evanFeignUserInfo;
 
   @Resource
   private UserServiceDBImpl userServiceDB;
-
-  @GetMapping("/hello")
-  public String hello() {
-    return "Hello World !";
-  }
-
-  @GetMapping("/demo")
-  public String demo() {
-    return "Hello World ! demo";
-  }
-
   @GetMapping("/feign")
   public String feign(HttpServletRequest request) {
 
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
-    String res = iDemo3Client.getUserMenuList(userStr);
+    String res = evanFeignUserInfo.getUserMenuList(userStr);
     LOGGER.info("/feign res:{}", res);
     return "Hello World ! feign";
   }

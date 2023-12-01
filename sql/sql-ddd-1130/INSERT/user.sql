@@ -1,7 +1,7 @@
 insert into tb_wang_auth_url (id, status, module_id, path, deleted)
 values  (3, 1, 2, '/menu/list', 0),
         (5, 1, 1, '/feign', 0),
-        (6, 1, 4, '/business-demo', 0),
+        (6, 1, 4, '/pay-demo', 0),
         (7, 1, 2, '/user/currentUser', 0),
         (8, 1, 4, '/feign', 0),
         (9, 1, 2, '/menu/list', 0),

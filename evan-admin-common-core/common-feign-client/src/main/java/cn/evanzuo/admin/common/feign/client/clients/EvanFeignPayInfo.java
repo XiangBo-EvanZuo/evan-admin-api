@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(value = "evan-admin-pay")
-public interface IDemo4Client {
+public interface EvanFeignPayInfo {
     @RequestMapping(
-            value = "/business-demo",
+            value = "/pay-demo",
             method = RequestMethod.GET
     )
     String getUserIntroduce(@RequestHeader("user") String headers);
