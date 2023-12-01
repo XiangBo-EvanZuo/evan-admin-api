@@ -15,7 +15,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
- * 天路统一异常处理切面
+ * 异常处理切面
  */
 //@Aspect
 //@Component
