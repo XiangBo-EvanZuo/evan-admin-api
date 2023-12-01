@@ -1,7 +1,6 @@
 package cn.evanzuo.admin.business.order.controller;
 
 import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
-import cn.evanzuo.admin.common.feign.client.clients.FeignGetMenuList;
 import cn.evanzuo.admin.common.feign.client.clients.IDemo4Client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +14,10 @@ import javax.servlet.http.HttpServletRequest;
  * @author EvanZuo[739221432@qq.com] 2023/09/24
  */
 @RestController
-public class HelloController {
-  private final static Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
+public class FeignDemo {
+  private final static Logger LOGGER = LoggerFactory.getLogger(FeignDemo.class);
   @Autowired
-  FeignGetMenuList iDemo3Client;
+  EvanFeignUserInfo iDemo3Client;
 
   @Autowired
   IDemo4Client iDemo4Client;
@@ -30,11 +29,11 @@ public class HelloController {
   public String feign(HttpServletRequest request) {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
-    String resDemo3 = iDemo3Client.getUserIntroduce(userStr);
+    String resDemo3 = iDemo3Client.getUserMenuList(userStr);
     LOGGER.info("/feignDemo3 res:{}", resDemo3);
     String resDemo4 = iDemo4Client.getUserIntroduce(userStr);
     LOGGER.info("/feignDemo4 res:{}", resDemo4);
-    String userInfo = evanFeignUserInfo.getUserIntroduce(userStr);
+    String userInfo = evanFeignUserInfo.getCurrentUser(userStr);
     LOGGER.info("/evanFeignUserInfo res:{}", userInfo);
     return "Hello World ! feign";
   }

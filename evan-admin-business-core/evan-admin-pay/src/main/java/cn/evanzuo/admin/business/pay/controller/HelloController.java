@@ -2,7 +2,7 @@ package cn.evanzuo.admin.business.pay.controller;
 
 import cn.evanzuo.admin.business.pay.domain.User;
 import cn.evanzuo.admin.business.pay.service.imp.UserServiceDBImpl;
-import cn.evanzuo.admin.common.feign.client.clients.FeignGetMenuList;
+import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import java.util.List;
 public class HelloController {
   private final static Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
   @Autowired
-  FeignGetMenuList iDemo3Client;
+  EvanFeignUserInfo iDemo3Client;
 
   @Resource
   private UserServiceDBImpl userServiceDB;
@@ -40,7 +40,7 @@ public class HelloController {
 
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
-    String res = iDemo3Client.getUserIntroduce(userStr);
+    String res = iDemo3Client.getUserMenuList(userStr);
     LOGGER.info("/feign res:{}", res);
     return "Hello World ! feign";
   }

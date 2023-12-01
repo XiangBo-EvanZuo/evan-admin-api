@@ -1,10 +1,13 @@
-package cn.evanzuo.admin.business.order.controller;
+package cn.evanzuo.admin.business.user.controller;
 
 
 import cn.evan.zuo.common.entity.CommonApiResult;
-import cn.evanzuo.admin.business.order.DTO.PerCodeDTO;
-import cn.evanzuo.admin.business.order.domain.RoleItem;
-import cn.evanzuo.admin.common.feign.client.clients.FeignGetMenuList;
+import cn.evanzuo.admin.business.user.DTO.PerCodeDTO;
+import cn.evanzuo.admin.business.user.entity.RoleItem;
+import cn.evanzuo.admin.business.user.entity.User;
+import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
+import cn.hutool.core.convert.Convert;
+import cn.hutool.json.JSONObject;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,11 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-
-import cn.evanzuo.admin.business.order.domain.User;
-import cn.hutool.core.convert.Convert;
-import cn.hutool.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Collections;
@@ -31,11 +29,11 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController {
-  private final static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+public class UserInfoController {
+  private final static Logger LOGGER = LoggerFactory.getLogger(UserInfoController.class);
 
   @Autowired
-  FeignGetMenuList feignGetMenuList;
+  EvanFeignUserInfo evanFeignUserInfo;
 
   @GetMapping("/currentUser")
   public User currentUser(HttpServletRequest request) throws UnsupportedEncodingException {
@@ -65,7 +63,7 @@ public class UserController {
   @GetMapping("/feignGetMenuList")
   public Object feignGetMenuList(HttpServletRequest request) throws UnsupportedEncodingException {
     String userStr = request.getHeader("user");
-    String menuListStr = feignGetMenuList.getUserIntroduce(userStr);
+    String menuListStr = evanFeignUserInfo.getUserMenuList(userStr);
     LOGGER.info("menuListStr: {}", menuListStr);
     CommonApiResult demo = JSON.parseObject(menuListStr, CommonApiResult.class);
     return demo.getData();

@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.order.DTO;
+package cn.evanzuo.admin.business.user.DTO;
 
 import lombok.Builder;
 import lombok.Data;

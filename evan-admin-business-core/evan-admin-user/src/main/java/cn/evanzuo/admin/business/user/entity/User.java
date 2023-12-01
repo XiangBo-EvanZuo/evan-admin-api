@@ -1,10 +1,10 @@
-package cn.evanzuo.admin.business.order.domain;
+package cn.evanzuo.admin.business.user.entity;
+
+import java.util.List;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.util.List;
 
 /**
  * @author EvanZuo[739221432@qq.com] 2023/09/24
