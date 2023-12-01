@@ -4,7 +4,6 @@ import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
 import cn.evanzuo.admin.common.feign.client.clients.EvanFeignPayInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,13 +26,13 @@ public class FeignDemo {
   public String feign(HttpServletRequest request) {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
-    String resDemo3 = evanFeignUserInfo.getUserMenuList(userStr);
-    LOGGER.info("/feignDemo3 res:{}", resDemo3);
-    String resDemo4 = evanFeignPayInfo.getUserIntroduce(userStr);
-    LOGGER.info("/feignDemo4 res:{}", resDemo4);
-    String userInfo = evanFeignUserInfo.getCurrentUser(userStr);
-    LOGGER.info("/evanFeignUserInfo res:{}", userInfo);
-    return "Hello World ! feign";
+    String menuList = evanFeignUserInfo.getUserMenuList(userStr);
+    LOGGER.info("menuList res:{}", menuList);
+    String payInfo = evanFeignPayInfo.getUserIntroduce(userStr);
+    LOGGER.info("payInfo res:{}", payInfo);
+    String currentUserInfo = evanFeignUserInfo.getCurrentUser(userStr);
+    LOGGER.info("currentUserInfo res:{}", currentUserInfo);
+    return "Hello World ! feign! 3个Feign连续调用";
   }
 }
 
