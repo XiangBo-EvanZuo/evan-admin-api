@@ -1,10 +1,13 @@
 package cn.evanzuo.admin.business.order.controller;
 
+//import cn.evanzuo.admin.business.user.sdk.feign.api.impl.UserFeignProviderImpl;
+import cn.evanzuo.admin.business.user.sdk.feign.api.impl.UserFeignProviderImpl;
 import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
 import cn.evanzuo.admin.common.feign.client.clients.EvanFeignPayInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,13 +23,18 @@ public class FeignDemo {
   @Resource
   EvanFeignUserInfo evanFeignUserInfo;
 
-  @Resource
+  @Autowired
   EvanFeignPayInfo evanFeignPayInfo;
+
+  @Autowired
+  UserFeignProviderImpl userFeignProvider;
 
   @GetMapping("/feign")
   public String feign(HttpServletRequest request) {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
+    String a = userFeignProvider.project(userStr);
+    log.info("a: {}", a);
     String menuList = evanFeignUserInfo.getUserMenuList(userStr);
     log.info("menuList res:{}", menuList);
     String payInfo = evanFeignPayInfo.getUserIntroduce(userStr);
