@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.evan.zuo</groupId>
-            <artifactId>common-api-config</artifactId>
+            <artifactId>common-api-convention-config</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
