@@ -2,6 +2,7 @@ package cn.evanzuo.admin.business.order.controller;
 
 //import cn.evanzuo.admin.business.user.sdk.feign.api.impl.UserFeignProviderImpl;
 import cn.evanzuo.admin.business.user.sdk.feign.api.impl.UserFeignProviderImpl;
+import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;
 import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
 import cn.evanzuo.admin.common.feign.client.clients.EvanFeignPayInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -33,8 +34,8 @@ public class FeignDemo {
   public String feign(HttpServletRequest request) {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
-    String a = userFeignProvider.project(userStr);
-    log.info("a: {}", a);
+    MenuVo menuVo = userFeignProvider.project(userStr);
+    log.info("menuVo: {}", menuVo);
     String menuList = evanFeignUserInfo.getUserMenuList(userStr);
     log.info("menuList res:{}", menuList);
     String payInfo = evanFeignPayInfo.getUserIntroduce(userStr);
