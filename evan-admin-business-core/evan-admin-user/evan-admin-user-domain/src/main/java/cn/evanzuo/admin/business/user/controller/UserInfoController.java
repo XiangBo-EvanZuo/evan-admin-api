@@ -1,11 +1,10 @@
 package cn.evanzuo.admin.business.user.controller;
 
 
-import cn.evan.zuo.common.entity.CommonApiResult;
 import cn.evanzuo.admin.business.user.DTO.PerCodeDTO;
 import cn.evanzuo.admin.business.user.entity.RoleItem;
 import cn.evanzuo.admin.business.user.entity.User;
-import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
+import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.json.JSONObject;
 import com.alibaba.fastjson.JSON;
@@ -33,7 +32,7 @@ public class UserInfoController {
   private final static Logger LOGGER = LoggerFactory.getLogger(UserInfoController.class);
 
   @Autowired
-  EvanFeignUserInfo evanFeignUserInfo;
+  MenusService menusService;
 
   @GetMapping("/currentUser")
   public User currentUser(HttpServletRequest request) throws UnsupportedEncodingException {
@@ -60,13 +59,9 @@ public class UserInfoController {
             .build();
   }
 
-  @GetMapping("/feignGetMenuList")
-  public Object feignGetMenuList(HttpServletRequest request) throws UnsupportedEncodingException {
-    String userStr = request.getHeader("user");
-    String menuListStr = evanFeignUserInfo.getUserMenuList(userStr);
-    LOGGER.info("menuListStr: {}", menuListStr);
-    CommonApiResult demo = JSON.parseObject(menuListStr, CommonApiResult.class);
-    return demo.getData();
+  @GetMapping("/getMenuList")
+  public MenuVo getMenuList(HttpServletRequest request) {
+      return menusService.project(request);
   }
 
   @GetMapping

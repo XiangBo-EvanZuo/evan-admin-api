@@ -10,7 +10,7 @@ values  (1, '/order/hello'),
         (9, '/user/menu/list'),
         (10, '/auth/oauth/logout'),
         (11, '/order/user/getPermCode'),
-        (12, '/order/user/feignGetMenuList'),
+        (12, '/order/user/getMenuList'),
         (13, '/user/menu/listPage'),
         (14, '/user/system/getDeptList'),
         (15, '/user/system/getAccountList');

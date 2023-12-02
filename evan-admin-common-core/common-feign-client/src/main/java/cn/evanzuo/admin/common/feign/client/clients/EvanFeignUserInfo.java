@@ -11,6 +11,7 @@ public interface EvanFeignUserInfo {
             value = "/user/currentUser",
             method = RequestMethod.GET
     )
+    // user 放到Rquest的header里面，其他微服务可以从Request里面取到
     String getCurrentUser(@RequestHeader("user") String headers);
 
     @RequestMapping(
