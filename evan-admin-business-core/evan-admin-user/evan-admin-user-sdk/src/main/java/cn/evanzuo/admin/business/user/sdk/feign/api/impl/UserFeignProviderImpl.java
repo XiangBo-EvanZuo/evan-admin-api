@@ -1,5 +1,5 @@
 package cn.evanzuo.admin.business.user.sdk.feign.api.impl;
-import cn.evan.config.api.CommonResult;
+import cn.evan.admin.common.convention.config.api.CommonResult;
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evanzuo.admin.business.user.sdk.feign.api.UserFeignMenuProvider;
 import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;

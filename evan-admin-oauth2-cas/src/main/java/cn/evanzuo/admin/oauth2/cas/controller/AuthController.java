@@ -1,6 +1,6 @@
 package cn.evanzuo.admin.oauth2.cas.controller;
 
-import cn.evan.config.api.CommonResult;
+import cn.evan.admin.common.convention.config.api.CommonResult;
 import cn.evanzuo.admin.oauth2.cas.utils.redis.RedisService;
 import cn.evanzuo.admin.oauth2.cas.domain.dto.Oauth2TokenDto;
 import cn.hutool.json.JSONObject;

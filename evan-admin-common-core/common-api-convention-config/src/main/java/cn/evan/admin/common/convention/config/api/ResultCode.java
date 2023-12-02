@@ -1,4 +1,4 @@
-package cn.evan.config.api;
+package cn.evan.admin.common.convention.config.api;
 
 /**
  * 枚举了一些常用API操作码

@@ -1,5 +1,5 @@
 package cn.evanzuo.admin.gateway.filter;
-import cn.evan.config.api.CommonResult;
+import cn.evan.admin.common.convention.config.api.CommonResult;
 import cn.evanzuo.admin.gateway.config.IgnoreUrlsConfig;
 import cn.evanzuo.admin.gateway.utils.redis.RedisService;
 import cn.hutool.core.util.StrUtil;

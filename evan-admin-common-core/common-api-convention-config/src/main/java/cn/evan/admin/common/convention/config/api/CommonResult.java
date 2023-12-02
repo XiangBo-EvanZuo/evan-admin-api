@@ -1,4 +1,4 @@
-package cn.evan.config.api;
+package cn.evan.admin.common.convention.config.api;
 
 import lombok.Data;
 
