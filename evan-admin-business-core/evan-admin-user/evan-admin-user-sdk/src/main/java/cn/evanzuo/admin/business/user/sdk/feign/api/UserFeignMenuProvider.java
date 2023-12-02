@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface UserFeignMenuProvider {
-    MenuVo project(HttpServletRequest request);
+    default MenuVo menuListFeign(String user) {
+        return null;
+    };
+    default MenuVo project(HttpServletRequest request) {
+        return null;
+    };
     IPage<List<CommonMenuList>> menuListPage(HttpServletRequest request, Page page);
 }

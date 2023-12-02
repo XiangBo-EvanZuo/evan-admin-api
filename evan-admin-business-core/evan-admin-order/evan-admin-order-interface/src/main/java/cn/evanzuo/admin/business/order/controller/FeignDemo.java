@@ -34,7 +34,7 @@ public class FeignDemo {
   public String feign(HttpServletRequest request) {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
-    MenuVo menuVo = userFeignProvider.project(userStr);
+    MenuVo menuVo = userFeignProvider.menuListFeign(userStr);
     log.info("menuVo: {}", menuVo);
     String menuList = evanFeignUserInfo.getUserMenuList(userStr);
     log.info("menuList res:{}", menuList);
