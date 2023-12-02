@@ -1,6 +1,6 @@
 package cn.evanzuo.admin.business.order.common;
 
-import cn.evanzuo.admin.business.order.api.CommonResult;
+import cn.evan.config.api.CommonResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;

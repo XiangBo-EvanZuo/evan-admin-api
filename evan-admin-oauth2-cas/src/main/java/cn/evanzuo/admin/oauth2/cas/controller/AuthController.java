@@ -1,5 +1,6 @@
 package cn.evanzuo.admin.oauth2.cas.controller;
 
+import cn.evan.config.api.CommonResult;
 import cn.evanzuo.admin.oauth2.cas.utils.redis.RedisService;
 import cn.evanzuo.admin.oauth2.cas.domain.dto.Oauth2TokenDto;
 import cn.hutool.json.JSONObject;
@@ -14,9 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.Map;
 import java.util.Objects;
-
-import cn.evanzuo.admin.oauth2.cas.api.CommonResult;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**

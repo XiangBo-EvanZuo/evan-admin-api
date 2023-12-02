@@ -1,6 +1,6 @@
 package cn.evanzuo.admin.oauth2.cas.exception;
 
-import cn.evanzuo.admin.oauth2.cas.api.CommonResult;
+import cn.evan.config.api.CommonResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 

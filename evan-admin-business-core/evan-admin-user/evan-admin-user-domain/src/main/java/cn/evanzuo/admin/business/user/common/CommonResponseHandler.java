@@ -1,6 +1,5 @@
 package cn.evanzuo.admin.business.user.common;
-
-import cn.evanzuo.admin.business.user.api.CommonResult;
+import cn.evan.config.api.CommonResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;

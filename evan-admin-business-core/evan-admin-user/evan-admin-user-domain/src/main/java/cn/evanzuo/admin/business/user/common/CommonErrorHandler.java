@@ -1,7 +1,7 @@
 package cn.evanzuo.admin.business.user.common;
 
-import cn.evanzuo.admin.business.user.api.CommonResult;
-import cn.evanzuo.admin.business.user.api.IErrorCode;
+import cn.evan.config.api.CommonResult;
+import cn.evan.config.api.IErrorCode;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

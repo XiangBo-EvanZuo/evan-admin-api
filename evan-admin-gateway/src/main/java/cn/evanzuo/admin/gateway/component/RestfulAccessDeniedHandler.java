@@ -1,6 +1,6 @@
 package cn.evanzuo.admin.gateway.component;
 
-import cn.evanzuo.admin.gateway.api.CommonResult;
+import cn.evan.config.api.CommonResult;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,6 @@
 package cn.evanzuo.admin.business.pay.common;
-
-import cn.evanzuo.admin.business.pay.api.CommonResult;
-import cn.evanzuo.admin.business.pay.api.IErrorCode;
+import cn.evan.config.api.CommonResult;
+import cn.evan.config.api.IErrorCode;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

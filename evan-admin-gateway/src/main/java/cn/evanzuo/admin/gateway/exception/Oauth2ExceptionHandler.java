@@ -1,6 +1,6 @@
 package cn.evanzuo.admin.gateway.exception;
 
-import cn.evanzuo.admin.gateway.api.CommonResult;
+import cn.evan.config.api.CommonResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

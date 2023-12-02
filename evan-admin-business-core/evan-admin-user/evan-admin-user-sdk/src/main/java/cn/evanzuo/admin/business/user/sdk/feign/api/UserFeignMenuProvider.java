@@ -1,7 +1,6 @@
 package cn.evanzuo.admin.business.user.sdk.feign.api;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
-import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuListVo;
 import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
