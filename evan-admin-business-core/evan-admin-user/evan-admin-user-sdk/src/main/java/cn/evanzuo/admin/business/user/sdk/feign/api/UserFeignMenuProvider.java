@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface UserFeignMenuProvider {
-    default MenuVo menuListFeign(String user) {
+    default MenuVo menuListFeign(String userHeaderString) {
         return null;
     };
     default MenuVo project(HttpServletRequest request) {
