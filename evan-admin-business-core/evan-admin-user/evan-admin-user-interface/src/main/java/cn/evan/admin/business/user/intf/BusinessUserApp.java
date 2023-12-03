@@ -11,8 +11,14 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients(basePackages = "cn.evanzuo.admin.common.feign.client.clients")
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("cn.evanzuo.admin.business.user.mapper")
-@ComponentScan(basePackages = {"cn.evanzuo.admin.business.user"})
+@MapperScan({
+        "cn.evanzuo.admin.business.user.mapper",
+        "cn.evan.admin.user.infrastructure.repository"
+})
+@ComponentScan(basePackages = {
+        "cn.evanzuo.admin.business.user",
+        "cn.evan.admin.user.infrastructure"
+})
 public class BusinessUserApp {
 
   public static void main(String[] args) {

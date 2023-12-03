@@ -1,21 +1,18 @@
 package cn.evanzuo.admin.business.user.controller;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
+import cn.evanzuo.admin.business.user.aggregate.menu.repository.UserMenuRepository;
 import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuListVo;
 import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;
 import cn.evanzuo.admin.business.user.sdk.feign.dto.Meta;
-import cn.evanzuo.admin.business.user.service.imp.ProjectMenuDBImpl;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -26,8 +23,8 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 public class MenusService {
-  @Autowired
-  ProjectMenuDBImpl projectMenuDB;
+  @Resource
+  UserMenuRepository userMenuRepository;
 
   public MenuVo project(HttpServletRequest request) {
     // 从Header中获取用户信息
@@ -43,7 +40,7 @@ public class MenusService {
     log.info(authorities.toString());
     log.info(authoritiesStr);
     System.out.println(authorities);
-    List<CommonMenuList> allMenus = projectMenuDB.getBaseMapper().getMenuListByRole(authoritiesStr);
+    List<CommonMenuList> allMenus = userMenuRepository.getMenuListByRole(authoritiesStr);
     MenuVo menuVo = new MenuVo();
     List<CommonMenuList> projectMenus = allMenus.stream()
             .filter(item -> item.getParentCid() == 0)
@@ -63,7 +60,7 @@ public class MenusService {
       JSONObject userJsonObject = new JSONObject(userStr);
       System.out.println((userJsonObject));
       QueryWrapper queryWrapper = new QueryWrapper();
-      IPage<List<CommonMenuList>> allMenus = projectMenuDB.page(page, queryWrapper);
+      IPage<List<CommonMenuList>> allMenus = userMenuRepository.basePage(page, queryWrapper);
       return allMenus;
   }
   public List<MenuListVo> format(
