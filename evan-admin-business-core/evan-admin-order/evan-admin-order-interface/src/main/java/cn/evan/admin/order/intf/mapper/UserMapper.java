@@ -1,6 +1,6 @@
-package cn.evan.admin.business.order.intf.mapper;
+package cn.evan.admin.order.intf.mapper;
 
-import cn.evan.admin.business.order.intf.domain.User;
+import cn.evan.admin.order.intf.domain.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

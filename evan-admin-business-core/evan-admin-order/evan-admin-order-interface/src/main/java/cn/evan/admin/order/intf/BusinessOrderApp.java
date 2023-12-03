@@ -1,4 +1,4 @@
-package cn.evan.admin.business.order.intf;
+package cn.evan.admin.order.intf;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -15,9 +15,9 @@ import org.springframework.context.annotation.ComponentScan;
 })
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("cn.evan.admin.business.order.intf.mapper")
+@MapperScan("cn.evan.admin.order.intf.mapper")
 @ComponentScan(basePackages = {
-        "cn.evan.admin.business.order",
+        "cn.evan.admin.order",
         "cn.evan.admin.user.sdk"
 })
 public class BusinessOrderApp {

@@ -1,4 +1,4 @@
-package cn.evan.admin.business.order.intf.common;
+package cn.evan.admin.order.intf.common;
 
 import cn.evan.admin.common.convention.config.api.CommonResult;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package cn.evan.admin.business.order.intf.domain;
+package cn.evan.admin.order.intf.domain;
 
 import lombok.Builder;
 import lombok.Data;
