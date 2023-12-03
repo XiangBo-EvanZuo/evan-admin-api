@@ -1,7 +1,7 @@
-package cn.evanzuo.admin.business.pay.controller;
+package cn.evan.admin.pay.intf.controller;
 
-import cn.evanzuo.admin.business.pay.domain.User;
-import cn.evanzuo.admin.business.pay.service.imp.UserServiceDBImpl;
+import cn.evan.admin.pay.intf.domain.User;
+import cn.evan.admin.pay.intf.service.imp.UserServiceDBImpl;
 import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

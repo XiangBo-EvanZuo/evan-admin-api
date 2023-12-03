@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.pay.config;
+package cn.evan.admin.pay.intf.config;
 
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.pay.common;
+package cn.evan.admin.pay.intf.common;
 
 import cn.evan.admin.common.convention.config.api.CommonResult;
 import com.fasterxml.jackson.databind.ObjectMapper;

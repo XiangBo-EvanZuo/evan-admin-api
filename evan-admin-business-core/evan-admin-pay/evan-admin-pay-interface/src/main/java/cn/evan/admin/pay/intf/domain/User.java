@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.pay.domain;
+package cn.evan.admin.pay.intf.domain;
 
 import java.util.List;
 

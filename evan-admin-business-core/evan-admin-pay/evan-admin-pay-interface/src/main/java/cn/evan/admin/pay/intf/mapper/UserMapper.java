@@ -1,6 +1,6 @@
-package cn.evanzuo.admin.business.pay.mapper;
+package cn.evan.admin.pay.intf.mapper;
 
-import cn.evanzuo.admin.business.pay.domain.User;
+import cn.evan.admin.pay.intf.domain.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

@@ -1,8 +1,8 @@
-package cn.evanzuo.admin.business.pay.service.imp;
+package cn.evan.admin.pay.intf.service.imp;
 
-import cn.evanzuo.admin.business.pay.domain.User;
-import cn.evanzuo.admin.business.pay.mapper.UserMapper;
-import cn.evanzuo.admin.business.pay.service.IUserService;
+import cn.evan.admin.pay.intf.domain.User;
+import cn.evan.admin.pay.intf.mapper.UserMapper;
+import cn.evan.admin.pay.intf.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

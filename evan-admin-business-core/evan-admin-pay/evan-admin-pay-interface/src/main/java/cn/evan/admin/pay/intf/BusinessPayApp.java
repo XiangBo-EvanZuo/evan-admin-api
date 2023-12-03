@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.pay;
+package cn.evan.admin.pay.intf;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients(basePackages = "cn.evanzuo.admin.common.feign.client.clients")
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("cn.evanzuo.admin.business.pay.mapper")
+@MapperScan("cn.evan.admin.pay.intf.mapper")
 public class BusinessPayApp {
 
   public static void main(String[] args) {
