@@ -9,6 +9,7 @@ import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class MenusService {
-  private final static Logger LOGGER = LoggerFactory.getLogger(MenusService.class);
-
   @Autowired
   ProjectMenuDBImpl projectMenuDB;
 
@@ -40,8 +40,8 @@ public class MenusService {
             .map(item -> "`" + item + "`")
             .map(item -> item.replace("`", "'"))
             .collect(Collectors.joining(","));
-    LOGGER.info(authorities.toString());
-    LOGGER.info(authoritiesStr);
+    log.info(authorities.toString());
+    log.info(authoritiesStr);
     System.out.println(authorities);
     List<CommonMenuList> allMenus = projectMenuDB.getBaseMapper().getMenuListByRole(authoritiesStr);
     MenuVo menuVo = new MenuVo();
@@ -52,8 +52,8 @@ public class MenusService {
             .collect(Collectors.toList());
 
     menuVo.setList(format(projectMenus));
-    LOGGER.info(projectMenus.toString());
-    LOGGER.info(String.valueOf(projectMenus.size()));
+    log.info(projectMenus.toString());
+    log.info(String.valueOf(projectMenus.size()));
     menuVo.setTotal(projectMenus.size());
     return menuVo;
   }
