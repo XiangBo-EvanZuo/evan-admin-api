@@ -3,7 +3,7 @@ import cn.evan.admin.common.convention.config.api.CommonResult;
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.admin.user.sdk.feign.api.UserFeignMenuProvider;
 import cn.evan.admin.user.sdk.feign.dto.MenuVo;
-import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
+import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.core.JsonProcessingException;

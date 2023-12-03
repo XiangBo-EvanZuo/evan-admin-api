@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * @author EvanZuo[739221432@qq.com] 2023/09/24
  */
-@EnableFeignClients(basePackages = "cn.evanzuo.admin.common.feign.client.clients")
+@EnableFeignClients(basePackages = "cn.evan.admin.common.feign.client.clients")
 @EnableDiscoveryClient
 @SpringBootApplication
 @MapperScan("cn.evan.admin.pay.intf.mapper")

@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.common.feign.client.config;
+package cn.evan.admin.common.feign.client.config;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.common.feign.client.clients;
+package cn.evan.admin.common.feign.client.clients;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestHeader;

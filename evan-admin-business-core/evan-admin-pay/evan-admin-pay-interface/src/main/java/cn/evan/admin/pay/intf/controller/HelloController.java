@@ -2,7 +2,7 @@ package cn.evan.admin.pay.intf.controller;
 
 import cn.evan.admin.pay.intf.domain.User;
 import cn.evan.admin.pay.intf.service.imp.UserServiceDBImpl;
-import cn.evanzuo.admin.common.feign.client.clients.EvanFeignUserInfo;
+import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

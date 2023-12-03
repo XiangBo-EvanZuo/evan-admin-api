@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 /**
  * @author EvanZuo[739221432@qq.com] 2023/09/24
  */
-@EnableFeignClients(basePackages = "cn.evanzuo.admin.common.feign.client.clients")
+@EnableFeignClients(basePackages = "cn.evan.admin.common.feign.client.clients")
 @EnableDiscoveryClient
 @SpringBootApplication
 @MapperScan({
