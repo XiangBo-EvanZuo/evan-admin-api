@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.user.sdk.feign.dto;
+package cn.evan.admin.user.sdk.feign.dto;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;

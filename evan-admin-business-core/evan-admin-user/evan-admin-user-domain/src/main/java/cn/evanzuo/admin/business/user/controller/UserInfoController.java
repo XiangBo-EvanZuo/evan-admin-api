@@ -4,7 +4,7 @@ package cn.evanzuo.admin.business.user.controller;
 import cn.evanzuo.admin.business.user.DTO.PerCodeDTO;
 import cn.evanzuo.admin.business.user.entity.RoleItem;
 import cn.evanzuo.admin.business.user.entity.User;
-import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;
+import cn.evan.admin.user.sdk.feign.dto.MenuVo;
 import cn.evanzuo.admin.business.user.service.menu.MenusService;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.json.JSONObject;

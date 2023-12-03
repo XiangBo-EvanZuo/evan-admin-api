@@ -2,8 +2,8 @@ package cn.evan.admin.business.user.intf.controller;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.admin.user.application.service.menu.MenuApplication;
-import cn.evanzuo.admin.business.user.sdk.feign.api.UserFeignMenuProvider;
-import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;
+import cn.evan.admin.user.sdk.feign.api.UserFeignMenuProvider;
+import cn.evan.admin.user.sdk.feign.dto.MenuVo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.PostMapping;

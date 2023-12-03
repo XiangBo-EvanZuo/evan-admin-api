@@ -2,9 +2,9 @@ package cn.evanzuo.admin.business.user.service.menu;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evanzuo.admin.business.user.aggregate.menu.repository.UserMenuRepository;
-import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuListVo;
-import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;
-import cn.evanzuo.admin.business.user.sdk.feign.dto.Meta;
+import cn.evan.admin.user.sdk.feign.dto.MenuListVo;
+import cn.evan.admin.user.sdk.feign.dto.MenuVo;
+import cn.evan.admin.user.sdk.feign.dto.Meta;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
