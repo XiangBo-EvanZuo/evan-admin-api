@@ -2,7 +2,7 @@ package cn.evan.admin.user.infrastructure.repository.menu;
 
 import cn.evan.admin.user.infrastructure.repository.menu.mapper.UserMenuMapper;
 import cn.evan.zuo.common.entity.CommonMenuList;
-import cn.evanzuo.admin.business.user.aggregate.menu.repository.UserMenuRepository;
+import cn.evan.admin.user.domain.aggregate.menu.repository.UserMenuRepository;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
