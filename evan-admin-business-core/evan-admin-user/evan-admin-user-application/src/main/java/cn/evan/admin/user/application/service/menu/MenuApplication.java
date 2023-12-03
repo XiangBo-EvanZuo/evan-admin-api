@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.user.application.service.menu;
+package cn.evan.admin.user.application.service.menu;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evanzuo.admin.business.user.sdk.feign.dto.MenuVo;
