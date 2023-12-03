@@ -16,10 +16,10 @@ import org.springframework.context.annotation.ComponentScan;
         "cn.evan.admin.user.infrastructure.repository"
 })
 @ComponentScan(basePackages = {
-        "cn.evanzuo.admin.business.user.service.menu",
-        "cn.evan.admin.user.infrastructure",
-        "cn.evan.admin.business.user.intf.controller",
-        "cn.evanzuo.admin.business.user",
+        "cn.evanzuo.admin.business.user.service.menu", // 菜单service
+        "cn.evan.admin.user.infrastructure", // 基础service
+        "cn.evan.admin.business.user.intf.controller", // 入口controller
+        "cn.evanzuo.admin.business.user", // domain层service
 })
 public class BusinessUserApp {
 
