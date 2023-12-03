@@ -19,7 +19,7 @@ import org.springframework.context.annotation.ComponentScan;
         "cn.evanzuo.admin.business.user.service.menu",
         "cn.evan.admin.user.infrastructure",
         "cn.evan.admin.business.user.intf.controller",
-        "cn.evanzuo.admin.business.user.application"
+        "cn.evanzuo.admin.business.user",
 })
 public class BusinessUserApp {
 
