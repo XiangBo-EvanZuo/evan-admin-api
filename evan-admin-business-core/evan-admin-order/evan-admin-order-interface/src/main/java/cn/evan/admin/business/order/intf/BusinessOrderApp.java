@@ -15,8 +15,8 @@ import org.springframework.context.annotation.ComponentScan;
 })
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("cn.evanzuo.admin.business.order.mapper")
-@ComponentScan(basePackages = {"cn.evanzuo.admin.business.order", "cn.evanzuo.admin.business.user.sdk.feign.api.impl"})
+@MapperScan("cn.evan.admin.business.order.intf.mapper")
+@ComponentScan(basePackages = {"cn.evan.admin.business.order", "cn.evanzuo.admin.business.user.sdk"})
 public class BusinessOrderApp {
 
   public static void main(String[] args) {
