@@ -1,8 +1,8 @@
-package cn.evanzuo.admin.business.user.service.imp;
+package cn.evanzuo.admin.business.user.serviceOld.imp;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evanzuo.admin.business.user.mapper.DeptMapper;
-import cn.evanzuo.admin.business.user.service.IDeptService;
+import cn.evanzuo.admin.business.user.serviceOld.IDeptService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

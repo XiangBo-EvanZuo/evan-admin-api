@@ -1,8 +1,8 @@
-package cn.evanzuo.admin.business.user.service.imp;
+package cn.evanzuo.admin.business.user.serviceOld.imp;
 
 import cn.evanzuo.admin.business.user.entity.AuthUrl;
 import cn.evanzuo.admin.business.user.mapper.UrlMapper;
-import cn.evanzuo.admin.business.user.service.IUrlSerive;
+import cn.evanzuo.admin.business.user.serviceOld.IUrlSerive;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

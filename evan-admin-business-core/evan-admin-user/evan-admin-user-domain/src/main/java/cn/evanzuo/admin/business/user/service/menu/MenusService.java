@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.user.controller;
+package cn.evanzuo.admin.business.user.service.menu;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evanzuo.admin.business.user.aggregate.menu.repository.UserMenuRepository;

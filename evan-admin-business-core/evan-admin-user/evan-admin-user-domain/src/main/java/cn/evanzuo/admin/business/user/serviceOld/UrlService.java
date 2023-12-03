@@ -1,4 +1,4 @@
-package cn.evanzuo.admin.business.user.service;
+package cn.evanzuo.admin.business.user.serviceOld;
 
 import cn.evan.zuo.common.vo.CommonPageVo;
 import cn.evan.zuo.common.vo.UpdateResult;
@@ -8,7 +8,7 @@ import cn.evanzuo.admin.business.user.DTO.UrlListDTO;
 import cn.evanzuo.admin.business.user.VO.RoleListVo;
 import cn.evanzuo.admin.business.user.entity.AuthUrl;
 import cn.evanzuo.admin.business.user.entity.BusinessModuleEntity;
-import cn.evanzuo.admin.business.user.service.imp.IUrlServiceImp;
+import cn.evanzuo.admin.business.user.serviceOld.imp.IUrlServiceImp;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
