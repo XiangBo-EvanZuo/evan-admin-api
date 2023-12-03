@@ -1,4 +1,4 @@
-package cn.evan.admin.business.user.intf.aop;
+package cn.evan.admin.user.intf.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

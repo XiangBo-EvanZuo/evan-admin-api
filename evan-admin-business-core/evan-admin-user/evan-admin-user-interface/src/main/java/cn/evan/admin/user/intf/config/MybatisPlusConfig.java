@@ -1,4 +1,4 @@
-package cn.evan.admin.business.user.intf.config;
+package cn.evan.admin.user.intf.config;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;

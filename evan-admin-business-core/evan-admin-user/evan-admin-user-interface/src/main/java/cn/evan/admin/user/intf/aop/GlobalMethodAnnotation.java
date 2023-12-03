@@ -1,4 +1,4 @@
-package cn.evan.admin.business.user.intf.aop;
+package cn.evan.admin.user.intf.aop;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

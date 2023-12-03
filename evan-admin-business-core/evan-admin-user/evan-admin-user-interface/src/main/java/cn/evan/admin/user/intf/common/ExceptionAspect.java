@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
  */
-package cn.evan.admin.business.user.intf.common;
+package cn.evan.admin.user.intf.common;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.time.StopWatch;

@@ -1,4 +1,4 @@
-package cn.evan.admin.business.user.intf;
+package cn.evan.admin.user.intf;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +18,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {
         "cn.evanzuo.admin.business.user.service.menu", // 菜单service
         "cn.evan.admin.user.infrastructure", // 基础service
-        "cn.evan.admin.business.user.intf.controller", // 入口controller
+        "cn.evan.admin.user.intf.controller", // 入口controller
         "cn.evanzuo.admin.business.user", // domain层service
         "cn.evan.admin.user",
 })

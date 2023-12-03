@@ -1,4 +1,4 @@
-package cn.evan.admin.business.user.intf.controller;
+package cn.evan.admin.user.intf.controller;
 
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.admin.user.application.service.menu.MenuApplication;
