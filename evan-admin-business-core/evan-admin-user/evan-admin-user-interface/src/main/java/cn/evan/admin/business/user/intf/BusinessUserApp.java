@@ -20,6 +20,7 @@ import org.springframework.context.annotation.ComponentScan;
         "cn.evan.admin.user.infrastructure", // 基础service
         "cn.evan.admin.business.user.intf.controller", // 入口controller
         "cn.evanzuo.admin.business.user", // domain层service
+        "cn.evan.admin.user",
 })
 public class BusinessUserApp {
 
