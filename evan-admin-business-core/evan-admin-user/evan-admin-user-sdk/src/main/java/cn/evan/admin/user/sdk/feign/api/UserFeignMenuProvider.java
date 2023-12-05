@@ -15,5 +15,5 @@ public interface UserFeignMenuProvider {
     default MenuVo project(HttpServletRequest request) {
         return null;
     };
-    IPage<List<CommonMenuList>> menuListPage(HttpServletRequest request, Page page);
+    IPage<CommonMenuList> menuListPage(HttpServletRequest request, Page page);
 }

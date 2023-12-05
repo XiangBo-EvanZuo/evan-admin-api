@@ -23,7 +23,7 @@ public class UserMenuRepositoryImpl
     }
 
     @Override
-    public IPage<List<CommonMenuList>> basePage(Page page, QueryWrapper queryWrapper) {
+    public IPage<CommonMenuList> basePage(Page page, QueryWrapper queryWrapper) {
         log.info("page: {}, queryWrapper: {}", page, queryWrapper);
         return this.page(page, queryWrapper);
     }

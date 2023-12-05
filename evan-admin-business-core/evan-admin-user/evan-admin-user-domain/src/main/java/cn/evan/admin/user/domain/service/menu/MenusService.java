@@ -55,12 +55,12 @@ public class MenusService {
     return menuVo;
   }
 
-  public IPage<List<CommonMenuList>> menuListPage(HttpServletRequest request, Page page) {
+  public IPage<CommonMenuList> menuListPage(HttpServletRequest request, Page page) {
       String userStr = request.getHeader("user");
       JSONObject userJsonObject = new JSONObject(userStr);
       System.out.println((userJsonObject));
       QueryWrapper queryWrapper = new QueryWrapper();
-      IPage<List<CommonMenuList>> allMenus = userMenuRepository.basePage(page, queryWrapper);
+      IPage<CommonMenuList> allMenus = userMenuRepository.basePage(page, queryWrapper);
       return allMenus;
   }
   public List<MenuListVo> format(

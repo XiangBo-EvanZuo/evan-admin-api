@@ -30,7 +30,7 @@ public class Menus implements UserFeignMenuProvider {
 
   @Override
   @PostMapping("/listPage")
-  public IPage<List<CommonMenuList>> menuListPage(HttpServletRequest request, @RequestBody Page page) {
+  public IPage<CommonMenuList> menuListPage(HttpServletRequest request, @RequestBody Page page) {
     return menusApplication.menuListPage(request, page);
   }
 }

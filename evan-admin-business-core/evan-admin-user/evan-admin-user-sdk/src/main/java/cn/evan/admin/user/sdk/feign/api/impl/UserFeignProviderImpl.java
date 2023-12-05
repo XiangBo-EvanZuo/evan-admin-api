@@ -32,7 +32,7 @@ public class UserFeignProviderImpl implements UserFeignMenuProvider {
         return menuVoRes.getData();
     }
 
-    public IPage<List<CommonMenuList>> menuListPage(HttpServletRequest request, Page page) {
+    public IPage<CommonMenuList> menuListPage(HttpServletRequest request, Page page) {
         return null;
     }
 }

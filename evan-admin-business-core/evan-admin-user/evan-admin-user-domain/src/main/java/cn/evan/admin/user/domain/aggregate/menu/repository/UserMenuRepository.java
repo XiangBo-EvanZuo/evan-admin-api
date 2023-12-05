@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface UserMenuRepository {
     List<CommonMenuList> getMenuListByRole(String roleNames);
-    IPage<List<CommonMenuList>> basePage(Page page, QueryWrapper queryWrapper);
+    IPage<CommonMenuList> basePage(Page page, QueryWrapper queryWrapper);
 
 }
