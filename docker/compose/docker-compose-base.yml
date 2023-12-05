@@ -1,5 +1,5 @@
 version: '3'
-
+# docker-compose -f docker-compose-base.yml up -d
 services:
   redis:
     image: redis
