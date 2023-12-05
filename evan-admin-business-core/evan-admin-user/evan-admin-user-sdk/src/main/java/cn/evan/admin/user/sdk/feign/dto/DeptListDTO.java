@@ -6,13 +6,14 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class DeptListFormatVo {
-    private Long id;
+public class DeptListDTO {
+    private Long parentCid;
+    private int sort;
+    private Long catId;
     private String createTime;
     private String deptName;
     private String remark;
     private int status;
-    private long parentDept;
     @TableField(exist = false)
-    private List<DeptListFormatVo> children;
+    private List<DeptListDTO> children;
 }

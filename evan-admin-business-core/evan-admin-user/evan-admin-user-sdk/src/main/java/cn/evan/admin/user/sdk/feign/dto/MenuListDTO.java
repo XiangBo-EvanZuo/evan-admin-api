@@ -6,9 +6,9 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class MenuListVo {
+public class MenuListDTO {
     private Long id;
-    private Meta meta;
+    private MetaDTO meta;
     private String icon;
     private Long parentMenu;
     private String path;
@@ -16,5 +16,5 @@ public class MenuListVo {
     private String component;
     private String redirect;
     @TableField(exist = false)
-    private List<MenuListVo> children;
+    private List<MenuListDTO> children;
 }

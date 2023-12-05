@@ -2,7 +2,7 @@ package cn.evan.admin.user.sdk.feign.dto;
 import lombok.Data;
 
 @Data
-public class Meta {
+public class MetaDTO {
     private Boolean hideChildrenInMenu;
     private String icon;
     private String title;

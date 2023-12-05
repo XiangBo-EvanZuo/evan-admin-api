@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class RoleListFinalVo {
+public class RoleListFinalDTO {
     private Long id;
     private String roleName;
     private String roleValue;

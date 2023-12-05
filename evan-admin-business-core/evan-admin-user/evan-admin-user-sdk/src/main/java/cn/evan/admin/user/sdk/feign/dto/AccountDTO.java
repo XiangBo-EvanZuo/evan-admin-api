@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class AccountVo {
+public class AccountDTO {
     private Integer total;
     private List<EvanUserVo> items;
 }

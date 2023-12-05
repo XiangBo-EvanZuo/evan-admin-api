@@ -1,8 +1,8 @@
 package cn.evan.admin.user.domain.serviceOld;
 
-import cn.evan.admin.user.sdk.feign.dto.AccountExistVo;
-import cn.evan.admin.user.sdk.feign.dto.RoleListFinalVo;
-import cn.evan.admin.user.sdk.feign.dto.RoleListVo;
+import cn.evan.admin.user.sdk.feign.dto.AccountExistDTO;
+import cn.evan.admin.user.sdk.feign.dto.RoleListFinalDTO;
+import cn.evan.admin.user.sdk.feign.dto.RoleListDTO;
 import cn.evan.zuo.common.dto.CommonPageDTO;
 import cn.evan.zuo.common.vo.CommonPageVo;
 import cn.evan.admin.user.domain.serviceOld.imp.IDeptServiceImp;
@@ -20,24 +20,24 @@ import java.util.stream.Collectors;
 public class SystemService {
     @Resource
     IDeptServiceImp iDeptServiceImp;
-    public AccountExistVo accountExist(String username) {
+    public AccountExistDTO accountExist(String username) {
         Integer existNumber = iDeptServiceImp.getBaseMapper().exist(username);
-        AccountExistVo accountExist = new AccountExistVo();
+        AccountExistDTO accountExist = new AccountExistDTO();
         accountExist.setExist(existNumber > 0);
         accountExist.setMessage("该用户已存在！");
     	return accountExist;
     }
 
-    public CommonPageVo<RoleListFinalVo> getRoleListByPage(CommonPageDTO commonPageDTO) {
-        Page<RoleListVo> page = new Page<>();
+    public CommonPageVo<RoleListFinalDTO> getRoleListByPage(CommonPageDTO commonPageDTO) {
+        Page<RoleListDTO> page = new Page<>();
         page.setSize(commonPageDTO.getPageSize());
         page.setCurrent(commonPageDTO.getPage());
-        IPage<RoleListVo> roleListByPage = iDeptServiceImp.getBaseMapper().getRoleListByPage(page);
-        CommonPageVo<RoleListFinalVo> accountExist = new CommonPageVo<>();
-        List<RoleListFinalVo> roleListFinalVos = roleListByPage
+        IPage<RoleListDTO> roleListByPage = iDeptServiceImp.getBaseMapper().getRoleListByPage(page);
+        CommonPageVo<RoleListFinalDTO> accountExist = new CommonPageVo<>();
+        List<RoleListFinalDTO> roleListFinalVos = roleListByPage
                 .getRecords()
                         .stream().map(item -> {
-                    RoleListFinalVo roleListFinalVo = new RoleListFinalVo();
+                    RoleListFinalDTO roleListFinalVo = new RoleListFinalDTO();
                     roleListFinalVo.setId(item.getId());
                     roleListFinalVo.setRoleName(item.getRoleName());
                     roleListFinalVo.setRoleValue(item.getRoleValue());

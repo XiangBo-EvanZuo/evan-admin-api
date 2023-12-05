@@ -5,6 +5,7 @@ import cn.evan.admin.user.domain.entity.AuthUrl;
 import cn.evan.admin.user.domain.entity.BusinessModuleEntity;
 import cn.evan.admin.user.domain.serviceOld.UrlService;
 import cn.evan.admin.user.sdk.feign.dto.*;
+import cn.evan.admin.user.sdk.feign.dto.AccountExistDTO;
 import cn.evan.zuo.common.dto.CommonPageDTO;
 import cn.evan.zuo.common.entity.EvanUser;
 import cn.evan.zuo.common.entity.EvanUserVo;
@@ -39,29 +40,29 @@ public class SystemController {
     @Resource
     UrlService urlService;
 
-    public List<DeptListFormatVo> format(
-            List<DeptListVo> commonMenuLists
+    public List<DeptListFormatDTO> format(
+            List<DeptListDTO> commonMenuLists
     ) {
         if (commonMenuLists.size() == 0) {
             return new ArrayList<>();
         }
         return commonMenuLists.stream().map(
                 item -> {
-                    DeptListFormatVo deptListFormatVo = new DeptListFormatVo();
+                    DeptListFormatDTO deptListFormatDTO = new DeptListFormatDTO();
                     // 其他字段
-                    deptListFormatVo.setId(item.getCatId());
-                    deptListFormatVo.setDeptName(item.getDeptName());
-                    deptListFormatVo.setStatus(item.getStatus());
-                    deptListFormatVo.setRemark(item.getRemark());
-                    deptListFormatVo.setCreateTime(item.getCreateTime());
-                    deptListFormatVo.setParentDept(item.getParentCid());
-                    deptListFormatVo.setChildren(format(item.getChildren()));
-                    return deptListFormatVo;
+                    deptListFormatDTO.setId(item.getCatId());
+                    deptListFormatDTO.setDeptName(item.getDeptName());
+                    deptListFormatDTO.setStatus(item.getStatus());
+                    deptListFormatDTO.setRemark(item.getRemark());
+                    deptListFormatDTO.setCreateTime(item.getCreateTime());
+                    deptListFormatDTO.setParentDept(item.getParentCid());
+                    deptListFormatDTO.setChildren(format(item.getChildren()));
+                    return deptListFormatDTO;
                 }
         ).collect(Collectors.toList());
     }
     @GetMapping("/getDeptList")
-    public DeptVo getDeptList(HttpServletRequest request) {
+    public DeptDTO getDeptList(HttpServletRequest request) {
         // 从Header中获取用户信息
         String userStr = request.getHeader("user");
         JSONObject userJsonObject = new JSONObject(userStr);
@@ -75,14 +76,14 @@ public class SystemController {
         LOGGER.info(authorities.toString());
         LOGGER.info(authoritiesStr);
         System.out.println(authorities);
-        List<DeptListVo> allMenus = iDeptServiceImp.getBaseMapper().getDeptList(authoritiesStr);
-        DeptVo menuVo = new DeptVo();
-        List<DeptListVo> projectMenus = allMenus.stream()
+        List<DeptListDTO> allMenus = iDeptServiceImp.getBaseMapper().getDeptList(authoritiesStr);
+        DeptDTO menuVo = new DeptDTO();
+        List<DeptListDTO> projectMenus = allMenus.stream()
                 .filter(item -> item.getParentCid() == 0)
                 .peek(item -> {
                     item.setChildren(SystemController.getChildren(item, allMenus));
                 })
-                .sorted(Comparator.comparingInt(DeptListVo::getSort).reversed())
+                .sorted(Comparator.comparingInt(DeptListDTO::getSort).reversed())
                 .collect(Collectors.toList());
 
         menuVo.setList(format(projectMenus));
@@ -92,17 +93,17 @@ public class SystemController {
         return menuVo;
     }
 
-    public static List<DeptListVo> getChildren(DeptListVo root, List<DeptListVo> allMenus) {
+    public static List<DeptListDTO> getChildren(DeptListDTO root, List<DeptListDTO> allMenus) {
         return allMenus.stream()
                 .filter(item -> Objects.equals(item.getParentCid(), root.getCatId()))
                 .peek(item -> item.setChildren(SystemController.getChildren(item, allMenus)))
-                .sorted(Comparator.comparingInt(DeptListVo::getSort).reversed())
+                .sorted(Comparator.comparingInt(DeptListDTO::getSort).reversed())
                 .collect(Collectors.toList());
     }
     @PostMapping("/getAccountList")
-    public AccountVo getAccountList(@RequestBody AccountListDTO accountListDTO) {
+    public AccountDTO getAccountList(@RequestBody AccountListDTO accountListDTO) {
         String defaultString = "";
-        Page<DeptListVo> page = new Page<>();
+        Page<DeptListDTO> page = new Page<>();
         page.setCurrent(accountListDTO.getPage());
         page.setSize(accountListDTO.getPageSize());
         IPage<EvanUser> allMenus2 = iDeptServiceImp.getBaseMapper().getRoleNamesPage(
@@ -123,32 +124,32 @@ public class SystemController {
                     evanUserVo.setRole(Arrays.asList(item.getRoles().split(",")));
                     return evanUserVo;
                 }).collect(Collectors.toList());
-        AccountVo accountVo = new AccountVo();
+        AccountDTO accountVo = new AccountDTO();
         accountVo.setTotal((int) allMenus2.getTotal());
         accountVo.setItems(evanUserVos);
         return  accountVo;
     }
     // todo: 需要根据用户的权限返回权限列表
     @GetMapping("/getAllRoleList")
-    public List<RoleListVo> getAllRoleList() {
-        List<RoleListVo> roleList = iDeptServiceImp.getBaseMapper().getAllRolesList();
+    public List<RoleListDTO> getAllRoleList() {
+        List<RoleListDTO> roleList = iDeptServiceImp.getBaseMapper().getAllRolesList();
         LOGGER.info("roleList: {}", roleList);
         return  roleList;
     }
 
     @PostMapping("/accountExist")
-    public AccountExistVo accountExist(@RequestBody AccountExistDTO accountExistDTO) {
+    public AccountExistDTO accountExist(@RequestBody cn.evan.admin.user.domain.DTO.AccountExistDTO accountExistDTO) {
         return systemService.accountExist(accountExistDTO.getAccount());
     }
 
     // todo
     @PostMapping("/setRoleStatus")
-    public AccountExistVo setRoleStatus(@RequestBody AccountExistDTO accountExistDTO) {
+    public AccountExistDTO setRoleStatus(@RequestBody cn.evan.admin.user.domain.DTO.AccountExistDTO accountExistDTO) {
         return systemService.accountExist(accountExistDTO.getAccount());
     }
     // todo
     @PostMapping("/getRoleListByPage")
-    public CommonPageVo<RoleListFinalVo> getRoleListByPage(@RequestBody CommonPageDTO commonPageDTO) {
+    public CommonPageVo<RoleListFinalDTO> getRoleListByPage(@RequestBody CommonPageDTO commonPageDTO) {
         return systemService.getRoleListByPage(commonPageDTO);
     }
 

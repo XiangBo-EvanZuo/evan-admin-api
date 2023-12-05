@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class MenuVo {
     private Integer total;
-    private List<MenuListVo> list;
+    private List<MenuListDTO> list;
 }

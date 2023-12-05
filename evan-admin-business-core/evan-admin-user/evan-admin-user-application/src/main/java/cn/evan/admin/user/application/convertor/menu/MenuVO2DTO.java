@@ -1,8 +1,8 @@
 package cn.evan.admin.user.application.convertor.menu;
 
 import cn.evan.admin.user.domain.aggregate.menu.entity.UserMenuEntity;
-import cn.evan.admin.user.sdk.feign.dto.MenuListVo;
-import cn.evan.admin.user.sdk.feign.dto.Meta;
+import cn.evan.admin.user.sdk.feign.dto.MenuListDTO;
+import cn.evan.admin.user.sdk.feign.dto.MetaDTO;
 import cn.evan.zuo.common.entity.CommonMenuList;
 import org.mapstruct.Mapper;
 
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public interface MenuVO2DTO {
     List<UserMenuEntity> convertor(List<CommonMenuList> list);
 
-    default List<MenuListVo> format(
+    default List<MenuListDTO> format(
             List<UserMenuEntity> commonMenuLists
     ) {
         if (commonMenuLists == null) {
@@ -25,54 +25,54 @@ public interface MenuVO2DTO {
         }
         return commonMenuLists.stream().map(
                 item -> {
-                    MenuListVo menuListVo = new MenuListVo();
+                    MenuListDTO menuListDTO = new MenuListDTO();
                     // meta
-                    Meta meta = new Meta();
-                    meta.setIcon(item.getIcon());
-                    meta.setTitle(item.getTitle());
-                    meta.setHideChildrenInMenu(item.getHideChildrenInMenu());
-                    meta.setHideMenu(item.getHideMenu());
-                    meta.setHideBreadcrumb(item.getHideBreadcrumb());
-                    meta.setCurrentActiveMenu(item.getCurrentActiveMenu());
+                    MetaDTO metaDTO = new MetaDTO();
+                    metaDTO.setIcon(item.getIcon());
+                    metaDTO.setTitle(item.getTitle());
+                    metaDTO.setHideChildrenInMenu(item.getHideChildrenInMenu());
+                    metaDTO.setHideMenu(item.getHideMenu());
+                    metaDTO.setHideBreadcrumb(item.getHideBreadcrumb());
+                    metaDTO.setCurrentActiveMenu(item.getCurrentActiveMenu());
                     // 冗余字段
-                    menuListVo.setIcon(item.getIcon());
-                    menuListVo.setMeta(meta);
-                    menuListVo.setParentMenu(item.getParentCid());
+                    menuListDTO.setIcon(item.getIcon());
+                    menuListDTO.setMeta(metaDTO);
+                    menuListDTO.setParentMenu(item.getParentCid());
                     // 其他字段
-                    menuListVo.setComponent(item.getComponent());
-                    menuListVo.setPath(item.getPath());
-                    menuListVo.setName(item.getName());
-                    menuListVo.setRedirect(item.getRedirect());
-                    menuListVo.setChildren(format(item.getChildren()));
-                    menuListVo.setId(item.getCatId());
-                    return menuListVo;
+                    menuListDTO.setComponent(item.getComponent());
+                    menuListDTO.setPath(item.getPath());
+                    menuListDTO.setName(item.getName());
+                    menuListDTO.setRedirect(item.getRedirect());
+                    menuListDTO.setChildren(format(item.getChildren()));
+                    menuListDTO.setId(item.getCatId());
+                    return menuListDTO;
                 }
         ).collect(Collectors.toList());
     }
-    default List<MenuListVo> convertorVO2UO(List<UserMenuEntity> menuEntities) {
-        List<MenuListVo> menuListVos = new ArrayList<>();
+    default List<MenuListDTO> convertorVO2UO(List<UserMenuEntity> menuEntities) {
+        List<MenuListDTO> menuListDTOS = new ArrayList<>();
         menuEntities.forEach(userMenuEntity -> {
-            MenuListVo menuListVo = new MenuListVo();
-            Meta meta = new Meta();
-            meta.setIcon(userMenuEntity.getIcon());
-            meta.setTitle(userMenuEntity.getTitle());
-            meta.setHideChildrenInMenu(userMenuEntity.getHideChildrenInMenu());
-            meta.setHideMenu(userMenuEntity.getHideMenu());
-            meta.setHideBreadcrumb(userMenuEntity.getHideBreadcrumb());
-            meta.setCurrentActiveMenu(userMenuEntity.getCurrentActiveMenu());
+            MenuListDTO menuListDTO = new MenuListDTO();
+            MetaDTO metaDTO = new MetaDTO();
+            metaDTO.setIcon(userMenuEntity.getIcon());
+            metaDTO.setTitle(userMenuEntity.getTitle());
+            metaDTO.setHideChildrenInMenu(userMenuEntity.getHideChildrenInMenu());
+            metaDTO.setHideMenu(userMenuEntity.getHideMenu());
+            metaDTO.setHideBreadcrumb(userMenuEntity.getHideBreadcrumb());
+            metaDTO.setCurrentActiveMenu(userMenuEntity.getCurrentActiveMenu());
             // 冗余字段
-            menuListVo.setIcon(userMenuEntity.getIcon());
-            menuListVo.setMeta(meta);
-            menuListVo.setParentMenu(userMenuEntity.getParentCid());
+            menuListDTO.setIcon(userMenuEntity.getIcon());
+            menuListDTO.setMeta(metaDTO);
+            menuListDTO.setParentMenu(userMenuEntity.getParentCid());
             // 其他字段
-            menuListVo.setComponent(userMenuEntity.getComponent());
-            menuListVo.setPath(userMenuEntity.getPath());
-            menuListVo.setName(userMenuEntity.getName());
-            menuListVo.setRedirect(userMenuEntity.getRedirect());
-            menuListVo.setChildren(format(userMenuEntity.getChildren()));
-            menuListVo.setId(userMenuEntity.getCatId());
-            menuListVos.add(menuListVo);
+            menuListDTO.setComponent(userMenuEntity.getComponent());
+            menuListDTO.setPath(userMenuEntity.getPath());
+            menuListDTO.setName(userMenuEntity.getName());
+            menuListDTO.setRedirect(userMenuEntity.getRedirect());
+            menuListDTO.setChildren(format(userMenuEntity.getChildren()));
+            menuListDTO.setId(userMenuEntity.getCatId());
+            menuListDTOS.add(menuListDTO);
         });
-        return menuListVos;
+        return menuListDTOS;
     };
 }

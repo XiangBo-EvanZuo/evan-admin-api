@@ -1,7 +1,7 @@
 package cn.evan.admin.user.domain.mapper;
 
-import cn.evan.admin.user.sdk.feign.dto.DeptListVo;
-import cn.evan.admin.user.sdk.feign.dto.RoleListVo;
+import cn.evan.admin.user.sdk.feign.dto.DeptListDTO;
+import cn.evan.admin.user.sdk.feign.dto.RoleListDTO;
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.zuo.common.entity.EvanUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -26,7 +26,7 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "        where value in (${roleNames})\n" +
             "    ),\n" +
             "1 = 1)")
-    List<DeptListVo> getDeptList(@Param("roleNames") String roleNames);
+    List<DeptListDTO> getDeptList(@Param("roleNames") String roleNames);
 
 //    @Select("select *\n" +
 //            "from tb_wang_user\n" +
@@ -60,7 +60,7 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "    role_status as status,\n" +
             "    remarks as remark\n" +
             "from tb_wang_role")
-    List<RoleListVo> getAllRolesList();
+    List<RoleListDTO> getAllRolesList();
 
     @Select("select count(*) as count from tb_wang_user\n" +
             "where username = #{username}")
@@ -93,5 +93,5 @@ public interface DeptMapper extends BaseMapper<CommonMenuList> {
             "                             left join tb_wang_auth_url twau on twurr.url_id = twau.id\n" +
             "                    group by r.value\n" +
             "        ) b on b.value = twr.value ")
-    IPage<RoleListVo> getRoleListByPage(IPage page);
+    IPage<RoleListDTO> getRoleListByPage(IPage page);
 }

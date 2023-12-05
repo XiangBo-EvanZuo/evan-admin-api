@@ -2,7 +2,7 @@ package cn.evan.admin.user.domain.serviceOld;
 
 import cn.evan.admin.user.domain.entity.AuthUrl;
 import cn.evan.admin.user.domain.entity.BusinessModuleEntity;
-import cn.evan.admin.user.sdk.feign.dto.RoleListVo;
+import cn.evan.admin.user.sdk.feign.dto.RoleListDTO;
 import cn.evan.zuo.common.vo.CommonPageVo;
 import cn.evan.zuo.common.vo.UpdateResult;
 import cn.evan.admin.user.domain.DTO.UpdateRoleUrlDTO;
@@ -22,7 +22,7 @@ public class UrlService {
     IUrlServiceImp iUrlServiceImp;
     public CommonPageVo<AuthUrl> getUrlList(UrlListDTO commonPageDTO) {
         CommonPageVo<AuthUrl> a = new CommonPageVo<>();
-        Page<RoleListVo> page = new Page<>();
+        Page<RoleListDTO> page = new Page<>();
         page.setSize(commonPageDTO.getPageSize());
         page.setCurrent(commonPageDTO.getPage());
         IPage<AuthUrl> urlList = iUrlServiceImp.getBaseMapper().getUrlList(page, commonPageDTO.getModuleId());

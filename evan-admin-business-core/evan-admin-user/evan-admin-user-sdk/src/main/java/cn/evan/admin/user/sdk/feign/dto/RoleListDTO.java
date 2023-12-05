@@ -3,7 +3,7 @@ package cn.evan.admin.user.sdk.feign.dto;
 import lombok.Data;
 
 @Data
-public class RoleListVo {
+public class RoleListDTO {
     private Long id;
     private String roleName;
     private String roleValue;

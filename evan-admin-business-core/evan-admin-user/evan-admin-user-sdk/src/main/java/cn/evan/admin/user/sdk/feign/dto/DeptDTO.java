@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class DeptVo {
+public class DeptDTO {
     private Integer total;
-    private List<DeptListFormatVo> list;
+    private List<DeptListFormatDTO> list;
 }
