@@ -1,6 +1,8 @@
 package cn.evan.zuo.common.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -12,6 +14,7 @@ import java.util.List;
 @Data
 @TableName(value = "tb_wang_menu_category")
 public class CommonMenuList {
+    @TableId(type = IdType.AUTO)
     private Long catId;
     private String name;
     private Long parentCid;

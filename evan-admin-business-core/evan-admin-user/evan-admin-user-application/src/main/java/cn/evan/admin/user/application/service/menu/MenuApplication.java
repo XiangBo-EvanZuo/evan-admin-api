@@ -22,7 +22,12 @@ public class MenuApplication {
     @Resource
     MenuVO2DTO menuVO2DTO;
     public MenuVo project(HttpServletRequest request) {
-        return menusService.project(request);
+        List<UserMenuEntity> menuEntities = menusService.project(request);
+        MenuVo menuVo = new MenuVo();
+        log.info("menuEntities: {}", menuEntities);
+        menuVo.setTotal(menuEntities.size());
+        menuVo.setList(menuVO2DTO.convertorVO2UO(menuEntities));
+        return menuVo;
     }
 
     public IPage<CommonMenuList> menuListPage(HttpServletRequest request, Page page) {

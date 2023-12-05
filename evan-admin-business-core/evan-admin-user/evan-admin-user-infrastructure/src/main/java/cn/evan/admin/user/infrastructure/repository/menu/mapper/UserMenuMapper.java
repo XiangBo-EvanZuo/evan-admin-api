@@ -25,5 +25,5 @@ public interface UserMenuMapper extends BaseMapper<CommonMenuList> {
             "        where value in (${roleNames})\n" +
             "    ),\n" +
             "1 = 1)")
-    List<CommonMenuList> getMenuListByRole(@Param("roleNames") String roleNames);
+    List<UserMenuPO> getMenuListByRole(@Param("roleNames") String roleNames);
 }

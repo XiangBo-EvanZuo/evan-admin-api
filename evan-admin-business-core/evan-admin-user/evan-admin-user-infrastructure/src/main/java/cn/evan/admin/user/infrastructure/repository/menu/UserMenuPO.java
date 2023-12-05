@@ -1,6 +1,9 @@
 package cn.evan.admin.user.infrastructure.repository.menu;
 
+import cn.evan.admin.user.domain.aggregate.menu.entity.UserMenuEntity;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @author EvanZuo[739221432@qq.com] 2023/10/02
@@ -22,5 +25,7 @@ public class UserMenuPO {
     private Boolean hideMenu;
     private Boolean hideBreadcrumb;
     private String currentActiveMenu;
+    private List<UserMenuPO> children;
+
 }
 

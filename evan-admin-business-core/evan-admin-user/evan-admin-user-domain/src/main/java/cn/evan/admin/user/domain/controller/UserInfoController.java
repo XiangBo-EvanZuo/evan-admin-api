@@ -2,6 +2,7 @@ package cn.evan.admin.user.domain.controller;
 
 
 import cn.evan.admin.user.domain.DTO.PerCodeDTO;
+import cn.evan.admin.user.domain.aggregate.menu.entity.UserMenuEntity;
 import cn.evan.admin.user.domain.entity.RoleItem;
 import cn.evan.admin.user.domain.entity.User;
 import cn.evan.admin.user.domain.service.menu.MenusService;
@@ -61,7 +62,7 @@ public class UserInfoController {
   }
 
   @GetMapping("/getMenuList")
-  public MenuVo getMenuList(HttpServletRequest request) {
+  public List<UserMenuEntity> getMenuList(HttpServletRequest request) {
       return menusService.project(request);
   }
 
