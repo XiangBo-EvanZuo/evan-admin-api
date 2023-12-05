@@ -1,9 +1,9 @@
 package cn.evan.admin.user.domain.mapper;
 
+import cn.evan.admin.user.sdk.feign.dto.DeptListVo;
+import cn.evan.admin.user.sdk.feign.dto.RoleListVo;
 import cn.evan.zuo.common.entity.CommonMenuList;
 import cn.evan.zuo.common.entity.EvanUser;
-import cn.evan.admin.user.domain.VO.DeptListVo;
-import cn.evan.admin.user.domain.VO.RoleListVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Mapper;

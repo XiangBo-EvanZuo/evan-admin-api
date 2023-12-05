@@ -1,8 +1,8 @@
 package cn.evan.admin.user.domain.serviceOld;
 
-import cn.evan.admin.user.domain.VO.AccountExistVo;
-import cn.evan.admin.user.domain.VO.RoleListFinalVo;
-import cn.evan.admin.user.domain.VO.RoleListVo;
+import cn.evan.admin.user.sdk.feign.dto.AccountExistVo;
+import cn.evan.admin.user.sdk.feign.dto.RoleListFinalVo;
+import cn.evan.admin.user.sdk.feign.dto.RoleListVo;
 import cn.evan.zuo.common.dto.CommonPageDTO;
 import cn.evan.zuo.common.vo.CommonPageVo;
 import cn.evan.admin.user.domain.serviceOld.imp.IDeptServiceImp;

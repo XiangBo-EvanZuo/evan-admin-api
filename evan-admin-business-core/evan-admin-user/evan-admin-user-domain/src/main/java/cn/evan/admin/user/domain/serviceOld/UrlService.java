@@ -2,12 +2,12 @@ package cn.evan.admin.user.domain.serviceOld;
 
 import cn.evan.admin.user.domain.entity.AuthUrl;
 import cn.evan.admin.user.domain.entity.BusinessModuleEntity;
+import cn.evan.admin.user.sdk.feign.dto.RoleListVo;
 import cn.evan.zuo.common.vo.CommonPageVo;
 import cn.evan.zuo.common.vo.UpdateResult;
 import cn.evan.admin.user.domain.DTO.UpdateRoleUrlDTO;
 import cn.evan.admin.user.domain.DTO.UpdateUrlDTO;
 import cn.evan.admin.user.domain.DTO.UrlListDTO;
-import cn.evan.admin.user.domain.VO.RoleListVo;
 import cn.evan.admin.user.domain.serviceOld.imp.IUrlServiceImp;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

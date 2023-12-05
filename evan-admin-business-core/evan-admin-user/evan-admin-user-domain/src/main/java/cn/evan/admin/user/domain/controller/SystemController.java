@@ -1,10 +1,10 @@
 package cn.evan.admin.user.domain.controller;
 
 import cn.evan.admin.user.domain.DTO.*;
-import cn.evan.admin.user.domain.VO.*;
 import cn.evan.admin.user.domain.entity.AuthUrl;
 import cn.evan.admin.user.domain.entity.BusinessModuleEntity;
 import cn.evan.admin.user.domain.serviceOld.UrlService;
+import cn.evan.admin.user.sdk.feign.dto.*;
 import cn.evan.zuo.common.dto.CommonPageDTO;
 import cn.evan.zuo.common.entity.EvanUser;
 import cn.evan.zuo.common.entity.EvanUserVo;
