@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class EvanUserVo {
+public class EvanUserUO {
     String account;
     String createTime;
     String email;

@@ -8,7 +8,7 @@ import cn.evan.admin.user.sdk.feign.dto.*;
 import cn.evan.admin.user.sdk.feign.dto.AccountExistDTO;
 import cn.evan.zuo.common.dto.CommonPageDTO;
 import cn.evan.zuo.common.entity.EvanUser;
-import cn.evan.zuo.common.entity.EvanUserVo;
+import cn.evan.zuo.common.entity.EvanUserUO;
 import cn.evan.zuo.common.vo.CommonPageVo;
 import cn.evan.zuo.common.vo.UpdateResult;
 import cn.evan.admin.user.domain.serviceOld.SystemService;
@@ -112,21 +112,21 @@ public class SystemController {
                 Optional.ofNullable(accountListDTO.getAccount()).orElse(defaultString)
         );
         LOGGER.error(allMenus2.getRecords().toString());
-        List<EvanUserVo> evanUserVos = allMenus2.getRecords().stream()
+        List<EvanUserUO> evanUserUOS = allMenus2.getRecords().stream()
                 .map(item -> {
-                    EvanUserVo evanUserVo = new EvanUserVo();
-                    evanUserVo.setId(item.getId());
-                    evanUserVo.setAccount(item.getUsername());
-                    evanUserVo.setNickname(item.getNickName());
-                    evanUserVo.setRemark(item.getRemark());
-                    evanUserVo.setEmail(item.getEmail());
-                    evanUserVo.setCreateTime(item.getCreateTime());
-                    evanUserVo.setRole(Arrays.asList(item.getRoles().split(",")));
-                    return evanUserVo;
+                    EvanUserUO evanUserUO = new EvanUserUO();
+                    evanUserUO.setId(item.getId());
+                    evanUserUO.setAccount(item.getUsername());
+                    evanUserUO.setNickname(item.getNickName());
+                    evanUserUO.setRemark(item.getRemark());
+                    evanUserUO.setEmail(item.getEmail());
+                    evanUserUO.setCreateTime(item.getCreateTime());
+                    evanUserUO.setRole(Arrays.asList(item.getRoles().split(",")));
+                    return evanUserUO;
                 }).collect(Collectors.toList());
         AccountDTO accountVo = new AccountDTO();
         accountVo.setTotal((int) allMenus2.getTotal());
-        accountVo.setItems(evanUserVos);
+        accountVo.setItems(evanUserUOS);
         return  accountVo;
     }
     // todo: 需要根据用户的权限返回权限列表

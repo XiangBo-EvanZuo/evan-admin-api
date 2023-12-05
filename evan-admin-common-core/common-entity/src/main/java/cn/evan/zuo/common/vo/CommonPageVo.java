@@ -1,6 +1,5 @@
 package cn.evan.zuo.common.vo;
 
-import cn.evan.zuo.common.entity.EvanUserVo;
 import lombok.Data;
 
 import java.util.List;
