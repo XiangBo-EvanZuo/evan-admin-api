@@ -6,12 +6,10 @@ import cn.evan.admin.user.domain.aggregate.menu.entity.UserMenuEntity;
 import cn.evan.admin.user.domain.entity.RoleItem;
 import cn.evan.admin.user.domain.entity.User;
 import cn.evan.admin.user.domain.service.menu.MenusService;
-import cn.evan.admin.user.sdk.feign.dto.MenuVo;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.json.JSONObject;
 import com.alibaba.fastjson.JSON;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,11 +26,10 @@ import java.util.List;
  *
  * @author EvanZuo[739221432@qq.com] 2023/09/24
  */
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserInfoController {
-  private final static Logger LOGGER = LoggerFactory.getLogger(UserInfoController.class);
-
   @Autowired
   MenusService menusService;
 
@@ -40,8 +37,7 @@ public class UserInfoController {
   public User currentUser(HttpServletRequest request) throws UnsupportedEncodingException {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");
-    System.out.println("----");
-    System.out.println(userStr);
+    log.info("userStr: {}", userStr);
     JSONObject userJsonObject = new JSONObject(userStr);
     String roles = (String) userJsonObject.get("roles");
     List<RoleItem> roleObj = (List<RoleItem>) JSON.parse(URLDecoder.decode(roles, "UTF-8"));
