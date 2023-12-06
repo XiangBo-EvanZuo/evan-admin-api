@@ -1,4 +1,4 @@
-package cn.evan.admin.order.intf.common;
+package cn.evan.admin.order.domain.common;
 
 import cn.evan.admin.common.convention.config.api.CommonResult;
 import cn.evan.admin.common.convention.config.api.IErrorCode;

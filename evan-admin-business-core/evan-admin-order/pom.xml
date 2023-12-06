@@ -41,9 +41,9 @@
         </dependency>
     </dependencies>
     <modules>
-        <module>evan-admin-order-interface</module>
-        <module>evan-admin-order-application</module>
         <module>evan-admin-order-domain</module>
+        <module>evan-admin-order-application</module>
+        <module>evan-admin-order-interface</module>
         <module>evan-admin-order-infrastructure</module>
         <module>evan-admin-order-sdk</module>
     </modules>

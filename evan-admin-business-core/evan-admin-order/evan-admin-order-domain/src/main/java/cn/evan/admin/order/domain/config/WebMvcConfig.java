@@ -1,4 +1,4 @@
-package cn.evan.admin.order.intf.config;
+package cn.evan.admin.order.domain.config;
 
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.context.annotation.Configuration;

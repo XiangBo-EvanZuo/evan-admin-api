@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients(basePackages = "cn.evan.admin.common.feign.client.clients")
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("cn.evan.admin.pay.intf.mapper")
+@MapperScan("cn.evan.admin.pay.domain.mapper")
 public class BusinessPayApp {
 
   public static void main(String[] args) {

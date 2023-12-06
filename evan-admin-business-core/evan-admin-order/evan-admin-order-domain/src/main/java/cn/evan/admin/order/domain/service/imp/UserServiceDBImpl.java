@@ -1,8 +1,8 @@
-package cn.evan.admin.order.intf.service.imp;
+package cn.evan.admin.order.domain.service.imp;
 
-import cn.evan.admin.order.intf.domain.User;
-import cn.evan.admin.order.intf.mapper.UserMapper;
-import cn.evan.admin.order.intf.service.IUserService;
+import cn.evan.admin.order.domain.domain.User;
+import cn.evan.admin.order.domain.mapper.UserMapper;
+import cn.evan.admin.order.domain.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
