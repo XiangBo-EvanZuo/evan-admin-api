@@ -16,6 +16,7 @@ import cn.evan.admin.user.domain.serviceOld.imp.IDeptServiceImp;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
+@Slf4j
 @RestController
 @RequestMapping("/system")
 public class SystemController {
-    private final static Logger LOGGER = LoggerFactory.getLogger(SystemController.class);
     @Autowired
     IDeptServiceImp iDeptServiceImp;
 
@@ -73,8 +74,8 @@ public class SystemController {
                 .map(item -> "`" + item + "`")
                 .map(item -> item.replace("`", "'"))
                 .collect(Collectors.joining(","));
-        LOGGER.info(authorities.toString());
-        LOGGER.info(authoritiesStr);
+        log.info(authorities.toString());
+        log.info(authoritiesStr);
         System.out.println(authorities);
         List<DeptListDTO> allMenus = iDeptServiceImp.getBaseMapper().getDeptList(authoritiesStr);
         DeptDTO menuVo = new DeptDTO();
@@ -87,8 +88,8 @@ public class SystemController {
                 .collect(Collectors.toList());
 
         menuVo.setList(format(projectMenus));
-        LOGGER.info(projectMenus.toString());
-        LOGGER.info(String.valueOf(projectMenus.size()));
+        log.info(projectMenus.toString());
+        log.info(String.valueOf(projectMenus.size()));
         menuVo.setTotal(projectMenus.size());
         return menuVo;
     }
@@ -111,7 +112,7 @@ public class SystemController {
                 Optional.ofNullable(accountListDTO.getNickname()).orElse(defaultString),
                 Optional.ofNullable(accountListDTO.getAccount()).orElse(defaultString)
         );
-        LOGGER.error(allMenus2.getRecords().toString());
+        log.info(allMenus2.getRecords().toString());
         List<EvanUserUO> evanUserUOS = allMenus2.getRecords().stream()
                 .map(item -> {
                     EvanUserUO evanUserUO = new EvanUserUO();
@@ -133,7 +134,7 @@ public class SystemController {
     @GetMapping("/getAllRoleList")
     public List<RoleListDTO> getAllRoleList() {
         List<RoleListDTO> roleList = iDeptServiceImp.getBaseMapper().getAllRolesList();
-        LOGGER.info("roleList: {}", roleList);
+        log.info("roleList: {}", roleList);
         return  roleList;
     }
 
