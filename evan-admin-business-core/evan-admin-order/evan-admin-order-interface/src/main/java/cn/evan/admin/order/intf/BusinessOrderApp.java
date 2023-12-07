@@ -18,7 +18,8 @@ import org.springframework.context.annotation.ComponentScan;
 @MapperScan("cn.evan.admin.order.domain.mapper")
 @ComponentScan(basePackages = {
         "cn.evan.admin.order",
-        "cn.evan.admin.user.sdk"
+        "cn.evan.admin.user.sdk",
+        "cn.evan.admin.order.infrastructure"
 })
 public class BusinessOrderApp {
 
