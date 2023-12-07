@@ -1,14 +1,12 @@
 package cn.evan.admin.order.domain.service;
 
 import cn.evan.admin.order.domain.adaptor.feign.UserInfoFeignAdaptor;
-import cn.evan.admin.user.sdk.feign.api.impl.UserFeignProviderImpl;
 import cn.evan.admin.user.sdk.feign.dto.MenuVo;
 import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
 import cn.evan.admin.common.feign.client.clients.EvanFeignPayInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -32,8 +30,10 @@ public class FeignDemoDomainService {
     String userStr = request.getHeader("user");
     MenuVo menuVo = userInfoFeignAdaptor.getMenuListFeign(userStr);
     log.info("menuVo: {}", menuVo);
+    // todo: 封装到user sdk
     String currentUserInfo = evanFeignUserInfo.getCurrentUser(userStr);
     log.info("currentUserInfo res:{}", currentUserInfo);
+    // todo: 封装到pay sdk
     String payInfo = evanFeignPayInfo.getUserIntroduce(userStr);
     log.info("payInfo res:{}", payInfo);
     return "Hello World ! feign! 3个Feign连续调用";
