@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @RestController
-public class FeignDemo {
-  @Resource
+public class FeignDemoDomainService {
+  @Autowired
   EvanFeignUserInfo evanFeignUserInfo;
 
   @Autowired
@@ -27,7 +27,6 @@ public class FeignDemo {
   @Autowired
   UserFeignProviderImpl userFeignProvider;
 
-  @GetMapping("/feign")
   public String feign(HttpServletRequest request) {
     // 从Header中获取用户信息
     String userStr = request.getHeader("user");

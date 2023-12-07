@@ -1,4 +1,4 @@
-package cn.evan.admin.order.domain;
+package cn.evan.admin.order.intf;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
