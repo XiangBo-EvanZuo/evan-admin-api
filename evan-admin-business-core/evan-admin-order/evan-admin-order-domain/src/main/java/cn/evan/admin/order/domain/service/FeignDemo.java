@@ -1,6 +1,5 @@
-package cn.evan.admin.order.domain.controller;
+package cn.evan.admin.order.domain.service;
 
-//import impl.api.cn.evan.admin.user.sdk.feign.UserFeignProviderImpl;
 import cn.evan.admin.user.sdk.feign.api.impl.UserFeignProviderImpl;
 import cn.evan.admin.user.sdk.feign.dto.MenuVo;
 import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
