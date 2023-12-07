@@ -6,17 +6,16 @@ import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
 import cn.evan.admin.common.feign.client.clients.EvanFeignPayInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author EvanZuo[739221432@qq.com] 2023/09/24
  */
 @Slf4j
-@RestController
+@Service
 public class FeignDemoDomainService {
   @Autowired
   EvanFeignUserInfo evanFeignUserInfo;
