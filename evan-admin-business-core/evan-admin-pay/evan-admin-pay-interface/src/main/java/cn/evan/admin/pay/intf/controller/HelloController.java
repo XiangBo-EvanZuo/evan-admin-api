@@ -1,6 +1,8 @@
 package cn.evan.admin.pay.intf.controller;
 
 import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
+import cn.evan.admin.pay.intf.mq.event.DelayCloseOrderEvent;
+import cn.evan.admin.pay.intf.mq.provide.DelayCloseOrderProvide;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +20,9 @@ public class HelloController {
   @Autowired
   EvanFeignUserInfo evanFeignUserInfo;
 
+  @Autowired
+  DelayCloseOrderProvide provideOrderProvider;
+
   @GetMapping("/feign")
   public String feign(HttpServletRequest request) {
 
@@ -27,5 +32,14 @@ public class HelloController {
     log.info("/feign res:{}", res);
     return "Hello World ! feign";
   }
+
+  @GetMapping("/mqProvider")
+  public void mqProvider() {
+    DelayCloseOrderEvent delayCloseOrderEvent = new DelayCloseOrderEvent();
+    delayCloseOrderEvent.setOrderSn("123");
+    provideOrderProvider.delayCloseOrderSend(delayCloseOrderEvent);
+  }
+
+
 }
 

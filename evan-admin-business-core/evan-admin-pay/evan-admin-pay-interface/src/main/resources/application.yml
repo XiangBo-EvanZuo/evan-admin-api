@@ -16,23 +16,37 @@ spring:
         server-addr: localhost:8848
     stream:
       bindings:
-        userInput:
+        delayCloseOrder:
           consumer:
             concurrency: 4
             max-attempts: 1
           content-type: application/json
-          destination: customer-user_topic
-          group: customer-user_operation-log_cg
-        userOutput:
+          destination: order-service_topic
+          group: order-service_delay-close-order_cg
+        orderOutput:
           content-type: application/json
-          destination: customer-user_topic
-          group: customer-user_general-send_pg
+          destination: order-service_topic
+          group: order-service_general-send_pg
+        payResultNotify:
+          consumer:
+            concurrency: 4
+            max-attempts: 1
+          content-type: application/json
+          destination: pay-service_topic
+          group: order-service_pay-result-notify_cg
       rocketmq:
         bindings:
-          userInput:
+          delayCloseOrder:
             consumer:
               delay-level-when-next-consume: -1
-              tags: customer-user_operation-log_tag
+              tags: order-service_delay-close-order_tag
+          orderOutput:
+            producer:
+              sync: true
+          payResultNotify:
+            consumer:
+              delay-level-when-next-consume: -1
+              tags: pay-service_pay-result-notify_tag
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
   datasource:
