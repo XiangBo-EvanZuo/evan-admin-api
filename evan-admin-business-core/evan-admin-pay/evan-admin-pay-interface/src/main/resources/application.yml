@@ -5,10 +5,34 @@ spring:
     active: dev
   application:
     name: evan-admin-pay
+  rabbitmq:
+    host: localhost
+    username: rabbitmq
+    password: rabbitmq
+    port: 5672
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
+    stream:
+      bindings:
+        userInput:
+          consumer:
+            concurrency: 4
+            max-attempts: 1
+          content-type: application/json
+          destination: customer-user_topic
+          group: customer-user_operation-log_cg
+        userOutput:
+          content-type: application/json
+          destination: customer-user_topic
+          group: customer-user_general-send_pg
+      rocketmq:
+        bindings:
+          userInput:
+            consumer:
+              delay-level-when-next-consume: -1
+              tags: customer-user_operation-log_tag
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
   datasource:
