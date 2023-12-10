@@ -13,6 +13,7 @@
     <modules>
         <module>common-feign-client</module>
         <module>common-entity</module>
+        <module>common-api-convention-config</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

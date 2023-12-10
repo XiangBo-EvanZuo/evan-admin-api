@@ -4,41 +4,34 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
+        <artifactId>evan-admin-pay</artifactId>
         <groupId>cn.evan.zuo</groupId>
-        <artifactId>evan-admin-business-core</artifactId>
         <version>1.0.0</version>
     </parent>
-    <packaging>pom</packaging>
-    <artifactId>evan-admin-pay</artifactId>
-
+    <artifactId>evan-admin-pay-domain</artifactId>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-openfeign-core</artifactId>
-        </dependency>
-        <dependency>
             <groupId>cn.evan.zuo</groupId>
-            <artifactId>common-feign-client</artifactId>
+            <artifactId>common-api-convention-config</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.evan.zuo</groupId>
+            <artifactId>evan-admin-base-spring-boot-starter</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
-    <modules>
-        <module>evan-admin-pay-domain</module>
-    </modules>
 </project>

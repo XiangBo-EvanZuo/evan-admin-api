@@ -5,16 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.evan.zuo</groupId>
-        <artifactId>admin</artifactId>
+        <artifactId>evan-admin-common-core</artifactId>
         <version>1.0.0</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>common-api-convention-config</artifactId>
 
     <properties>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
