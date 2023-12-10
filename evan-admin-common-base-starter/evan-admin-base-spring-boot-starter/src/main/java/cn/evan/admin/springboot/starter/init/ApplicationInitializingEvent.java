@@ -24,9 +24,7 @@ import org.springframework.context.ApplicationEvent;
  *
  * <p> 规约事件，通过此事件可以查看业务系统所有初始化行为
  *
- * @author chen.ma
- * @github <a href="https://github.com/opengoofy" />
- * @公众号 马丁玩编程，关注回复：资料，领取后端技术专家成长手册
+ * @EvanZuo 微信：15942403949
  */
 public class ApplicationInitializingEvent extends ApplicationEvent {
     
