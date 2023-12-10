@@ -17,6 +17,7 @@
         <module>evan-admin-common-core</module>
         <module>evan-admin-business-core/evan-admin-pay/evan-admin-pay-sdk</module>
         <module>evan-admin-common-core/common-api-convention-config</module>
+        <module>evan-admin-common-base-starter</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
