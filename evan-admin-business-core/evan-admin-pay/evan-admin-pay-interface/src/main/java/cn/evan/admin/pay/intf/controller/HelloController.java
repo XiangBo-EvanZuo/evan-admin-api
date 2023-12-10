@@ -1,6 +1,9 @@
 package cn.evan.admin.pay.intf.controller;
 
 import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
+import cn.evan.admin.pay.intf.common.ApplicationContextHolder;
+import cn.evan.admin.pay.intf.event.Order;
+import cn.evan.admin.pay.intf.event.OrderCreateEvent;
 import cn.evan.admin.pay.intf.mq.event.DelayCloseOrderEvent;
 import cn.evan.admin.pay.intf.mq.provide.DelayCloseOrderProvide;
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +43,16 @@ public class HelloController {
     provideOrderProvider.delayCloseOrderSend(delayCloseOrderEvent);
   }
 
-
+  @GetMapping("/mqProviderEvent")
+  public void mqProviderEvent() {
+    Order order = Order.builder()
+            .customerUserId(1L)
+            .orderSn("orderSn")
+            .build();
+    // 观察者模式: 发布商品下单事件
+    ApplicationContextHolder
+            .getInstance()
+            .publishEvent(new OrderCreateEvent(this, order));
+  }
 }
 
