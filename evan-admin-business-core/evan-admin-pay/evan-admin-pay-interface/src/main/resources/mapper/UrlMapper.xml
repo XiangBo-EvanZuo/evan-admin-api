@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.evan.admin.user.domain.mapper.UrlMapper">
+    <!--1.2批量插入-->
+    <insert id="updateRoleUrl">
+        delete from tb_wang_url_role_relation
+        where role_id = #{roleId};
+        insert into tb_wang_url_role_relation (role_id, url_id)
+        values
+        <foreach collection="list" item="RoleUrlItem" open="" separator="," close="">
+            (#{roleId},
+            #{RoleUrlItem}
+            )
+        </foreach>
+    </insert>
+    <insert id="updateRoleMenu">
+        delete from tb_wang_role_category_relation
+        where role_id = #{roleId};
+        insert into tb_wang_role_category_relation (role_id, category_id)
+        values
+        <foreach collection="list" item="RoleMenuItem" open="" separator="," close="">
+            (#{roleId},
+            #{RoleMenuItem}
+            )
+        </foreach>
+    </insert>
+</mapper>

@@ -39,6 +39,10 @@
         </dependency>
     </dependencies>
     <modules>
+        <module>evan-admin-pay-interface</module>
+        <module>evan-admin-pay-application</module>
         <module>evan-admin-pay-domain</module>
+        <module>evan-admin-pay-infrastructure</module>
+        <module>evan-admin-pay-sdk</module>
     </modules>
 </project>
