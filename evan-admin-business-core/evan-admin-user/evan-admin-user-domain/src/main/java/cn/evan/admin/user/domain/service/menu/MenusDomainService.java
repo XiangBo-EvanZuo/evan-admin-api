@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class MenusService {
+public class MenusDomainService {
   @Resource
   UserMenuRepository userMenuRepository;
 

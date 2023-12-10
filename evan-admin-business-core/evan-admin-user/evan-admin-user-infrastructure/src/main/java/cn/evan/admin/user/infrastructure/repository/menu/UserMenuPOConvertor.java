@@ -1,12 +1,6 @@
 package cn.evan.admin.user.infrastructure.repository.menu;
 
-import cn.evan.admin.common.convention.config.api.CommonResult;
 import cn.evan.admin.user.domain.aggregate.menu.entity.UserMenuEntity;
-import cn.evan.admin.user.domain.service.menu.MenusService;
-import cn.evan.admin.user.sdk.feign.dto.MenuVo;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.mapstruct.Mapper;
 
 import java.util.ArrayList;
@@ -85,6 +79,5 @@ public interface UserMenuPOConvertor {
                 .sorted(Comparator.comparingInt(UserMenuPO::getSort).reversed())
                 .collect(Collectors.toList());
     }
-
 
 }

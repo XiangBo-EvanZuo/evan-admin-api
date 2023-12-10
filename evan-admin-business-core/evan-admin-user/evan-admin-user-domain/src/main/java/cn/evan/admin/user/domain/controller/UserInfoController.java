@@ -5,7 +5,7 @@ import cn.evan.admin.user.domain.DTO.PerCodeDTO;
 import cn.evan.admin.user.domain.aggregate.menu.entity.UserMenuEntity;
 import cn.evan.admin.user.domain.entity.RoleItem;
 import cn.evan.admin.user.domain.entity.User;
-import cn.evan.admin.user.domain.service.menu.MenusService;
+import cn.evan.admin.user.domain.service.menu.MenusDomainService;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.json.JSONObject;
 import com.alibaba.fastjson.JSON;
@@ -31,7 +31,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserInfoController {
   @Autowired
-  MenusService menusService;
+  MenusDomainService menusDomainService;
 
   @GetMapping("/currentUser")
   public User currentUser(HttpServletRequest request) throws UnsupportedEncodingException {
@@ -59,7 +59,7 @@ public class UserInfoController {
 
   @GetMapping("/getMenuList")
   public List<UserMenuEntity> getMenuList(HttpServletRequest request) {
-      return menusService.project(request);
+      return menusDomainService.project(request);
   }
 
   @GetMapping

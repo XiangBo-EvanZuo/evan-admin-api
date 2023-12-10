@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class MenuVo {
+public class MenuDTO {
     private Integer total;
     private List<MenuListDTO> list;
 }
