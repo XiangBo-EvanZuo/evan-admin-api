@@ -17,6 +17,8 @@
 
 package cn.evan.admin.springboot.starter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -28,12 +30,14 @@ import java.util.Map;
  * Application context holder.
  */
 public class ApplicationContextHolder implements ApplicationContextAware {
-    
+    Logger log = LoggerFactory.getLogger(ApplicationContextHolder.class);
+
     private static ApplicationContext CONTEXT;
 
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        log.info("setApplicationContext init");
         ApplicationContextHolder.CONTEXT = applicationContext;
     }
     

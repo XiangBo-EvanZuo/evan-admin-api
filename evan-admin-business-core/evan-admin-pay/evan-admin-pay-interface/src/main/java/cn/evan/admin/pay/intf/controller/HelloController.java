@@ -1,14 +1,12 @@
 package cn.evan.admin.pay.intf.controller;
 
 import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
-import cn.evan.admin.pay.intf.common.ApplicationContextHolder;
 import cn.evan.admin.pay.intf.event.Order;
 import cn.evan.admin.pay.intf.event.OrderCreateEvent;
 import cn.evan.admin.pay.intf.mq.event.DelayCloseOrderEvent;
 import cn.evan.admin.pay.intf.mq.provide.DelayCloseOrderProvide;
+import cn.evan.admin.springboot.starter.ApplicationContextHolder;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
