@@ -1,4 +1,4 @@
-package cn.evan.admin.pay.domain.controller;
+package cn.evan.admin.pay.domain.service.pay;
 
 import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
 import cn.evan.admin.pay.domain.event.Order;
@@ -8,23 +8,21 @@ import cn.evan.admin.pay.domain.mq.provide.DelayCloseOrderProvide;
 import cn.evan.admin.springboot.starter.ApplicationContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author EvanZuo[739221432@qq.com] 2023/09/24
  */
 @Slf4j
-@RestController
-public class HelloController {
+@Service
+public class PayDomainService {
   @Autowired
   EvanFeignUserInfo evanFeignUserInfo;
 
   @Autowired
   DelayCloseOrderProvide provideOrderProvider;
 
-  @GetMapping("/feign")
   public String feign(HttpServletRequest request) {
 
     // 从Header中获取用户信息
@@ -34,19 +32,16 @@ public class HelloController {
     return "Hello World ! feign";
   }
 
-  @GetMapping("/pay-demo")
   public String payDemo(HttpServletRequest request) {
     return "Hello World ! feign";
   }
 
-  @GetMapping("/mqProvider")
   public void mqProvider() {
     DelayCloseOrderEvent delayCloseOrderEvent = new DelayCloseOrderEvent();
     delayCloseOrderEvent.setOrderSn("123");
     provideOrderProvider.delayCloseOrderSend(delayCloseOrderEvent);
   }
 
-  @GetMapping("/mqProviderEvent")
   public void mqProviderEvent() {
     Order order = Order.builder()
             .customerUserId(1L)
