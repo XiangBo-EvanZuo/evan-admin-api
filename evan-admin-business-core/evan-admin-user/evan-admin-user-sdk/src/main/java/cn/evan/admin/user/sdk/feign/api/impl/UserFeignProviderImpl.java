@@ -34,4 +34,9 @@ public class UserFeignProviderImpl implements UserFeignMenuProvider {
     public IPage<CommonMenuList> menuListPage(HttpServletRequest request, Page page) {
         return null;
     }
+
+    @Override
+    public String getCurrentUser(String userStr) {
+        return evanFeignUserInfo.getCurrentUser(userStr);
+    }
 }
