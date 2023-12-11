@@ -19,7 +19,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {
         "cn.evan.admin.user.sdk",
         "cn.evan.admin.pay",
-        "cn.evan.admin.pay.infrastructure",
 })
 public class BusinessPayApp {
 

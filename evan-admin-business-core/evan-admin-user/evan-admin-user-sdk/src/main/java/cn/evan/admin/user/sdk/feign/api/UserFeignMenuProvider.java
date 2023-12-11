@@ -16,5 +16,7 @@ public interface UserFeignMenuProvider {
     };
     IPage<CommonMenuList> menuListPage(HttpServletRequest request, Page page);
 
-    String getCurrentUser(String userStr);
+    default String getCurrentUser(String userStr) {
+        return "";
+    };
 }
