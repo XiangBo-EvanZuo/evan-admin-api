@@ -34,6 +34,11 @@ public class HelloController {
     return "Hello World ! feign";
   }
 
+  @GetMapping("/pay-demo")
+  public String payDemo(HttpServletRequest request) {
+    return "Hello World ! feign";
+  }
+
   @GetMapping("/mqProvider")
   public void mqProvider() {
     DelayCloseOrderEvent delayCloseOrderEvent = new DelayCloseOrderEvent();
