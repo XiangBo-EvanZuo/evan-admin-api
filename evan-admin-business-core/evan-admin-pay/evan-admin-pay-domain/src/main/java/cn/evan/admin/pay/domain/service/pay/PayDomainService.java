@@ -1,6 +1,7 @@
 package cn.evan.admin.pay.domain.service.pay;
 
 import cn.evan.admin.common.feign.client.clients.EvanFeignUserInfo;
+import cn.evan.admin.pay.domain.adaptor.pay.PayAdaptor;
 import cn.evan.admin.pay.domain.event.Order;
 import cn.evan.admin.pay.domain.event.OrderCreateEvent;
 import cn.evan.admin.pay.domain.mq.event.DelayCloseOrderEvent;
@@ -17,6 +18,10 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 @Service
 public class PayDomainService {
+
+  @Autowired
+  PayAdaptor payAdaptor;
+
   @Autowired
   EvanFeignUserInfo evanFeignUserInfo;
 
@@ -24,12 +29,9 @@ public class PayDomainService {
   DelayCloseOrderProvide provideOrderProvider;
 
   public String feign(HttpServletRequest request) {
-
-    // 从Header中获取用户信息
     String userStr = request.getHeader("user");
-    String res = evanFeignUserInfo.getUserMenuList(userStr);
-    log.info("/feign res:{}", res);
-    return "Hello World ! feign";
+    log.info("userStr feign: {}", userStr);
+    return payAdaptor.feignGetUserInfo(userStr);
   }
 
   public String payDemo(HttpServletRequest request) {

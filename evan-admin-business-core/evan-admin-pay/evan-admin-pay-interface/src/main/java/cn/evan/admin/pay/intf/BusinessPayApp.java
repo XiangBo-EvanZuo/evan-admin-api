@@ -2,7 +2,6 @@ package cn.evan.admin.pay.intf;
 
 import cn.evan.admin.pay.domain.mq.messaging.OrderSink;
 import cn.evan.admin.pay.domain.mq.messaging.OrderSource;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -17,9 +16,9 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @SpringBootApplication
 @EnableBinding({OrderSource.class, OrderSink.class})
-@MapperScan("cn.evan.admin.pay.domain.mapper")
 @ComponentScan(basePackages = {
-        "cn.evan.admin.pay"
+        "cn.evan.admin.pay",
+        "cn.evan.admin.pay.infrastructure",
 })
 public class BusinessPayApp {
 
