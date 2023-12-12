@@ -7,6 +7,7 @@ import cn.evan.admin.pay.domain.event.OrderCreateEvent;
 import cn.evan.admin.pay.domain.mq.event.DelayCloseOrderEvent;
 import cn.evan.admin.pay.domain.mq.provide.DelayCloseOrderProvide;
 import cn.evan.admin.springboot.starter.ApplicationContextHolder;
+import cn.evan.admin.user.sdk.feign.dto.CurrentUserDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class PayDomainService {
   @Autowired
   DelayCloseOrderProvide provideOrderProvider;
 
-  public String feign(HttpServletRequest request) {
+  public CurrentUserDTO feign(HttpServletRequest request) {
     String userStr = request.getHeader("user");
     log.info("userStr feign: {}", userStr);
     return payAdaptor.feignGetUserInfo(userStr);

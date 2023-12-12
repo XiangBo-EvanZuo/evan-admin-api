@@ -1,5 +1,6 @@
 package cn.evan.admin.pay.application.service.pay;
 import cn.evan.admin.pay.domain.service.pay.PayDomainService;
+import cn.evan.admin.user.sdk.feign.dto.CurrentUserDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ public class PayApplicationService {
     @Autowired
     PayDomainService payDomainService;
 
-    public String feign(HttpServletRequest request) {
+    public CurrentUserDTO feign(HttpServletRequest request) {
         return payDomainService.feign(request);
     }
 

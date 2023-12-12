@@ -1,6 +1,7 @@
 package cn.evan.admin.pay.intf.controller;
 
 import cn.evan.admin.pay.application.service.pay.PayApplicationService;
+import cn.evan.admin.user.sdk.feign.dto.CurrentUserDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ public class HelloController {
   @Autowired
   PayApplicationService payApplicationService;
   @GetMapping("/feign")
-  public String feign(HttpServletRequest request) {
+  public CurrentUserDTO feign(HttpServletRequest request) {
     return payApplicationService.feign(request);
   }
 
